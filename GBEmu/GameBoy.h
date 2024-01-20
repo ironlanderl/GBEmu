@@ -23,9 +23,12 @@ public:
 	uint8_t E;
 	uint8_t H;
 	uint8_t L;
-	uint8_t F;
 	uint16_t PC;
 	uint16_t SP;
+	uint16_t ZeroFlag;
+	uint16_t NegativeFlag;
+	uint16_t HalfCarry;
+	uint16_t Carry;
 
 	void setAF(uint16_t value);
 	void setBC(uint16_t value);
@@ -58,7 +61,8 @@ public:
 	void advanceStep();
 
 	// UTILS
-	bool isInsideInterval(uint16_t value, uint16_t upper_bound, uint16_t bottom_bound);
+	bool isInsideInterval(uint16_t value, uint16_t bottom_bound, uint16_t upper_bound);
 	uint16_t get_next_two_bytes(uint16_t address);
+	uint8_t get_next_byte(uint16_t address);
 };
 

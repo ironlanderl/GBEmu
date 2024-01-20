@@ -2,6 +2,23 @@
 
 #include <fmt/core.h>
 
+void GameBoy::writeBus(uint8_t value, uint16_t address)
+{
+	if (isInsideInterval(address, 0x0000, 0x7FFF))
+	{
+		ROM[address] = value; // Should probably disable at some point
+	}
+	// Only allow writing in WRAM.
+	else if (isInsideInterval(address, 0xA000, 0xBFFF))
+	{
+		WRAM0[address - 0xA000] = value;
+	}
+	else if (isInsideInterval(address, 0xC000, 0xDFFF))
+	{
+		WRAM1[address - 0xC000] = value;
+	}
+}
+
 uint8_t GameBoy::getBus(uint16_t address)
 {
 	// Map address to memory appropriate array
@@ -15,19 +32,19 @@ uint8_t GameBoy::getBus(uint16_t address)
 	}
 	else if (isInsideInterval(address, 0x8000, 0x9FFF))
 	{
-		return VRAM[address];
+		return VRAM[address]; // TODO
 	}
 	else if (isInsideInterval(address, 0xA000, 0xBFFF))
 	{
-		return WRAM0[address];
+		return WRAM0[address - 0xA000];
 	}
 	else if (isInsideInterval(address, 0xC000, 0xDFFF))
 	{
-		return WRAM1[address];
+		return WRAM1[address - 0xC000];
 	}
 	else if (isInsideInterval(address, 0xE000, 0xFDFF))
 	{
-		return WRAM1[address - 0x2000];
+		return WRAM1[address - 0x2000]; // ECHO RAM TODO
 	}
 	else if (isInsideInterval(address, 0xFE00, 0xFE9F))
 	{
@@ -61,7 +78,7 @@ void GameBoy::loadRom(char cart[], std::streamsize fileSize)
 	C = 0x13;
 	D = 0x00;
 	E = 0xD8;
-	F = 0b10000000;
+	ZeroFlag = 1;
 	H = 0x01;
 	L = 0x4D;
 	SP = 0xFFFE;
@@ -86,11 +103,29 @@ void GameBoy::advanceStep()
 		add_t_cycles(4);
 		PC++;
 		break;
+	case 0x05: // DEC B
+		HalfCarry = (((B & 0xF) + (-1 & 0xF)) & 0x10) == 0x10;
+		B--;
+		add_m_cycles(1);
+		add_t_cycles(4);
+		PC++;
+		NegativeFlag = 1;
+		ZeroFlag = !B;
+		break;
 	case 0x06: // LD b, u8
 		B = getBus(PC + 1);
 		add_m_cycles(2);
 		add_t_cycles(8);
 		PC += 2;
+		break;
+	case 0x0D: // DEC C
+		HalfCarry = (((C & 0xF) + (-1 & 0xF)) & 0x10) == 0x10;
+		C--;
+		add_m_cycles(1);
+		add_t_cycles(4);
+		PC++;
+		NegativeFlag = 1;
+		ZeroFlag = !C;
 		break;
 	case 0x0E: // LD c, u8
 		C = getBus(PC + 1);
@@ -103,37 +138,57 @@ void GameBoy::advanceStep()
 		add_t_cycles(4);
 		PC += 2;
 		break;
+	case 0x20:
+		if (ZeroFlag == true)
+		{
+			add_m_cycles(2);
+			add_t_cycles(8);
+			PC += 2;
+		}
+		else
+		{
+			add_m_cycles(3);
+			add_t_cycles(12);
+			PC += 2; // TODO: FIX
+			PC += static_cast<int8_t> (get_next_byte(PC));
+		}
+		break;
 	case 0x21: // LD HL, u16
 		setHL(get_next_two_bytes(PC));
 		add_m_cycles(3);
 		add_t_cycles(12);
 		PC += 3;
 		break;
-	case 0xC3:
+	case 0x32: // LD [HL-], A
+		writeBus(A, getHL());
+		setHL(getHL() - 1);
+		add_m_cycles(2);
+		add_t_cycles(8);
+		PC += 1;
+		break;
+	case 0xC3: // JP u16
 		PC = get_next_two_bytes(PC);
 		add_m_cycles(4);
 		add_t_cycles(16);
 		break;
 	case 0xAF:
 		A = A ^ A;
-		if (A == 0)
-		{
-			F = 0b10000000;
-		}
+		NegativeFlag = !A;
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC++;
 		break;
 	default:
 		std::printf("Invalid opcode: %02X", getBus(PC));
+		status = PAUSED;
 		//exit(-1);
 		break;
 	}
 }
 
-bool GameBoy::isInsideInterval(uint16_t value, uint16_t upper_bound, uint16_t bottom_bound)
+bool GameBoy::isInsideInterval(uint16_t value, uint16_t bottom_bound, uint16_t upper_bound)
 {
-	return value >= upper_bound && value <= bottom_bound;
+	return value <= upper_bound && value >= bottom_bound;
 }
 
 uint16_t GameBoy::get_next_two_bytes(uint16_t address)
@@ -141,9 +196,14 @@ uint16_t GameBoy::get_next_two_bytes(uint16_t address)
 	return (getBus(address + 1) | (getBus(address + 2) << 8));
 }
 
+uint8_t GameBoy::get_next_byte(uint16_t address)
+{
+	return getBus(address + 1);
+}
+
 uint16_t GameBoy::getHL()
 {
-	return 0;
+	return ((H << 8) | L);
 }
 
 void GameBoy::setHL(uint16_t value)

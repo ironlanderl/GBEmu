@@ -71,6 +71,12 @@ void openWindow()
 		drawCartInfo();
 		drawCPUInfo();
 
+		// Run emulator
+		if (gb.status == RUNNING)
+		{
+			gb.advanceStep();
+		}
+
 		window.clear();
 		ImGui::SFML::Render(window);
 		window.display();
@@ -96,7 +102,17 @@ void drawMemoryViewer()
 			for (int j = 0; j < 16; ++j)
 			{
 				ImGui::SameLine();
-				ImGui::Text(" %02X", gb.ROM[i + j]);
+				// Check if the current memory cell is the same as the program counter (PC)
+				if ((i + j) == gb.PC)
+				{
+					// Change selected memory cell to green.
+					ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), " %02X", gb.ROM[i + j]);
+				}
+				else
+				{
+					// Display normal hexadecimal value
+					ImGui::Text(" %02X", gb.ROM[i + j]);
+				}
 				ImGui::SameLine();
 				if (j == 7) ImGui::Dummy(ImVec2(5.0f, 0.0f)); // Add space between the two halves
 			}
@@ -150,7 +166,7 @@ void drawCPUInfo()
 			ImGui::SameLine();
 			if (ImGui::Button("Resume"))
 			{
-				fmt::print("Resume\n");
+				gb.status = RUNNING;
 			}
 		}
 
@@ -162,16 +178,16 @@ void drawCPUInfo()
 		// Printing of F(lags)
 		// Zero byte
 		ImGui::SameLine();
-		ImGui::Text("%d", (gb.F & 0b10000000) >> 7);
+		ImGui::Text("%d", gb.ZeroFlag);
 		// Negative Byte
 		ImGui::SameLine();
-		ImGui::Text("%d", (gb.F & 0b01000000) >> 6);
+		ImGui::Text("%d", gb.NegativeFlag);
 		// Half Carry
 		ImGui::SameLine();
-		ImGui::Text("%d", (gb.F & 0b00100000) >> 5);
+		ImGui::Text("%d", gb.HalfCarry);
 		// Carry
 		ImGui::SameLine();
-		ImGui::Text("%d", (gb.F & 0b00010000) >> 4);
+		ImGui::Text("%d", gb.Carry);
 
 
 
