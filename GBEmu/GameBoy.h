@@ -53,6 +53,20 @@ public:
 	uint8_t getBus(uint16_t address);
 	void loadRom(char cart[], std::streamsize fileSize);
 
+	// MAPPER STUFF
+	void handleMapperWrites(uint8_t value, uint16_t address);
+	uint8_t handleMapperReads(uint16_t address);
+
+	struct MBC1_SETTINGS
+	{
+		bool RAM_ENABLED;
+		uint8_t ROM_BANK;
+		uint8_t RAM_BANK;
+		uint8_t BANK_MODE;
+	} mbc1_settings;
+	
+
+
 	// BASIC
 	PossibleStatus status = STOPPED;
 	uint64_t m_cycles;
