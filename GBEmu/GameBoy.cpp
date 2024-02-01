@@ -1,5 +1,6 @@
 #include "GameBoy.h"
 
+#include <variant>
 #include <fmt/core.h>
 
 void GameBoy::writeBus(uint8_t value, uint16_t address)
@@ -52,6 +53,7 @@ uint8_t GameBoy::getBus(uint16_t address)
 	}
 	else if (isInsideInterval(address, 0xFF00, 0xFF7F))
 	{
+		// TODO - HANDLE INPUT
 		return HRAM[address - 0xFF80];
 	}
 	else if (isInsideInterval(address, 0xFF80, 0xFFFE))
@@ -82,6 +84,34 @@ void GameBoy::loadRom(char cart[], std::streamsize fileSize)
 	H = 0x01;
 	L = 0x4D;
 	SP = 0xFFFE;
+	IME = false;
+}
+
+void GameBoy::PUSH_STACK_8BIT(uint8_t value)
+{
+	writeBus(value, SP);
+	SP--;
+}
+
+void GameBoy::PUSH_STACK_16BIT(uint16_t value)
+{
+	PUSH_STACK_8BIT(value >> 8);
+	PUSH_STACK_8BIT(value & 0x00FF);
+}
+
+uint8_t GameBoy::POP_STACK_8BIT()
+{
+	uint8_t value = getBus(SP);
+	SP++;
+	return value;
+}
+
+uint16_t GameBoy::POP_STACK_16BIT()
+{
+	uint16_t value;
+	value = POP_STACK_8BIT();
+	value += POP_STACK_8BIT() << 8;
+	return value;
 }
 
 void GameBoy::handleMapperWrites(uint8_t value, uint16_t address)
@@ -412,6 +442,31 @@ void GameBoy::advanceStep()
 	case 0x31:
 		ld_16bit_value(SP, get_next_two_bytes(PC));
 		break;
+	// Vector Jump
+	case 0xC7:
+		rst_vector(0x00);
+		break;
+	case 0xD7:
+		rst_vector(0x10);
+		break;
+	case 0xE7:
+		rst_vector(0x20);
+		break;
+	case 0xF7:
+		rst_vector(0x30);
+		break;
+	case 0xCF:
+		rst_vector(0x08);
+		break;
+	case 0xDF:
+		rst_vector(0x18);
+		break;
+	case 0xEF:
+		rst_vector(0x28);
+		break;
+	case 0xFF:
+		rst_vector(0x38);
+		break;
 		// Continuo
 	case 0x10: // STOP
 		add_m_cycles(1);
@@ -451,6 +506,25 @@ void GameBoy::advanceStep()
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC++;
+		break;
+		// MISC / UNGENERAL ENOUGH
+	case 0xF3: // Disable Interrupts
+		IME = false;
+		add_m_cycles(1);
+		add_t_cycles(4);
+		PC++;
+		break;
+	case 0xC9: // RET
+		PC = POP_STACK_16BIT();
+		add_m_cycles(4);
+		add_t_cycles(16);
+		break;
+	case 0xFA: // LD A, (u16)
+		PC++;
+		A = getBus(PC);
+		A += getBus(PC) << 8;
+		add_m_cycles(4);
+		add_t_cycles(16);
 		break;
 	default:
 		std::printf("Invalid opcode: %02X \n", getBus(PC));

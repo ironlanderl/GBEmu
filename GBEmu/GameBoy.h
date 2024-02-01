@@ -30,6 +30,7 @@ public:
 	uint16_t NegativeFlag;
 	uint16_t HalfCarry;
 	uint16_t Carry;
+	bool IME;
 
 	void setAF(uint16_t value);
 	void setBC(uint16_t value);
@@ -52,6 +53,12 @@ public:
 	void writeBus(uint8_t value, uint16_t address);
 	uint8_t getBus(uint16_t address);
 	void loadRom(char cart[], std::streamsize fileSize);
+
+	// STACK STUFF
+	void PUSH_STACK_8BIT(uint8_t value);
+	void PUSH_STACK_16BIT(uint16_t value);
+	uint8_t POP_STACK_8BIT();
+	uint16_t POP_STACK_16BIT();
 
 	// MAPPER STUFF
 	void handleMapperWrites(uint8_t value, uint16_t address);
@@ -95,5 +102,6 @@ public:
 	void ld_8bit_value(uint8_t& dest, uint8_t value);
 	void ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value);
 	void ld_16bit_value(uint16_t &dest, uint16_t value);
+	void rst_vector(uint8_t vector);
 };
 

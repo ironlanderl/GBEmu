@@ -44,6 +44,9 @@ void openWindow()
 			if (ImGui::MenuItem("Open Tetris")) {
 				loadFile("C:\\Users\\fabri\\Downloads\\Tetris (World) (Rev A).gb");
 			}
+			if (ImGui::MenuItem("Open cpu_instrs.gb")) {
+				loadFile("C:\\Users\\fabri\\Downloads\\cpu_instrs.gb");
+			}
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Debug")) {
@@ -150,6 +153,9 @@ void drawCartInfo()
 			ImGui::SameLine();
 			ImGui::Text("%c", static_cast<char>(gb.ROM[i]));
 		}
+
+		ImGui::Text("Mapper: %d", gb.getBus(0x0147));
+
 		ImGui::End();
 	}
 }
@@ -192,10 +198,13 @@ void drawCPUInfo()
 		ImGui::SameLine();
 		ImGui::Text("%d", gb.Carry);
 
-
-
-
 		ImGui::Text("PC: %04X  SP: %04X", gb.PC, gb.SP);
+
+		// Serial information
+		bool trans_enabled = gb.getBus(0xFF02) & 0b10000000;
+		bool clock_double = gb.getBus(0xFF02) & 0b00000010;
+		bool which_clock = gb.getBus(0xFF02) & 0b00000001;
+		ImGui::Text("Transfer enabled: %d, Clock doubled : %0d, Clock: %s", trans_enabled, clock_double, which_clock == 0 ? "Slave" : "Master");
 
 		// Additional CPU information can be added here based on your requirements
 

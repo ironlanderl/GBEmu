@@ -126,3 +126,11 @@ void GameBoy::ld_16bit_value(uint16_t& dest, uint16_t value)
 	add_t_cycles(12);
 	PC++;
 }
+
+void GameBoy::rst_vector(uint8_t vector)
+{
+	PUSH_STACK_16BIT(PC);
+	add_m_cycles(4);
+	add_t_cycles(16);
+	PC = vector;
+}
