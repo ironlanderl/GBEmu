@@ -1,0 +1,256 @@
+Elenco del percorso delle cartelle
+Numero di serie del volume: 3ED4-D0FC
+C:.
+¦   .gitattributes
+¦   .gitignore
+¦   GBEmu.sln
+¦   LICENSE.txt
+¦   out.txt
+¦   
++---GBEmu
+¦   ¦   Class.cpp
+¦   ¦   Class.h
+¦   ¦   GameBoy.cpp
+¦   ¦   GameBoy.h
+¦   ¦   GBEmu.cpp
+¦   ¦   GBEmu.vcxproj
+¦   ¦   GBEmu.vcxproj.filters
+¦   ¦   GBEmu.vcxproj.user
+¦   ¦   imgui.ini
+¦   ¦   Opcodes.cpp
+¦   ¦   opcode_functions.h
+¦   ¦   Window.cpp
+¦   ¦   Window.h
+¦   ¦   Writer.py
+¦   ¦   
+¦   +---x64
+¦       +---Debug
+¦       ¦   ¦   GameBoy.obj
+¦       ¦   ¦   gameboy.obj.enc
+¦       ¦   ¦   GBEmu.exe.recipe
+¦       ¦   ¦   GBEmu.ilk
+¦       ¦   ¦   GBEmu.log
+¦       ¦   ¦   GBEmu.obj
+¦       ¦   ¦   GBEmu.vcxproj.FileListAbsolute.txt
+¦       ¦   ¦   vc143.idb
+¦       ¦   ¦   vc143.pdb
+¦       ¦   ¦   vcpkg.applocal.log
+¦       ¦   ¦   Window.obj
+¦       ¦   ¦   
+¦       ¦   +---GBEmu.tlog
+¦       ¦           CL.command.1.tlog
+¦       ¦           Cl.items.tlog
+¦       ¦           CL.write.1.tlog
+¦       ¦           GBEmu.lastbuildstate
+¦       ¦           GBEmu.write.1u.tlog
+¦       ¦           link.command.1.tlog
+¦       ¦           link.read.1.tlog
+¦       ¦           link.write.1.tlog
+¦       ¦           unsuccessfulbuild
+¦       ¦           
+¦       +---Release
+¦           +---GBEmu.tlog
++---packages
+¦   +---Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7
+¦       ¦   .signature.p7s
+¦       ¦   license (MIT).txt
+¦       ¦   Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7.nupkg
+¦       ¦   ThirdPartyNotices.txt
+¦       ¦   
+¦       +---build
+¦       ¦   +---native
+¦       ¦       ¦   Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets
+¦       ¦       ¦   
+¦       ¦       +---1028
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1029
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1031
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1033
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1034
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1036
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1040
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1041
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1042
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1045
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1046
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1049
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---1055
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---2052
+¦       ¦       ¦       googletest.propertiesui.xml
+¦       ¦       ¦       
+¦       ¦       +---include
+¦       ¦           +---gtest
+¦       ¦               ¦   gtest-death-test.h
+¦       ¦               ¦   gtest-message.h
+¦       ¦               ¦   gtest-param-test.h
+¦       ¦               ¦   gtest-param-test.h.pump
+¦       ¦               ¦   gtest-printers.h
+¦       ¦               ¦   gtest-spi.h
+¦       ¦               ¦   gtest-test-part.h
+¦       ¦               ¦   gtest-typed-test.h
+¦       ¦               ¦   gtest.h
+¦       ¦               ¦   gtest_pred_impl.h
+¦       ¦               ¦   gtest_prod.h
+¦       ¦               ¦   
+¦       ¦               +---internal
+¦       ¦                   ¦   gtest-death-test-internal.h
+¦       ¦                   ¦   gtest-filepath.h
+¦       ¦                   ¦   gtest-internal.h
+¦       ¦                   ¦   gtest-linked_ptr.h
+¦       ¦                   ¦   gtest-param-util-generated.h
+¦       ¦                   ¦   gtest-param-util-generated.h.pump
+¦       ¦                   ¦   gtest-param-util.h
+¦       ¦                   ¦   gtest-port-arch.h
+¦       ¦                   ¦   gtest-port.h
+¦       ¦                   ¦   gtest-string.h
+¦       ¦                   ¦   gtest-tuple.h
+¦       ¦                   ¦   gtest-tuple.h.pump
+¦       ¦                   ¦   gtest-type-util.h
+¦       ¦                   ¦   gtest-type-util.h.pump
+¦       ¦                   ¦   
+¦       ¦                   +---custom
+¦       ¦                           gtest-port.h
+¦       ¦                           gtest-printers.h
+¦       ¦                           gtest.h
+¦       ¦                           README.md
+¦       ¦                           
+¦       +---lib
+¦           +---native
+¦               +---v140
+¦                   +---windesktop
+¦                       +---msvcstl
+¦                           +---static
+¦                               +---rt-dyn
+¦                                   +---arm
+¦                                   ¦   +---Debug
+¦                                   ¦   ¦       gtest.pdb
+¦                                   ¦   ¦       gtestd.lib
+¦                                   ¦   ¦       gtest_main.pdb
+¦                                   ¦   ¦       gtest_maind.lib
+¦                                   ¦   ¦       
+¦                                   ¦   +---Release
+¦                                   ¦           gtest.lib
+¦                                   ¦           gtest.pdb
+¦                                   ¦           gtest_main.lib
+¦                                   ¦           gtest_main.pdb
+¦                                   ¦           
+¦                                   +---arm64
+¦                                   ¦   +---Debug
+¦                                   ¦   ¦       gtest.pdb
+¦                                   ¦   ¦       gtestd.lib
+¦                                   ¦   ¦       gtest_main.pdb
+¦                                   ¦   ¦       gtest_maind.lib
+¦                                   ¦   ¦       
+¦                                   ¦   +---Release
+¦                                   ¦           gtest.lib
+¦                                   ¦           gtest.pdb
+¦                                   ¦           gtest_main.lib
+¦                                   ¦           gtest_main.pdb
+¦                                   ¦           
+¦                                   +---x64
+¦                                   ¦   +---Debug
+¦                                   ¦   ¦       gtest.pdb
+¦                                   ¦   ¦       gtestd.lib
+¦                                   ¦   ¦       gtest_main.pdb
+¦                                   ¦   ¦       gtest_maind.lib
+¦                                   ¦   ¦       
+¦                                   ¦   +---Release
+¦                                   ¦           gtest.lib
+¦                                   ¦           gtest.pdb
+¦                                   ¦           gtest_main.lib
+¦                                   ¦           gtest_main.pdb
+¦                                   ¦           
+¦                                   +---x86
+¦                                       +---Debug
+¦                                       ¦       gtest.pdb
+¦                                       ¦       gtestd.lib
+¦                                       ¦       gtest_main.pdb
+¦                                       ¦       gtest_maind.lib
+¦                                       ¦       
+¦                                       +---Release
+¦                                               gtest.lib
+¦                                               gtest.pdb
+¦                                               gtest_main.lib
+¦                                               gtest_main.pdb
+¦                                               
++---Tests
+¦   ¦   packages.config
+¦   ¦   pch.cpp
+¦   ¦   pch.h
+¦   ¦   test.cpp
+¦   ¦   Tests.vcxproj
+¦   ¦   Tests.vcxproj.user
+¦   ¦   
+¦   +---x64
+¦       +---Debug
+¦       ¦   ¦   pch.obj
+¦       ¦   ¦   test.obj
+¦       ¦   ¦   Tests.exe.recipe
+¦       ¦   ¦   Tests.log
+¦       ¦   ¦   Tests.pch
+¦       ¦   ¦   Tests.vcxproj.CopyComplete
+¦       ¦   ¦   Tests.vcxproj.FileListAbsolute.txt
+¦       ¦   ¦   vc143.pdb
+¦       ¦   ¦   vcpkg.applocal.log
+¦       ¦   ¦   
+¦       ¦   +---Tests.tlog
+¦       ¦           CL.command.1.tlog
+¦       ¦           Cl.items.tlog
+¦       ¦           CL.read.1.tlog
+¦       ¦           CL.write.1.tlog
+¦       ¦           CopyLocal.read.1u.tlog
+¦       ¦           CopyLocal.write.1u.tlog
+¦       ¦           link.command.1.tlog
+¦       ¦           link.read.1.tlog
+¦       ¦           link.write.1.tlog
+¦       ¦           Tests.lastbuildstate
+¦       ¦           
+¦       +---Release
+¦           +---Tests.tlog
++---x64
+    +---Debug
+    ¦       brotlicommon.dll
+    ¦       brotlidec.dll
+    ¦       bz2d.dll
+    ¦       fmtd.dll
+    ¦       freetyped.dll
+    ¦       GBEmu.exe
+    ¦       GBEmu.pdb
+    ¦       gtest.pdb
+    ¦       gtest_main.pdb
+    ¦       libpng16d.dll
+    ¦       sfml-graphics-d-2.dll
+    ¦       sfml-system-d-2.dll
+    ¦       sfml-window-d-2.dll
+    ¦       Tests.exe
+    ¦       Tests.exe.gta.testdurations
+    ¦       Tests.ilk
+    ¦       Tests.pdb
+    ¦       zlibd1.dll
+    ¦       
+    +---Release

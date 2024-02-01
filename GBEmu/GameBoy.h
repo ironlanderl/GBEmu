@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <fstream>
 #include <cstring>
+#include <functional>
 #include <stdexcept>
 #include <SFML/Config.hpp>
 
@@ -64,5 +65,21 @@ public:
 	bool isInsideInterval(uint16_t value, uint16_t bottom_bound, uint16_t upper_bound);
 	uint16_t get_next_two_bytes(uint16_t address);
 	uint8_t get_next_byte(uint16_t address);
+	uint16_t fuse_two_bytes(uint8_t a, uint8_t b);
+
+	// Opcodes
+	void opcode_nop();
+	void dec_8bit_register(uint8_t &reg);
+	void dec_16bit_register(uint8_t& reg_a, uint8_t& reg_b);
+	void dec_16bit_register(uint16_t& reg);
+	void inc_8bit_register(uint8_t& reg);
+	void inc_16bit_register(uint8_t& reg_a, uint8_t& reg_b);
+	void inc_16bit_register(uint16_t& reg);
+	void dec_at_address();
+	void inc_at_address();
+	void ld_8bit_register(uint8_t& dest, uint8_t source);
+	void ld_8bit_value(uint8_t& dest, uint8_t value);
+	void ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value);
+	void ld_16bit_value(uint16_t &dest, uint16_t value);
 };
 

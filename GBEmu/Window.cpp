@@ -74,7 +74,10 @@ void openWindow()
 		// Run emulator
 		if (gb.status == RUNNING)
 		{
-			gb.advanceStep();
+			// TODO: POTER CAMBIARE IL NUMERO DI CICLI EFFETTUATI
+			for (int i = 0; i < 100; i++) {
+				gb.advanceStep();
+			}
 		}
 
 		window.clear();

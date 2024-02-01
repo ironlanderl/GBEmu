@@ -144,11 +144,15 @@
   <ItemGroup>
     <ClCompile Include="GameBoy.cpp" />
     <ClCompile Include="GBEmu.cpp" />
+    <ClCompile Include="Opcodes.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameBoy.h" />
     <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Writer.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

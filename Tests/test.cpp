@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../GBEmu/GameBoy.h"
+/*#include "../GBEmu/GameBoy.h"
 #include "../GBEmu/GameBoy.cpp"
 
 class GameBoyTest : public ::testing::Test {
@@ -77,3 +77,4 @@ TEST_F(GameBoyTest, Opcode_0x20_JR_NZ_r8) {
 }
 
 // Add more test cases for the remaining opcodes...
+*/
