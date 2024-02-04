@@ -102,13 +102,23 @@ public:
 	void ld_8bit_value(uint8_t& dest, uint8_t value);
 	void ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value);
 	void ld_16bit_value(uint16_t &dest, uint16_t value);
+	void ld_a_to_address();
+	void ld_a_to_wram_offset();
 	void ld_8bit_value_from_ram(uint8_t& dest, uint16_t source);
 	void add_a_u8();
 	void add_a_reg(uint8_t reg);
 	void sub_a_u8();
 	void sub_a_reg(uint8_t reg);
+	void and_a_reg(uint8_t reg);
+	void and_a_u8();
+	void and_a_hl();
+	void cp_a_reg(uint8_t reg);
+	void cp_a_u8();
+	void cp_a_hl();
 	void pop_stack(uint8_t& reg_a, uint8_t& reg_b);
 	void push_stack(uint8_t& reg_a, uint8_t& reg_b);
+	void call_u16();
+	void jr_i8();
 	void rst_vector(uint8_t vector);
 };
 

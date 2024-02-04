@@ -66,7 +66,8 @@ uint8_t GameBoy::getBus(uint16_t address)
 	}
 	else
 	{
-		throw std::runtime_error("Invalid address");
+		std::printf("Tried accessing invalid address: %04X", address);
+		status = PAUSED;
 	}
 }
 
@@ -442,6 +443,12 @@ void GameBoy::advanceStep()
 	case 0x31:
 		ld_16bit_value(SP, get_next_two_bytes(PC));
 		break;
+	case 0xEA:
+		ld_a_to_address();
+		break;
+	case 0xE0:
+		ld_a_to_wram_offset();
+		break;
 	// Vector Jump
 	case 0xC7:
 		rst_vector(0x00);
@@ -572,6 +579,62 @@ void GameBoy::advanceStep()
 		add_t_cycles(12);
 		PC++;
 		break;
+	// Area AND
+	case 0xA0:
+		and_a_reg(B);
+		break;
+	case 0xA1:
+		and_a_reg(C);
+		break;
+	case 0xA2:
+		and_a_reg(D);
+		break;
+	case 0xA3:
+		and_a_reg(E);
+		break;
+	case 0xA4:
+		and_a_reg(H);
+		break;
+	case 0xA5:
+		and_a_reg(L);
+		break;
+	case 0xA6:
+		and_a_hl();
+		break;
+	case 0xA7:
+		and_a_reg(A);
+		break;
+	case 0xE6:
+		and_a_u8();
+		break;
+	// Area CP
+	case 0xB8:
+		cp_a_reg(B);
+		break;
+	case 0xB9:
+		cp_a_reg(C);
+		break;
+	case 0xBA:
+		cp_a_reg(D);
+		break;
+	case 0xBB:
+		cp_a_reg(E);
+		break;
+	case 0xBC:
+		cp_a_reg(H);
+		break;
+	case 0xBD:
+		cp_a_reg(L);
+		break;
+	case 0xBE:
+		cp_a_hl();
+		break;
+	case 0xBF:
+		cp_a_reg(A);
+		break;
+	case 0xFE:
+		cp_a_u8();
+		break;
 		// Continuo
 	case 0x10: // STOP
 		add_m_cycles(1);
@@ -613,6 +676,20 @@ void GameBoy::advanceStep()
 		PC++;
 		break;
 		// MISC / UNGENERAL ENOUGH
+	case 0x2F:
+		A = !A;
+		NegativeFlag = 1;
+		HalfCarry = 1;
+		add_m_cycles(1);
+		add_t_cycles(4);
+		PC++;
+		break;
+	case 0xCD:
+		call_u16();
+		break;
+	case 0x18:
+		jr_i8();
+		break;
 	case 0xF3: // Disable Interrupts
 		IME = false;
 		add_m_cycles(1);

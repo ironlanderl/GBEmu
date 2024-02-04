@@ -10,7 +10,7 @@ void GameBoy::opcode_nop()
 	PC++;
 }
 
-void GameBoy::dec_8bit_register(uint8_t &reg)
+void GameBoy::dec_8bit_register(uint8_t& reg)
 {
 	HalfCarry = (((reg & 0xF) + (-1 & 0xF)) & 0x10) == 0x10;
 	reg--;
@@ -110,7 +110,7 @@ void GameBoy::ld_8bit_value(uint8_t& dest, uint8_t value)
 	dest = value;
 	add_m_cycles(2);
 	add_t_cycles(8);
-	PC++;
+	PC+=2;
 }
 
 void GameBoy::ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value)
@@ -119,7 +119,7 @@ void GameBoy::ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value)
 	dest_b = value & 0x00FF;
 	add_m_cycles(3);
 	add_t_cycles(12);
-	PC++;
+	PC += 3;
 }
 
 void GameBoy::ld_16bit_value(uint16_t& dest, uint16_t value)
@@ -127,7 +127,23 @@ void GameBoy::ld_16bit_value(uint16_t& dest, uint16_t value)
 	dest = value;
 	add_m_cycles(3);
 	add_t_cycles(12);
-	PC++;
+	PC += 3;
+}
+
+void GameBoy::ld_a_to_address()
+{
+	writeBus(A, getBus(PC + 1) | getBus(PC + 2) << 8);
+	add_m_cycles(4);
+	add_t_cycles(16);
+	PC += 3;
+}
+
+void GameBoy::ld_a_to_wram_offset()
+{
+	writeBus(A, getBus(PC + 1) + 0xFF00);
+	add_m_cycles(3);
+	add_t_cycles(12);
+	PC += 2;
 }
 
 void GameBoy::ld_8bit_value_from_ram(uint8_t& dest, uint16_t source)
@@ -135,7 +151,7 @@ void GameBoy::ld_8bit_value_from_ram(uint8_t& dest, uint16_t source)
 	dest = getBus(source);
 	add_m_cycles(2);
 	add_t_cycles(8);
-	PC++;
+	PC += 2;
 }
 
 void GameBoy::add_a_u8()
@@ -191,6 +207,73 @@ void GameBoy::sub_a_reg(uint8_t reg)
 	ZeroFlag = !(A);
 }
 
+void GameBoy::and_a_reg(uint8_t reg)
+{
+	A = A & reg;
+	ZeroFlag = !A;
+	HalfCarry = 1;
+	add_m_cycles(1);
+	add_t_cycles(4);
+	PC++;
+}
+
+void GameBoy::and_a_u8()
+{
+	PC++;
+	A = A & getBus(PC);
+	ZeroFlag = !A;
+	HalfCarry = 1;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+}
+
+void GameBoy::and_a_hl()
+{
+	A = A & getBus(getHL());
+	ZeroFlag = !A;
+	HalfCarry = 1;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+}
+
+void GameBoy::cp_a_reg(uint8_t reg)
+{
+	uint8_t res = A - reg;
+	Carry = (A + reg) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
+	ZeroFlag = !res;
+	add_m_cycles(1);
+	add_t_cycles(4);
+	PC++;
+}
+
+void GameBoy::cp_a_u8()
+{
+	PC++;
+	uint8_t reg = getBus(PC);
+	uint8_t res = A - reg;
+	Carry = (A + reg) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
+	ZeroFlag = !res;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+}
+
+void GameBoy::cp_a_hl()
+{
+	uint8_t reg = getBus(getHL());
+	uint8_t res = A - reg;
+	Carry = (A + reg) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
+	ZeroFlag = !res;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+}
+
 void GameBoy::pop_stack(uint8_t& reg_a, uint8_t& reg_b)
 {
 	reg_b = getBus(SP);
@@ -211,6 +294,22 @@ void GameBoy::push_stack(uint8_t& reg_a, uint8_t& reg_b)
 	add_m_cycles(3);
 	add_t_cycles(12);
 	PC++;
+}
+
+void GameBoy::call_u16()
+{
+	PC++;
+	PUSH_STACK_16BIT(PC);
+	PC = getBus(PC) | getBus(PC + 1) << 8;
+	add_m_cycles(6);
+	add_t_cycles(24);
+}
+
+void GameBoy::jr_i8()
+{
+	PC = PC + (int)getBus(PC + 1);
+	add_m_cycles(3);
+	add_t_cycles(12);
 }
 
 void GameBoy::rst_vector(uint8_t vector)
