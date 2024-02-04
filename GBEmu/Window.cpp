@@ -5,9 +5,15 @@ GameBoy gb;
 
 void openWindow()
 {
+	bool single_run = false;
+
+
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "ImGui + SFML = <3");
 	window.setFramerateLimit(60);
 	ImGui::SFML::Init(window);
+
+	sf::CircleShape shape(100.f);
+	shape.setFillColor(sf::Color::Green);
 
 	sf::Clock deltaClock;
 	while (window.isOpen()) {
@@ -20,6 +26,8 @@ void openWindow()
 				window.close();
 			}
 		}
+
+		
 
 		ImGui::SFML::Update(window, deltaClock.restart());
 
@@ -60,7 +68,7 @@ void openWindow()
 				showCPUInfo = !showCPUInfo;
 			}
 			if (ImGui::MenuItem("Open Tile Viewer")) {
-				fmt::print("Open tile viewer window\n");
+				TileViewerWindow::openWindow(gb);
 			}
 			if (ImGui::MenuItem("Open Audio Viewer")) {
 				fmt::print("Open audio viewer window\n");
@@ -80,10 +88,18 @@ void openWindow()
 			// TODO: POTER CAMBIARE IL NUMERO DI CICLI EFFETTUATI
 			for (int i = 0; i < 100; i++) {
 				gb.advanceStep();
+				// Debugging: Print serial to console
+				if (gb.getBus(0xFF01) != 0x00)
+				{
+					fmt::println("%c", gb.getBus(0xFF01));
+					// Reset SC
+					gb.writeBus(0x01, 0xFF02);
+				}
 			}
 		}
 
 		window.clear();
+		window.draw(shape);
 		ImGui::SFML::Render(window);
 		window.display();
 	}
@@ -211,7 +227,6 @@ void drawCPUInfo()
 		ImGui::End();
 	}
 }
-
 
 void loadFile()
 {

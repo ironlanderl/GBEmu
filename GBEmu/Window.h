@@ -9,8 +9,10 @@
 #include <nfd.h>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <map>
 
 #include "GameBoy.h"
+#include "TileViewerWindow.h"
 
 void openWindow();
 void closeWindow();

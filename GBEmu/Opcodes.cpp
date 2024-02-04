@@ -1,3 +1,6 @@
+#include <corecrt_io.h>
+#include <variant>
+
 #include "GameBoy.h"
 
 void GameBoy::opcode_nop()
@@ -122,6 +125,89 @@ void GameBoy::ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value)
 void GameBoy::ld_16bit_value(uint16_t& dest, uint16_t value)
 {
 	dest = value;
+	add_m_cycles(3);
+	add_t_cycles(12);
+	PC++;
+}
+
+void GameBoy::ld_8bit_value_from_ram(uint8_t& dest, uint16_t source)
+{
+	dest = getBus(source);
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+}
+
+void GameBoy::add_a_u8()
+{
+	PC++;
+	uint8_t value = getBus(PC);
+	Carry = (((uint16_t)A) + value) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
+	A += value;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+	NegativeFlag = 0;
+	ZeroFlag = !(A);
+}
+
+void GameBoy::add_a_reg(uint8_t reg)
+{
+	Carry = (((uint16_t)A) + reg) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
+	A += reg;
+	add_m_cycles(1);
+	add_t_cycles(4);
+	PC++;
+	NegativeFlag = 0;
+	ZeroFlag = !(A);
+}
+
+void GameBoy::sub_a_u8()
+{
+	PC++;
+	uint8_t value = getBus(PC) * -1;
+	Carry = (((uint16_t)A) + value) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
+	A += value;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+	NegativeFlag = 0;
+	ZeroFlag = !(A);
+}
+
+void GameBoy::sub_a_reg(uint8_t reg)
+{
+	uint8_t value = reg * -1;
+	Carry = (((uint16_t)A) + value) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
+	A += value;
+	add_m_cycles(1);
+	add_t_cycles(4);
+	PC++;
+	NegativeFlag = 0;
+	ZeroFlag = !(A);
+}
+
+void GameBoy::pop_stack(uint8_t& reg_a, uint8_t& reg_b)
+{
+	reg_b = getBus(SP);
+	SP++;
+	reg_a = getBus(SP);
+	SP++;
+	add_m_cycles(3);
+	add_t_cycles(12);
+	PC++;
+}
+
+void GameBoy::push_stack(uint8_t& reg_a, uint8_t& reg_b)
+{
+	writeBus(reg_b, SP);
+	SP--;
+	writeBus(reg_a, SP);
+	SP--;
 	add_m_cycles(3);
 	add_t_cycles(12);
 	PC++;

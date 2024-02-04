@@ -467,6 +467,111 @@ void GameBoy::advanceStep()
 	case 0xFF:
 		rst_vector(0x38);
 		break;
+	// Area LD reg, (mem)
+	case 0x4E:
+		ld_8bit_value_from_ram(C, (H << 8) | L);
+		break;
+	case 0x5E:
+		ld_8bit_value_from_ram(E, (H << 8) | L);
+		break;
+	case 0x6E:
+		ld_8bit_value_from_ram(L, (H << 8) | L);
+		break;
+	case 0x7E:
+		ld_8bit_value_from_ram(A, (H << 8) | L);
+		break;
+	// Area ADD, reg
+	case 0x80:
+		add_a_reg(B);
+		break;
+	case 0x81:
+		add_a_reg(C);
+		break;
+	case 0x82:
+		add_a_reg(D);
+		break;
+	case 0x83:
+		add_a_reg(E);
+		break;
+	case 0x84:
+		add_a_reg(H);
+		break;
+	case 0x85:
+		add_a_reg(L);
+		break;
+	case 0x87:
+		add_a_reg(A);
+		break;
+		// Area DEC, reg
+	case 0x90:
+		sub_a_reg(B);
+		break;
+	case 0x91:
+		sub_a_reg(C);
+		break;
+	case 0x92:
+		sub_a_reg(D);
+		break;
+	case 0x93:
+		sub_a_reg(E);
+		break;
+	case 0x94:
+		sub_a_reg(H);
+		break;
+	case 0x95:
+		sub_a_reg(L);
+		break;
+	case 0x97:
+		sub_a_reg(A);
+		break;
+	// Area PUSH / POP
+	case 0xC1:
+		pop_stack(B, C);
+		break;
+	case 0xD1:
+		pop_stack(D,E);
+		break;
+	case 0xE1:
+		pop_stack(H,L);
+		break;
+	case 0xC5:
+		push_stack(B,C);
+		break;
+	case 0xD5:
+		push_stack(D, E);
+		break;
+	case 0xE5:
+		push_stack(H, L);
+		break;
+	case 0xF1: // POP AF
+		uint8_t value_f;
+		value_f = getBus(SP);
+		ZeroFlag = value_f & 0x8 >> 7;
+		NegativeFlag = value_f & 0x4 >> 6;
+		HalfCarry = value_f & 0x2 >> 5;
+		Carry = value_f & 0x1 >> 4;
+		SP++;
+		A = getBus(SP);
+		SP++;
+		add_m_cycles(3);
+		add_t_cycles(12);
+		PC++;
+		break;
+	case 0xF5: // PUSH AF
+		writeBus(A, SP);
+		SP--;
+		uint8_t value_f_write;
+		value_f_write = 0;
+		value_f_write = value_f_write | ZeroFlag << 7;
+		value_f_write = value_f_write | NegativeFlag << 6;
+		value_f_write = value_f_write | HalfCarry << 5;
+		value_f_write = value_f_write | Carry << 4;
+		writeBus(value_f_write, SP);
+		SP--;
+		add_m_cycles(3);
+		add_t_cycles(12);
+		PC++;
+		break;
 		// Continuo
 	case 0x10: // STOP
 		add_m_cycles(1);
@@ -522,9 +627,23 @@ void GameBoy::advanceStep()
 	case 0xFA: // LD A, (u16)
 		PC++;
 		A = getBus(PC);
+		PC++;
 		A += getBus(PC) << 8;
+		PC++;
 		add_m_cycles(4);
 		add_t_cycles(16);
+		break;
+	case 0xC6: // ADD A, u8
+		add_a_u8();
+		break;
+	case 0xD6: // SUB A, u8
+		sub_a_u8();
+		break;
+	case 0xF9: // LD SP, HL
+		SP = H << 8 | L;
+		add_m_cycles(2);
+		add_t_cycles(8);
+		PC++;
 		break;
 	default:
 		std::printf("Invalid opcode: %02X \n", getBus(PC));

@@ -145,10 +145,12 @@
     <ClCompile Include="GameBoy.cpp" />
     <ClCompile Include="GBEmu.cpp" />
     <ClCompile Include="Opcodes.cpp" />
+    <ClCompile Include="TileViewerWindow.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameBoy.h" />
+    <ClInclude Include="TileViewerWindow.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

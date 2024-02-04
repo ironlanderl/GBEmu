@@ -102,6 +102,13 @@ public:
 	void ld_8bit_value(uint8_t& dest, uint8_t value);
 	void ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value);
 	void ld_16bit_value(uint16_t &dest, uint16_t value);
+	void ld_8bit_value_from_ram(uint8_t& dest, uint16_t source);
+	void add_a_u8();
+	void add_a_reg(uint8_t reg);
+	void sub_a_u8();
+	void sub_a_reg(uint8_t reg);
+	void pop_stack(uint8_t& reg_a, uint8_t& reg_b);
+	void push_stack(uint8_t& reg_a, uint8_t& reg_b);
 	void rst_vector(uint8_t vector);
 };
 

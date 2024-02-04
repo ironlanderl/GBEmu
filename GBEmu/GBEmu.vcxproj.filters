@@ -27,12 +27,18 @@
     <ClCompile Include="Opcodes.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="TileViewerWindow.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="GameBoy.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="TileViewerWindow.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
