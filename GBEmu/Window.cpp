@@ -96,6 +96,7 @@ void openWindow()
 					gb.writeBus(0x01, 0xFF02);
 				}
 			}
+			// gb.status = PAUSED;
 		}
 
 		window.clear();
@@ -192,6 +193,14 @@ void drawCPUInfo()
 			if (ImGui::Button("Resume"))
 			{
 				gb.status = RUNNING;
+			}
+		}
+
+		if (gb.status == RUNNING)
+		{
+			if (ImGui::Button("Pause"))
+			{
+				gb.status = PAUSED;
 			}
 		}
 

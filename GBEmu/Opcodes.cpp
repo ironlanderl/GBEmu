@@ -146,6 +146,14 @@ void GameBoy::ld_a_to_wram_offset()
 	PC += 2;
 }
 
+void GameBoy::ld_wram_offset_to_a()
+{
+	A = getBus(getBus(PC + 1) + 0xFF00);
+	add_m_cycles(3);
+	add_t_cycles(12);
+	PC += 2;
+}
+
 void GameBoy::ld_8bit_value_from_ram(uint8_t& dest, uint16_t source)
 {
 	dest = getBus(source);
@@ -274,6 +282,45 @@ void GameBoy::cp_a_hl()
 	PC++;
 }
 
+void GameBoy::adc_a_reg(uint8_t reg)
+{
+	Carry = (((uint16_t)A) + reg + Carry) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (reg + Carry & 0xF)) & 0x10) == 0x10;
+	A += reg + Carry;
+	add_m_cycles(1);
+	add_t_cycles(4);
+	PC++;
+	NegativeFlag = 0;
+	ZeroFlag = !(A);
+}
+
+void GameBoy::adc_a_u8()
+{
+	PC++;
+	uint8_t value = getBus(PC) + Carry;
+	Carry = (((uint16_t)A) + value) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
+	A += value;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+	NegativeFlag = 0;
+	ZeroFlag = !(A);
+}
+
+void GameBoy::adc_a_hl()
+{
+	uint8_t value = getBus(getHL())+ Carry;
+	Carry = (((uint16_t)A) + value) >> 8 != 0;
+	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
+	A += value;
+	add_m_cycles(2);
+	add_t_cycles(8);
+	PC++;
+	NegativeFlag = 0;
+	ZeroFlag = !(A);
+}
+
 void GameBoy::pop_stack(uint8_t& reg_a, uint8_t& reg_b)
 {
 	reg_b = getBus(SP);
@@ -305,11 +352,88 @@ void GameBoy::call_u16()
 	add_t_cycles(24);
 }
 
+void GameBoy::jr(bool condition)
+{
+	if (condition == true)
+	{
+		add_m_cycles(2);
+		add_t_cycles(8);
+		PC += 2;
+	}
+	else
+	{
+		add_m_cycles(3);
+		add_t_cycles(12);
+		PC++;
+		PC += static_cast<int8_t> (getBus(PC) + 1);
+	}
+}
+
 void GameBoy::jr_i8()
 {
 	PC = PC + (int)getBus(PC + 1);
 	add_m_cycles(3);
 	add_t_cycles(12);
+}
+
+void GameBoy::jp(bool condition)
+{
+	if (condition == true)
+	{
+		add_m_cycles(2);
+		add_t_cycles(8);
+		PC += 3;
+	}
+	else
+	{
+		add_m_cycles(3);
+		add_t_cycles(12);
+		PC++;
+		PC = getBus(PC) | getBus(PC + 1) << 8;
+	}
+}
+
+void GameBoy::jp_u16()
+{
+	add_m_cycles(3);
+	add_t_cycles(12);
+	PC = getBus(PC + 1) | getBus(PC + 2) << 8;
+}
+
+void GameBoy::jp_hl()
+{
+	add_m_cycles(3);
+	add_t_cycles(12);
+	PC = getHL();
+}
+
+void GameBoy::ret()
+{
+	add_m_cycles(3);
+	add_t_cycles(12);
+	PC = POP_STACK_16BIT();
+}
+
+void GameBoy::ret(bool condition)
+{
+	if (condition == true)
+	{
+		add_m_cycles(2);
+		add_t_cycles(8);
+		PC++;
+	}
+	else
+	{
+		add_m_cycles(3);
+		add_t_cycles(12);
+		PC = POP_STACK_16BIT();
+	}
+}
+
+void GameBoy::reti()
+{
+	ret();
+	IME = true;
 }
 
 void GameBoy::rst_vector(uint8_t vector)

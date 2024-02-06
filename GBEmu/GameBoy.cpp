@@ -18,6 +18,14 @@ void GameBoy::writeBus(uint8_t value, uint16_t address)
 	{
 		WRAM1[address - 0xC000] = value;
 	}
+	else if(isInsideInterval(address, 0xFF00, 0xFFFE))
+	{
+		HRAM[address - 0xFF00] = value;
+	}
+	else
+	{
+		std::printf("Tried writing to invalid address: %04X\n", address);
+	}
 }
 
 uint8_t GameBoy::getBus(uint16_t address)
@@ -54,7 +62,7 @@ uint8_t GameBoy::getBus(uint16_t address)
 	else if (isInsideInterval(address, 0xFF00, 0xFF7F))
 	{
 		// TODO - HANDLE INPUT
-		return HRAM[address - 0xFF80];
+		return HRAM[address - 0xFF00];
 	}
 	else if (isInsideInterval(address, 0xFF80, 0xFFFE))
 	{
@@ -449,6 +457,9 @@ void GameBoy::advanceStep()
 	case 0xE0:
 		ld_a_to_wram_offset();
 		break;
+	case 0xF0:
+		ld_wram_offset_to_a();
+		break;
 	// Vector Jump
 	case 0xC7:
 		rst_vector(0x00);
@@ -635,26 +646,92 @@ void GameBoy::advanceStep()
 	case 0xFE:
 		cp_a_u8();
 		break;
+	// Area ADC
+	case 0x88:
+		adc_a_reg(B);
+		break;
+	case 0x89:
+		adc_a_reg(C);
+		break;
+	case 0x8A:
+		adc_a_reg(D);
+		break;
+	case 0x8B:
+		adc_a_reg(E);
+		break;
+	case 0x8C:
+		adc_a_reg(H);
+		break;
+	case 0x8D:
+		adc_a_reg(L);
+		break;
+	case 0x8E:
+		adc_a_hl();
+		break;
+	case 0x8F:
+		adc_a_reg(A);
+		break;
+	case 0xCE:
+		adc_a_hl();
+		break;
+	// Area JR/JP
+	case 0x20: // JR NZ
+		jr(ZeroFlag);
+		break;
+	case 0x30: // JR NZ
+		jr(Carry);
+		break;
+	case 0x28: // JR NZ
+		jr(!ZeroFlag);
+		break;
+	case 0x38: // JR NZ
+		jr(!Carry);
+		break;
+	case 0x18: // JR i8
+		jr_i8();
+		break;
+	case 0xC2: // JP NZ
+		jp(ZeroFlag);
+		break;
+	case 0xD2: // JP NC
+		jp(Carry);
+		break;
+	case 0xCA: // JP Z
+		jp(!ZeroFlag);
+		break;
+	case 0xDA: // JP C
+		jp(!Carry);
+		break;
+	case 0xC3: // JP u16
+		jp_u16();
+		break;
+	case 0xE9: // JP HL
+		jp_hl();
+		break;
+	// Area ret
+	case 0xC0:
+		ret(ZeroFlag);
+		break;
+	case 0xD0:
+		ret(Carry);
+		break;
+	case 0xC8:
+		ret(!ZeroFlag);
+		break;
+	case 0xE8:
+		ret(!Carry);
+		break;
+	case 0xC9:
+		ret();
+		break;
+	case 0xD9:
+		reti();
+		break;
 		// Continuo
 	case 0x10: // STOP
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC += 2;
-		break;
-	case 0x20:
-		if (ZeroFlag == true)
-		{
-			add_m_cycles(2);
-			add_t_cycles(8);
-			PC += 2;
-		}
-		else
-		{
-			add_m_cycles(3);
-			add_t_cycles(12);
-			PC++;
-			PC += static_cast<int8_t> (getBus(PC));
-		}
 		break;
 	case 0x32: // LD [HL-], A
 		writeBus(A, getHL());
@@ -662,11 +739,6 @@ void GameBoy::advanceStep()
 		add_m_cycles(2);
 		add_t_cycles(8);
 		PC += 1;
-		break;
-	case 0xC3: // JP u16
-		PC = get_next_two_bytes(PC);
-		add_m_cycles(4);
-		add_t_cycles(16);
 		break;
 	case 0xAF: // XOR A?
 		A = A ^ A;
@@ -687,19 +759,17 @@ void GameBoy::advanceStep()
 	case 0xCD:
 		call_u16();
 		break;
-	case 0x18:
-		jr_i8();
-		break;
 	case 0xF3: // Disable Interrupts
 		IME = false;
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC++;
 		break;
-	case 0xC9: // RET
-		PC = POP_STACK_16BIT();
-		add_m_cycles(4);
-		add_t_cycles(16);
+	case 0xFB:
+		IME = true;
+		add_m_cycles(1);
+		add_t_cycles(4);
+		PC++;
 		break;
 	case 0xFA: // LD A, (u16)
 		PC++;
