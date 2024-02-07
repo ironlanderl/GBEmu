@@ -56,6 +56,61 @@ void GameBoy::writeBusUnrestricted(uint8_t value, uint16_t address)
 	}
 }
 
+uint8_t GameBoy::getBusUnrestriced(uint16_t address)
+{
+	// TESTING ONLY
+	if (isInsideInterval(address, 0x0000, 0x3FFF))
+	{
+		return ROM[address];
+	}
+	else if (isInsideInterval(address, 0x4000, 0x7FFF))
+	{
+		return ROM[address - 0x4000];
+	}
+	else if (isInsideInterval(address, 0x8000, 0x9FFF))
+	{
+		return VRAM[address - 0x8000]; // TODO
+	}
+	else if (isInsideInterval(address, 0xA000, 0xBFFF))
+	{
+		return WRAM0[address - 0xA000];
+	}
+	else if (isInsideInterval(address, 0xC000, 0xDFFF))
+	{
+		return WRAM1[address - 0xC000];
+	}
+	else if (isInsideInterval(address, 0xE000, 0xFDFF))
+	{
+		return WRAM0[address - 0xE000]; // ECHO RAM
+	}
+	else if (isInsideInterval(address, 0xFE00, 0xFE9F))
+	{
+		return OAM[address - 0xFE00];
+	}
+	else if (isInsideInterval(address, 0xFEA0, 0xFEFF))
+	{
+		return PROHIBITED[address - 0xFEA0];
+	}
+	else if (isInsideInterval(address, 0xFF00, 0xFF7F))
+	{
+		// TODO - HANDLE INPUT
+		return HRAM[address - 0xFF00];
+	}
+	else if (isInsideInterval(address, 0xFF80, 0xFFFE))
+	{
+		return HRAM[address - 0xFF80];
+	}
+	else if (address == 0xFFFF)
+	{
+		return IE;
+	}
+	else
+	{
+		std::printf("Tried accessing invalid address: %04X", address);
+		status = PAUSED;
+	}
+}
+
 
 void GameBoy::writeBus(uint8_t value, uint16_t address)
 {
@@ -156,7 +211,7 @@ void GameBoy::loadRom(char cart[], std::streamsize fileSize)
 
 void GameBoy::PUSH_STACK_8BIT(uint8_t value)
 {
-	writeBus(value, SP);
+	writeBusUnrestricted(value, SP); // TODO: USE RESTRICTED
 	SP--;
 }
 
@@ -622,10 +677,10 @@ void GameBoy::advanceStep()
 	case 0xF1: // POP AF
 		uint8_t value_f;
 		value_f = getBus(SP);
-		ZeroFlag = value_f & 0x8 >> 7;
-		NegativeFlag = value_f & 0x4 >> 6;
-		HalfCarry = value_f & 0x2 >> 5;
-		Carry = value_f & 0x1 >> 4;
+		ZeroFlag = (value_f & 128) >> 7;
+		NegativeFlag = (value_f & 64) >> 6;
+		HalfCarry = (value_f & 32) >> 5;
+		Carry = (value_f & 0x16) >> 4;
 		SP++;
 		A = getBus(SP);
 		SP++;
@@ -638,10 +693,10 @@ void GameBoy::advanceStep()
 		SP--;
 		uint8_t value_f_write;
 		value_f_write = 0;
-		value_f_write = value_f_write | ZeroFlag << 7;
-		value_f_write = value_f_write | NegativeFlag << 6;
-		value_f_write = value_f_write | HalfCarry << 5;
-		value_f_write = value_f_write | Carry << 4;
+		value_f_write = (value_f_write | ZeroFlag) << 7;
+		value_f_write = (value_f_write | NegativeFlag) << 6;
+		value_f_write = (value_f_write | HalfCarry) << 5;
+		value_f_write = (value_f_write | Carry) << 4;
 		writeBus(value_f_write, SP);
 		SP--;
 		add_m_cycles(3);
@@ -792,7 +847,7 @@ void GameBoy::advanceStep()
 		PC += 2;
 		break;
 	case 0x32: // LD [HL-], A
-		writeBus(A, getHL());
+		writeBusUnrestricted(A, getHL()); // TODO: Put IT Back To Restricted / Accurate
 		setHL(getHL() - 1);
 		add_m_cycles(2);
 		add_t_cycles(8);

@@ -53,6 +53,7 @@ public:
 	uint8_t PROHIBITED[0xFEFF - 0xFEA0+1];
 	uint8_t IE;
 	void writeBusUnrestricted(uint8_t value, uint16_t address);
+	uint8_t getBusUnrestriced(uint16_t address);
 	void writeBus(uint8_t value, uint16_t address);
 	uint8_t getBus(uint16_t address);
 	void loadRom(char cart[], std::streamsize fileSize);
