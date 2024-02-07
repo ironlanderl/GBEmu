@@ -4,6 +4,7 @@
 #include <cstring>
 #include <functional>
 #include <stdexcept>
+#include <nlohmann/json.hpp>
 #include <SFML/Config.hpp>
 
 enum PossibleStatus
@@ -49,7 +50,9 @@ public:
 	uint8_t WRAM1[0x2000];
 	uint8_t OAM[0xFE9F - 0xFE00 + 1];
 	uint8_t HRAM[0xFFFE - 0xFF80 + 1];
+	uint8_t PROHIBITED[0xFEFF - 0xFEA0+1];
 	uint8_t IE;
+	void writeBusUnrestricted(uint8_t value, uint16_t address);
 	void writeBus(uint8_t value, uint16_t address);
 	uint8_t getBus(uint16_t address);
 	void loadRom(char cart[], std::streamsize fileSize);

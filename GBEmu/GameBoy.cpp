@@ -2,6 +2,60 @@
 
 #include <variant>
 #include <fmt/core.h>
+#include <nlohmann/json.hpp>
+
+void GameBoy::writeBusUnrestricted(uint8_t value, uint16_t address)
+{
+	// Map address to appropriate memory array
+	if (isInsideInterval(address, 0x0000, 0x7FFF))
+	{
+		// Write to ROM or handle bank switching
+		// Depending on your implementation
+		ROM[address] = value;
+	}
+	else if (isInsideInterval(address, 0x8000, 0x9FFF))
+	{
+		VRAM[address - 0x8000] = value;
+	}
+	else if (isInsideInterval(address, 0xA000, 0xBFFF))
+	{
+		WRAM0[address - 0xA000] = value;
+	}
+	else if (isInsideInterval(address, 0xC000, 0xDFFF))
+	{
+		WRAM1[address - 0xC000] = value;
+	}
+	else if (isInsideInterval(address, 0xE000, 0xFDFF))
+	{
+		WRAM0[address - 0xE000] = value; // Echo RAM
+	}
+	else if (isInsideInterval(address, 0xFE00, 0xFE9F))
+	{
+		OAM[address - 0xFE00] = value;
+	}
+	else if (isInsideInterval(address, 0xFEA0, 0xFEFF))
+	{
+		PROHIBITED[address - 0xFEA0] = value;
+	}
+	else if (isInsideInterval(address, 0xFF00, 0xFF7F))
+	{
+		HRAM[address - 0xFF00] = value;
+	}
+	else if (isInsideInterval(address, 0xFF80, 0xFFFE))
+	{
+		HRAM[address - 0xFF80] = value;
+	}
+	else if (address == 0xFFFF)
+	{
+		IE = value;
+	}
+	else
+	{
+		std::printf("Tried writing to invalid address: %04X\n", address);
+		status = PAUSED;
+	}
+}
+
 
 void GameBoy::writeBus(uint8_t value, uint16_t address)
 {
@@ -53,11 +107,15 @@ uint8_t GameBoy::getBus(uint16_t address)
 	}
 	else if (isInsideInterval(address, 0xE000, 0xFDFF))
 	{
-		return WRAM1[address - 0x2000]; // ECHO RAM TODO
+		return WRAM0[address - 0xE000]; // ECHO RAM
 	}
 	else if (isInsideInterval(address, 0xFE00, 0xFE9F))
 	{
 		return OAM[address - 0xFE00];
+	}
+	else if (isInsideInterval(address, 0xFEA0, 0xFEFF))
+	{
+		return PROHIBITED[address - 0xFEA0];
 	}
 	else if (isInsideInterval(address, 0xFF00, 0xFF7F))
 	{

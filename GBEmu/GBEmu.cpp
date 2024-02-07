@@ -5,14 +5,29 @@
 #include <fmt/core.h>
 #include "Window.h"
 #include "GameBoy.h"
+#include <boost/filesystem.hpp>
+
+namespace fs = boost::filesystem;
+
+void testLoadingJsons()
+{
+	for (const auto& entry : fs::directory_iterator("C:\\Users\\fabri\\source\\GBEmu\\test_data")) {
+		if (entry.is_regular_file() && entry.path().extension() == ".json") {
+			std::string testName = entry.path().filename().stem().string();
+			std::cout << testName + "\n";
+		}
+	}
+}
 
 int main()
 {
-	openWindow();
+	testLoadingJsons();
+
+	/*openWindow();
 
 	closeWindow();
 
-    return 0;
+    return 0;*/
 }
 
 // Per eseguire il programma: CTRL+F5 oppure Debug > Avvia senza eseguire debug

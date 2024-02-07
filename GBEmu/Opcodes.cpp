@@ -12,20 +12,21 @@ void GameBoy::opcode_nop()
 
 void GameBoy::dec_8bit_register(uint8_t& reg)
 {
-	HalfCarry = (((reg & 0xF) + (-1 & 0xF)) & 0x10) == 0x10;
+	uint8_t reg_copy = reg;
 	reg--;
 	add_m_cycles(1);
 	add_t_cycles(4);
 	PC++;
 	NegativeFlag = 1;
 	ZeroFlag = !(reg);
+	HalfCarry = (((reg_copy & 0xF) - (1 & 0xF)) & 0x10) == 0x10;
 }
 
 void GameBoy::dec_16bit_register(uint8_t& reg_a, uint8_t& reg_b)
 {
 	uint16_t fused = fuse_two_bytes(reg_a, reg_b);
 	fused--;
-	reg_a = fused & 0xFF00 >> 8;
+	reg_a = (fused & 0xFF00) >> 8;
 	reg_b = fused & 0x00FF;
 	add_m_cycles(2);
 	add_t_cycles(8);
@@ -43,20 +44,21 @@ void GameBoy::dec_16bit_register(uint16_t& reg)
 
 void GameBoy::inc_8bit_register(uint8_t& reg)
 {
-	HalfCarry = (((reg & 0xF) + (1 & 0xF)) & 0x10) == 0x10;
+	uint8_t reg_copy = reg;
 	reg++;
 	add_m_cycles(1);
 	add_t_cycles(4);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(reg);
+	HalfCarry = (((reg_copy & 0xF) + (1 & 0xF)) & 0x10) == 0x10;
 }
 
 void GameBoy::inc_16bit_register(uint8_t& reg_a, uint8_t& reg_b)
 {
 	uint16_t fused = fuse_two_bytes(reg_a, reg_b);
 	fused++;
-	reg_a = fused & 0xFF00 >> 8;
+	reg_a = (fused & 0xFF00) >> 8;
 	reg_b = fused & 0x00FF;
 	add_m_cycles(2);
 	add_t_cycles(8);
@@ -74,7 +76,6 @@ void GameBoy::inc_16bit_register(uint16_t& reg)
 void GameBoy::dec_at_address()
 {
 	uint8_t original_value = getBus(getHL());
-	HalfCarry = (((original_value & 0xF) + (-1 & 0xF)) & 0x10) == 0x10;
 	original_value--;
 	writeBus(original_value, getHL());
 	add_m_cycles(3);
@@ -82,12 +83,12 @@ void GameBoy::dec_at_address()
 	PC++;
 	NegativeFlag = 1;
 	ZeroFlag = !(original_value);
+	HalfCarry = (original_value ^ (-1) ^ (original_value + 1)) & 0x10;
 }
 
 void GameBoy::inc_at_address()
 {
 	uint8_t original_value = getBus(getHL());
-	HalfCarry = (((original_value & 0xF) + (1 & 0xF)) & 0x10) == 0x10;
 	original_value++;
 	writeBus(original_value, getHL());
 	add_m_cycles(3);
@@ -95,6 +96,7 @@ void GameBoy::inc_at_address()
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(original_value);
+	HalfCarry = (original_value ^ (1) ^ (original_value - 1)) & 0x10;
 }
 
 void GameBoy::ld_8bit_register(uint8_t& dest, uint8_t source)
@@ -110,12 +112,12 @@ void GameBoy::ld_8bit_value(uint8_t& dest, uint8_t value)
 	dest = value;
 	add_m_cycles(2);
 	add_t_cycles(8);
-	PC+=2;
+	PC += 2;
 }
 
 void GameBoy::ld_16bit_value(uint8_t& dest_a, uint8_t& dest_b, uint16_t value)
 {
-	dest_a = value & 0xFF00 >> 8;
+	dest_a = (value & 0xFF00) >> 8;
 	dest_b = value & 0x00FF;
 	add_m_cycles(3);
 	add_t_cycles(12);
@@ -159,7 +161,7 @@ void GameBoy::ld_8bit_value_from_ram(uint8_t& dest, uint16_t source)
 	dest = getBus(source);
 	add_m_cycles(2);
 	add_t_cycles(8);
-	PC += 2;
+	PC++;
 }
 
 void GameBoy::add_a_u8()
@@ -167,25 +169,25 @@ void GameBoy::add_a_u8()
 	PC++;
 	uint8_t value = getBus(PC);
 	Carry = (((uint16_t)A) + value) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
 	A += value;
 	add_m_cycles(2);
 	add_t_cycles(8);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(A);
+	HalfCarry = (value & 0x0F) == 0x00;
 }
 
 void GameBoy::add_a_reg(uint8_t reg)
 {
 	Carry = (((uint16_t)A) + reg) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
 	A += reg;
 	add_m_cycles(1);
 	add_t_cycles(4);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(A);
+	HalfCarry = (reg & 0x0F) == 0x00;
 }
 
 void GameBoy::sub_a_u8()
@@ -193,26 +195,26 @@ void GameBoy::sub_a_u8()
 	PC++;
 	uint8_t value = getBus(PC) * -1;
 	Carry = (((uint16_t)A) + value) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
 	A += value;
 	add_m_cycles(2);
 	add_t_cycles(8);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(A);
+	HalfCarry = (value & 0x0F) == 0x0F;
 }
 
 void GameBoy::sub_a_reg(uint8_t reg)
 {
 	uint8_t value = reg * -1;
 	Carry = (((uint16_t)A) + value) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
 	A += value;
 	add_m_cycles(1);
 	add_t_cycles(4);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(A);
+	HalfCarry = (value & 0x0F) == 0x0F;
 }
 
 void GameBoy::and_a_reg(uint8_t reg)
@@ -250,7 +252,7 @@ void GameBoy::cp_a_reg(uint8_t reg)
 {
 	uint8_t res = A - reg;
 	Carry = (A + reg) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
+	HalfCarry = (res & 0x0F) == 0x00;
 	ZeroFlag = !res;
 	add_m_cycles(1);
 	add_t_cycles(4);
@@ -263,7 +265,7 @@ void GameBoy::cp_a_u8()
 	uint8_t reg = getBus(PC);
 	uint8_t res = A - reg;
 	Carry = (A + reg) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
+	HalfCarry = (res & 0x0F) == 0x00;
 	ZeroFlag = !res;
 	add_m_cycles(2);
 	add_t_cycles(8);
@@ -275,7 +277,7 @@ void GameBoy::cp_a_hl()
 	uint8_t reg = getBus(getHL());
 	uint8_t res = A - reg;
 	Carry = (A + reg) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (reg & 0xF)) & 0x10) == 0x10;
+	HalfCarry = (res & 0x0F) == 0x00;
 	ZeroFlag = !res;
 	add_m_cycles(2);
 	add_t_cycles(8);
@@ -284,41 +286,44 @@ void GameBoy::cp_a_hl()
 
 void GameBoy::adc_a_reg(uint8_t reg)
 {
-	Carry = (((uint16_t)A) + reg + Carry) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (reg + Carry & 0xF)) & 0x10) == 0x10;
+	uint16_t original_val = A;
 	A += reg + Carry;
 	add_m_cycles(1);
 	add_t_cycles(4);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(A);
+	HalfCarry = (((original_val & 0xF) + (1 & 0xF) + (Carry & 0xF)) & 0x10) == 0x10;
+	Carry = (original_val + reg + Carry) >> 8 > 0;
 }
 
 void GameBoy::adc_a_u8()
 {
+	uint16_t original_val = A;
 	PC++;
 	uint8_t value = getBus(PC) + Carry;
-	Carry = (((uint16_t)A) + value) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
 	A += value;
 	add_m_cycles(2);
 	add_t_cycles(8);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(A);
+	HalfCarry = (((original_val & 0xF) + (1 & 0xF) + (Carry & 0xF)) & 0x10) == 0x10;
+	Carry = (original_val + value) >> 8 > 0;
 }
 
 void GameBoy::adc_a_hl()
 {
-	uint8_t value = getBus(getHL())+ Carry;
-	Carry = (((uint16_t)A) + value) >> 8 != 0;
-	HalfCarry = (((A & 0xF) + (value & 0xF)) & 0x10) == 0x10;
+	uint16_t original_val = A;
+	uint8_t value = getBus(getHL()) + Carry;
 	A += value;
 	add_m_cycles(2);
 	add_t_cycles(8);
 	PC++;
 	NegativeFlag = 0;
 	ZeroFlag = !(A);
+	HalfCarry = (((original_val & 0xF) + (1 & 0xF) + (Carry & 0xF)) & 0x10) == 0x10;
+	Carry = (original_val + value) >> 8 > 0;
 }
 
 void GameBoy::pop_stack(uint8_t& reg_a, uint8_t& reg_b)
