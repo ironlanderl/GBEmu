@@ -56,64 +56,11 @@ void GameBoy::writeBusUnrestricted(uint8_t value, uint16_t address)
 	}
 }
 
-uint8_t GameBoy::getBusUnrestriced(uint16_t address)
-{
-	// TESTING ONLY
-	if (isInsideInterval(address, 0x0000, 0x3FFF))
-	{
-		return ROM[address];
-	}
-	else if (isInsideInterval(address, 0x4000, 0x7FFF))
-	{
-		return ROM[address - 0x4000];
-	}
-	else if (isInsideInterval(address, 0x8000, 0x9FFF))
-	{
-		return VRAM[address - 0x8000]; // TODO
-	}
-	else if (isInsideInterval(address, 0xA000, 0xBFFF))
-	{
-		return WRAM0[address - 0xA000];
-	}
-	else if (isInsideInterval(address, 0xC000, 0xDFFF))
-	{
-		return WRAM1[address - 0xC000];
-	}
-	else if (isInsideInterval(address, 0xE000, 0xFDFF))
-	{
-		return WRAM0[address - 0xE000]; // ECHO RAM
-	}
-	else if (isInsideInterval(address, 0xFE00, 0xFE9F))
-	{
-		return OAM[address - 0xFE00];
-	}
-	else if (isInsideInterval(address, 0xFEA0, 0xFEFF))
-	{
-		return PROHIBITED[address - 0xFEA0];
-	}
-	else if (isInsideInterval(address, 0xFF00, 0xFF7F))
-	{
-		// TODO - HANDLE INPUT
-		return HRAM[address - 0xFF00];
-	}
-	else if (isInsideInterval(address, 0xFF80, 0xFFFE))
-	{
-		return HRAM[address - 0xFF80];
-	}
-	else if (address == 0xFFFF)
-	{
-		return IE;
-	}
-	else
-	{
-		std::printf("Tried accessing invalid address: %04X", address);
-		status = PAUSED;
-	}
-}
-
-
 void GameBoy::writeBus(uint8_t value, uint16_t address)
 {
+	// TODO: ABSOLUTELY REPLACE
+	writeBusUnrestricted(value, address);
+	return;
 	if (isInsideInterval(address, 0x0000, 0x7FFF))
 	{
 		ROM[address] = value; // Should probably disable at some point
@@ -150,7 +97,7 @@ uint8_t GameBoy::getBus(uint16_t address)
 	}
 	else if (isInsideInterval(address, 0x8000, 0x9FFF))
 	{
-		return VRAM[address - 0x8000]; // TODO
+		return VRAM[address - 0x8000];
 	}
 	else if (isInsideInterval(address, 0xA000, 0xBFFF))
 	{
@@ -211,8 +158,8 @@ void GameBoy::loadRom(char cart[], std::streamsize fileSize)
 
 void GameBoy::PUSH_STACK_8BIT(uint8_t value)
 {
-	writeBusUnrestricted(value, SP); // TODO: USE RESTRICTED
 	SP--;
+	writeBus(value, SP); // TODO: USE RESTRICTED
 }
 
 void GameBoy::PUSH_STACK_16BIT(uint16_t value)
@@ -232,7 +179,7 @@ uint16_t GameBoy::POP_STACK_16BIT()
 {
 	uint16_t value;
 	value = POP_STACK_8BIT();
-	value += POP_STACK_8BIT() << 8;
+	value |= POP_STACK_8BIT() << 8;
 	return value;
 }
 
@@ -689,16 +636,16 @@ void GameBoy::advanceStep()
 		PC++;
 		break;
 	case 0xF5: // PUSH AF
-		writeBus(A, SP);
 		SP--;
+		writeBus(A, SP);
 		uint8_t value_f_write;
 		value_f_write = 0;
-		value_f_write = (value_f_write | ZeroFlag) << 7;
-		value_f_write = (value_f_write | NegativeFlag) << 6;
-		value_f_write = (value_f_write | HalfCarry) << 5;
-		value_f_write = (value_f_write | Carry) << 4;
-		writeBus(value_f_write, SP);
+		value_f_write = value_f_write | (ZeroFlag << 7);
+		value_f_write = value_f_write | (NegativeFlag << 6);
+		value_f_write = value_f_write | (HalfCarry << 5);
+		value_f_write = value_f_write | (Carry << 4);
 		SP--;
+		writeBus(value_f_write, SP);
 		add_m_cycles(3);
 		add_t_cycles(12);
 		PC++;
@@ -785,7 +732,7 @@ void GameBoy::advanceStep()
 		adc_a_reg(A);
 		break;
 	case 0xCE:
-		adc_a_hl();
+		adc_a_u8();
 		break;
 	// Area JR/JP
 	case 0x20: // JR NZ
@@ -831,7 +778,7 @@ void GameBoy::advanceStep()
 	case 0xC8:
 		ret(!ZeroFlag);
 		break;
-	case 0xE8:
+	case 0xD8:
 		ret(!Carry);
 		break;
 	case 0xC9:
@@ -854,15 +801,18 @@ void GameBoy::advanceStep()
 		PC += 1;
 		break;
 	case 0xAF: // XOR A?
-		A = A ^ A;
-		NegativeFlag = !A;
+		A ^= A;
+		ZeroFlag = !A;
+		NegativeFlag = 0;
+		Carry = 0;
+		HalfCarry = 0;
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC++;
 		break;
 		// MISC / UNGENERAL ENOUGH
 	case 0x2F:
-		A = !A;
+		A = ~A;
 		NegativeFlag = 1;
 		HalfCarry = 1;
 		add_m_cycles(1);
@@ -885,11 +835,8 @@ void GameBoy::advanceStep()
 		PC++;
 		break;
 	case 0xFA: // LD A, (u16)
-		PC++;
-		A = getBus(PC);
-		PC++;
-		A += getBus(PC) << 8;
-		PC++;
+		A = getBus(get_next_two_bytes(PC));
+		PC+=3;
 		add_m_cycles(4);
 		add_t_cycles(16);
 		break;
