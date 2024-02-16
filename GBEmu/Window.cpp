@@ -87,11 +87,11 @@ void openWindow()
 		{
 			// TODO: POTER CAMBIARE IL NUMERO DI CICLI EFFETTUATI
 			for (int i = 0; i < 100; i++) {
-				gb.advanceStep();
+				gb.execute_step();
 				// Debugging: Print serial to console
-				if (gb.getBus(0xFF01) != 0x00)
+				if (gb.getBus(0xFF02) == 0b10000001)
 				{
-					fmt::println("%c", gb.getBus(0xFF01));
+					printf("%c", gb.getBus(0xFF01));
 					// Reset SC
 					gb.writeBus(0x01, 0xFF02);
 				}
@@ -187,7 +187,7 @@ void drawCPUInfo()
 		{
 			if (ImGui::Button("Next Step"))
 			{
-				gb.advanceStep();
+				gb.execute_step();
 			}
 			ImGui::SameLine();
 			if (ImGui::Button("Resume"))

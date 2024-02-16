@@ -199,7 +199,7 @@ TEST(GameBoyTest, Instruction00) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -237,7 +237,7 @@ TEST(GameBoyTest, Instruction01) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -275,7 +275,7 @@ TEST(GameBoyTest, Instruction02) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -313,7 +313,7 @@ TEST(GameBoyTest, Instruction03) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -351,7 +351,7 @@ TEST(GameBoyTest, Instruction04) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -389,7 +389,7 @@ TEST(GameBoyTest, Instruction05) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -427,7 +427,7 @@ TEST(GameBoyTest, Instruction06) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -465,7 +465,7 @@ TEST(GameBoyTest, Instruction07) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -503,7 +503,7 @@ TEST(GameBoyTest, Instruction08) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -541,45 +541,7 @@ TEST(GameBoyTest, Instruction09) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction0A) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0A.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -617,7 +579,7 @@ TEST(GameBoyTest, Instruction0B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -655,7 +617,7 @@ TEST(GameBoyTest, Instruction0C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -693,7 +655,7 @@ TEST(GameBoyTest, Instruction0D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -731,45 +693,7 @@ TEST(GameBoyTest, Instruction0E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction0F) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0F.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -807,7 +731,7 @@ TEST(GameBoyTest, Instruction10) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -845,7 +769,7 @@ TEST(GameBoyTest, Instruction11) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -883,7 +807,7 @@ TEST(GameBoyTest, Instruction12) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -921,7 +845,7 @@ TEST(GameBoyTest, Instruction13) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -959,7 +883,7 @@ TEST(GameBoyTest, Instruction14) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -997,7 +921,7 @@ TEST(GameBoyTest, Instruction15) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1035,45 +959,7 @@ TEST(GameBoyTest, Instruction16) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction17) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\17.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1111,7 +997,7 @@ TEST(GameBoyTest, Instruction18) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1149,45 +1035,7 @@ TEST(GameBoyTest, Instruction19) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction1A) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1A.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1225,7 +1073,7 @@ TEST(GameBoyTest, Instruction1B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1263,7 +1111,7 @@ TEST(GameBoyTest, Instruction1C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1301,7 +1149,7 @@ TEST(GameBoyTest, Instruction1D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1339,45 +1187,7 @@ TEST(GameBoyTest, Instruction1E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction1F) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1F.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1415,7 +1225,7 @@ TEST(GameBoyTest, Instruction20) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1453,7 +1263,7 @@ TEST(GameBoyTest, Instruction21) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1491,7 +1301,7 @@ TEST(GameBoyTest, Instruction22) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1529,7 +1339,7 @@ TEST(GameBoyTest, Instruction23) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1567,7 +1377,7 @@ TEST(GameBoyTest, Instruction24) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1605,7 +1415,7 @@ TEST(GameBoyTest, Instruction25) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1643,45 +1453,7 @@ TEST(GameBoyTest, Instruction26) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction27) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\27.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1719,7 +1491,7 @@ TEST(GameBoyTest, Instruction28) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1757,45 +1529,7 @@ TEST(GameBoyTest, Instruction29) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction2A) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\2A.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1833,7 +1567,7 @@ TEST(GameBoyTest, Instruction2B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1871,7 +1605,7 @@ TEST(GameBoyTest, Instruction2C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1909,7 +1643,7 @@ TEST(GameBoyTest, Instruction2D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1947,7 +1681,7 @@ TEST(GameBoyTest, Instruction2E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -1985,7 +1719,7 @@ TEST(GameBoyTest, Instruction2F) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2023,7 +1757,7 @@ TEST(GameBoyTest, Instruction30) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2061,7 +1795,7 @@ TEST(GameBoyTest, Instruction31) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2099,7 +1833,7 @@ TEST(GameBoyTest, Instruction32) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2137,7 +1871,7 @@ TEST(GameBoyTest, Instruction33) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2175,7 +1909,7 @@ TEST(GameBoyTest, Instruction34) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2213,83 +1947,7 @@ TEST(GameBoyTest, Instruction35) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction36) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\36.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction37) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\37.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2327,7 +1985,7 @@ TEST(GameBoyTest, Instruction38) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2365,45 +2023,7 @@ TEST(GameBoyTest, Instruction39) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction3A) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3A.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2441,7 +2061,7 @@ TEST(GameBoyTest, Instruction3B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2479,7 +2099,7 @@ TEST(GameBoyTest, Instruction3C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2517,7 +2137,7 @@ TEST(GameBoyTest, Instruction3D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2555,45 +2175,7 @@ TEST(GameBoyTest, Instruction3E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction3F) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3F.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2631,7 +2213,7 @@ TEST(GameBoyTest, Instruction40) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2669,7 +2251,7 @@ TEST(GameBoyTest, Instruction41) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2707,7 +2289,7 @@ TEST(GameBoyTest, Instruction42) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2745,7 +2327,7 @@ TEST(GameBoyTest, Instruction43) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2783,7 +2365,7 @@ TEST(GameBoyTest, Instruction44) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2821,45 +2403,7 @@ TEST(GameBoyTest, Instruction45) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction46) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\46.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2897,7 +2441,7 @@ TEST(GameBoyTest, Instruction47) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2935,7 +2479,7 @@ TEST(GameBoyTest, Instruction48) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -2973,7 +2517,7 @@ TEST(GameBoyTest, Instruction49) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3011,7 +2555,7 @@ TEST(GameBoyTest, Instruction4A) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3049,7 +2593,7 @@ TEST(GameBoyTest, Instruction4B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3087,7 +2631,7 @@ TEST(GameBoyTest, Instruction4C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3125,7 +2669,7 @@ TEST(GameBoyTest, Instruction4D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3163,7 +2707,7 @@ TEST(GameBoyTest, Instruction4E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3201,7 +2745,7 @@ TEST(GameBoyTest, Instruction4F) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3239,7 +2783,7 @@ TEST(GameBoyTest, Instruction50) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3277,7 +2821,7 @@ TEST(GameBoyTest, Instruction51) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3315,7 +2859,7 @@ TEST(GameBoyTest, Instruction52) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3353,7 +2897,7 @@ TEST(GameBoyTest, Instruction53) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3391,7 +2935,7 @@ TEST(GameBoyTest, Instruction54) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3429,45 +2973,7 @@ TEST(GameBoyTest, Instruction55) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction56) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\56.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3505,7 +3011,7 @@ TEST(GameBoyTest, Instruction57) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3543,7 +3049,7 @@ TEST(GameBoyTest, Instruction58) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3581,7 +3087,7 @@ TEST(GameBoyTest, Instruction59) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3619,7 +3125,7 @@ TEST(GameBoyTest, Instruction5A) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3657,7 +3163,7 @@ TEST(GameBoyTest, Instruction5B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3695,7 +3201,7 @@ TEST(GameBoyTest, Instruction5C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3733,7 +3239,7 @@ TEST(GameBoyTest, Instruction5D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3771,7 +3277,7 @@ TEST(GameBoyTest, Instruction5E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3809,7 +3315,7 @@ TEST(GameBoyTest, Instruction5F) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3847,7 +3353,7 @@ TEST(GameBoyTest, Instruction60) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3885,7 +3391,7 @@ TEST(GameBoyTest, Instruction61) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3923,7 +3429,7 @@ TEST(GameBoyTest, Instruction62) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3961,7 +3467,7 @@ TEST(GameBoyTest, Instruction63) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -3999,7 +3505,7 @@ TEST(GameBoyTest, Instruction64) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4037,45 +3543,7 @@ TEST(GameBoyTest, Instruction65) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction66) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\66.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4113,7 +3581,7 @@ TEST(GameBoyTest, Instruction67) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4151,7 +3619,7 @@ TEST(GameBoyTest, Instruction68) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4189,7 +3657,7 @@ TEST(GameBoyTest, Instruction69) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4227,7 +3695,7 @@ TEST(GameBoyTest, Instruction6A) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4265,7 +3733,7 @@ TEST(GameBoyTest, Instruction6B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4303,7 +3771,7 @@ TEST(GameBoyTest, Instruction6C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4341,7 +3809,7 @@ TEST(GameBoyTest, Instruction6D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4379,7 +3847,7 @@ TEST(GameBoyTest, Instruction6E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4417,7 +3885,7 @@ TEST(GameBoyTest, Instruction6F) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4455,7 +3923,7 @@ TEST(GameBoyTest, Instruction70) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4493,7 +3961,7 @@ TEST(GameBoyTest, Instruction71) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4531,7 +3999,7 @@ TEST(GameBoyTest, Instruction72) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4569,7 +4037,7 @@ TEST(GameBoyTest, Instruction73) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4607,7 +4075,7 @@ TEST(GameBoyTest, Instruction74) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4645,45 +4113,7 @@ TEST(GameBoyTest, Instruction75) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction76) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\76.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4721,7 +4151,7 @@ TEST(GameBoyTest, Instruction77) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4759,7 +4189,7 @@ TEST(GameBoyTest, Instruction78) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4797,7 +4227,7 @@ TEST(GameBoyTest, Instruction79) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4835,7 +4265,7 @@ TEST(GameBoyTest, Instruction7A) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4873,7 +4303,7 @@ TEST(GameBoyTest, Instruction7B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4911,7 +4341,7 @@ TEST(GameBoyTest, Instruction7C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4949,7 +4379,7 @@ TEST(GameBoyTest, Instruction7D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -4987,7 +4417,7 @@ TEST(GameBoyTest, Instruction7E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5025,7 +4455,7 @@ TEST(GameBoyTest, Instruction7F) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5063,7 +4493,7 @@ TEST(GameBoyTest, Instruction80) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5101,7 +4531,7 @@ TEST(GameBoyTest, Instruction81) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5139,7 +4569,7 @@ TEST(GameBoyTest, Instruction82) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5177,7 +4607,7 @@ TEST(GameBoyTest, Instruction83) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5215,7 +4645,7 @@ TEST(GameBoyTest, Instruction84) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5253,45 +4683,7 @@ TEST(GameBoyTest, Instruction85) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction86) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\86.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5329,7 +4721,7 @@ TEST(GameBoyTest, Instruction87) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5367,7 +4759,7 @@ TEST(GameBoyTest, Instruction88) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5405,7 +4797,7 @@ TEST(GameBoyTest, Instruction89) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5443,7 +4835,7 @@ TEST(GameBoyTest, Instruction8A) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5481,7 +4873,7 @@ TEST(GameBoyTest, Instruction8B) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5519,7 +4911,7 @@ TEST(GameBoyTest, Instruction8C) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5557,7 +4949,7 @@ TEST(GameBoyTest, Instruction8D) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5595,7 +4987,7 @@ TEST(GameBoyTest, Instruction8E) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5633,7 +5025,7 @@ TEST(GameBoyTest, Instruction8F) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5671,7 +5063,7 @@ TEST(GameBoyTest, Instruction90) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5709,7 +5101,7 @@ TEST(GameBoyTest, Instruction91) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5747,7 +5139,7 @@ TEST(GameBoyTest, Instruction92) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5785,7 +5177,7 @@ TEST(GameBoyTest, Instruction93) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5823,7 +5215,7 @@ TEST(GameBoyTest, Instruction94) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5861,45 +5253,7 @@ TEST(GameBoyTest, Instruction95) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction96) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\96.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -5937,311 +5291,7 @@ TEST(GameBoyTest, Instruction97) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction98) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\98.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction99) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\99.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction9A) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9A.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction9B) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9B.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction9C) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9C.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction9D) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9D.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction9E) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9E.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instruction9F) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9F.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6279,7 +5329,7 @@ TEST(GameBoyTest, InstructionA0) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6317,7 +5367,7 @@ TEST(GameBoyTest, InstructionA1) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6355,7 +5405,7 @@ TEST(GameBoyTest, InstructionA2) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6393,7 +5443,7 @@ TEST(GameBoyTest, InstructionA3) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6431,7 +5481,7 @@ TEST(GameBoyTest, InstructionA4) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6469,7 +5519,7 @@ TEST(GameBoyTest, InstructionA5) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6507,7 +5557,7 @@ TEST(GameBoyTest, InstructionA6) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6545,273 +5595,7 @@ TEST(GameBoyTest, InstructionA7) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionA8) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A8.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionA9) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A9.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionAA) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AA.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionAB) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AB.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionAC) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AC.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionAD) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AD.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionAE) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AE.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -6849,311 +5633,7 @@ TEST(GameBoyTest, InstructionAF) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB0) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B0.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB1) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B1.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB2) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B2.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB3) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B3.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB4) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B4.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB5) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B5.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB6) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B6.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionB7) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B7.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7191,7 +5671,7 @@ TEST(GameBoyTest, InstructionB8) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7229,7 +5709,7 @@ TEST(GameBoyTest, InstructionB9) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7267,7 +5747,7 @@ TEST(GameBoyTest, InstructionBA) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7305,7 +5785,7 @@ TEST(GameBoyTest, InstructionBB) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7343,7 +5823,7 @@ TEST(GameBoyTest, InstructionBC) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7381,7 +5861,7 @@ TEST(GameBoyTest, InstructionBD) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7419,7 +5899,7 @@ TEST(GameBoyTest, InstructionBE) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7457,7 +5937,7 @@ TEST(GameBoyTest, InstructionBF) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7495,7 +5975,7 @@ TEST(GameBoyTest, InstructionC0) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7533,7 +6013,7 @@ TEST(GameBoyTest, InstructionC1) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7571,7 +6051,7 @@ TEST(GameBoyTest, InstructionC2) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7609,45 +6089,7 @@ TEST(GameBoyTest, InstructionC3) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionC4) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C4.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7685,7 +6127,7 @@ TEST(GameBoyTest, InstructionC5) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7723,7 +6165,7 @@ TEST(GameBoyTest, InstructionC6) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7761,7 +6203,7 @@ TEST(GameBoyTest, InstructionC7) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7799,7 +6241,7 @@ TEST(GameBoyTest, InstructionC8) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7837,7 +6279,7 @@ TEST(GameBoyTest, InstructionC9) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7875,83 +6317,7 @@ TEST(GameBoyTest, InstructionCA) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionCB) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionCC) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CC.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -7989,7 +6355,7 @@ TEST(GameBoyTest, InstructionCD) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8027,7 +6393,7 @@ TEST(GameBoyTest, InstructionCE) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8065,7 +6431,7 @@ TEST(GameBoyTest, InstructionCF) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8103,7 +6469,7 @@ TEST(GameBoyTest, InstructionD0) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8141,7 +6507,7 @@ TEST(GameBoyTest, InstructionD1) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8179,45 +6545,7 @@ TEST(GameBoyTest, InstructionD2) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionD4) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D4.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8255,7 +6583,7 @@ TEST(GameBoyTest, InstructionD5) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8293,7 +6621,7 @@ TEST(GameBoyTest, InstructionD6) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8331,7 +6659,7 @@ TEST(GameBoyTest, InstructionD7) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8369,7 +6697,7 @@ TEST(GameBoyTest, InstructionD8) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8407,7 +6735,7 @@ TEST(GameBoyTest, InstructionD9) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8445,83 +6773,7 @@ TEST(GameBoyTest, InstructionDA) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionDC) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\DC.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionDE) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\DE.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8559,7 +6811,7 @@ TEST(GameBoyTest, InstructionDF) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8597,7 +6849,7 @@ TEST(GameBoyTest, InstructionE0) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8635,45 +6887,7 @@ TEST(GameBoyTest, InstructionE1) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionE2) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E2.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8711,7 +6925,7 @@ TEST(GameBoyTest, InstructionE5) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8749,7 +6963,7 @@ TEST(GameBoyTest, InstructionE6) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8787,45 +7001,7 @@ TEST(GameBoyTest, InstructionE7) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionE8) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E8.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8863,7 +7039,7 @@ TEST(GameBoyTest, InstructionE9) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8901,45 +7077,7 @@ TEST(GameBoyTest, InstructionEA) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionEE) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\EE.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -8977,7 +7115,7 @@ TEST(GameBoyTest, InstructionEF) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9015,7 +7153,7 @@ TEST(GameBoyTest, InstructionF0) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9053,45 +7191,7 @@ TEST(GameBoyTest, InstructionF1) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionF2) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F2.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9129,7 +7229,7 @@ TEST(GameBoyTest, InstructionF3) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9167,45 +7267,7 @@ TEST(GameBoyTest, InstructionF5) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionF6) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F6.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9243,45 +7305,7 @@ TEST(GameBoyTest, InstructionF7) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > max){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, InstructionF8) {
-    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F8.json");
-    GameBoy gb;
-
-	const int max = 200;
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9319,7 +7343,7 @@ TEST(GameBoyTest, InstructionF9) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9357,7 +7381,7 @@ TEST(GameBoyTest, InstructionFA) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9395,7 +7419,7 @@ TEST(GameBoyTest, InstructionFB) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9433,7 +7457,7 @@ TEST(GameBoyTest, InstructionFE) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         
@@ -9471,7 +7495,7 @@ TEST(GameBoyTest, InstructionFF) {
             shouldSkip = false;
         }
         else {
-            gb.run_tick();
+            gb.advanceStep();
             isItOk = checkFinalState(gb, test);
         }
         

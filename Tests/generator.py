@@ -1,6 +1,16 @@
 import os
 import re
 
+ALL_NON_CB_OPCODES = [hex(i)[2:].zfill(2) for i in range(0xFF) if i not in [0xCB, 0xD3, 0xDB, 0xDD, 0xE3, 0xE4, 0xEB, 0xEC, 0xED, 0xF4, 0xFC, 0xFD]]
+ALL_CB_OPCODES = [i for i in range(0xFF)]
+
+for i in range(len(ALL_NON_CB_OPCODES)):
+	ALL_NON_CB_OPCODES[i] = ALL_NON_CB_OPCODES[i].upper()
+
+implemented_opcodes_non_cb = []
+implemented_opcodes_cb = []
+    
+
 # Define the header and source file content template
 header_content = """#include "pch.h"
 #include "../GBEmu/GameBoy.h"
@@ -153,6 +163,7 @@ bool checkFinalState(GameBoy& gameboy, const json& testData) {
 		uint16_t address = std::strtoul(testData["final"]["ram"][i][0].get<std::string>().c_str(), nullptr, 16);
 		uint8_t value_actual = gameboy.getBus(address);
 		if (value_actual != value_expected) {
+            std::printf("Valore in posizione %04X. Atteso: %02X, Attuale: %02X\\n", address, value_expected, value_actual);
 			return false;
 		}
 	}
@@ -185,7 +196,7 @@ test_case_template = """TEST(GameBoyTest, Instruction{0}) {{
     json data = loadTestData("C:\\\\Users\\\\fabri\\\\source\\\\GBEmu\\\\test_data\\\\{1}.json");
     GameBoy gb;
 
-	const int max = 50;
+	const int max = 200;
 	int count = 0;
 
     for (const auto& test : data) {{
@@ -203,7 +214,7 @@ test_case_template = """TEST(GameBoyTest, Instruction{0}) {{
             shouldSkip = false;
         }}
         else {{
-            gb.advanceStep();
+            gb.run_tick();
             isItOk = checkFinalState(gb, test);
         }}
         
@@ -229,21 +240,28 @@ def extract_opcodes_from_files(files):
             opcodes |= set(re.findall(r'case 0x([0-9A-F]{2}):', content))
     return opcodes
 
-# Provide the path to the directory containing source files
-source_files_path = "path/to/source/files"
-
 # Get all C++ source files in the directory
 source_files = ["C:/Users/fabri/source/GBEmu/GBEmu/GameBoy.cpp"]
 
 # Extract opcodes from source files
-implemented_opcodes = extract_opcodes_from_files(source_files)
+implemented_opcodes_non_cb = extract_opcodes_from_files(source_files)
+
+#sort opcodes by hex value
+implemented_opcodes_non_cb = sorted(implemented_opcodes_non_cb, key=lambda x: int(x, 16))
 
 # Create the header file
-with open("generated_tests.cpp", "w") as file:
+with open("C:/Users/fabri/source/GBEmu/Tests/generated_tests.cpp", "w") as file:
     # Write header content
     file.write(header_content)
 
     # Write test case for each opcode
-    for opcode in implemented_opcodes:
+    for opcode in implemented_opcodes_non_cb:
         file.write("\n")
         file.write(test_case_template.format(opcode, opcode))
+
+
+# Print progress to console
+not_implemented_opcodes_non_cb = [opcode for opcode in ALL_NON_CB_OPCODES if opcode not in implemented_opcodes_non_cb]
+print(f"Opcodes implemented: {len(implemented_opcodes_non_cb)}/{len(ALL_NON_CB_OPCODES)}, {len(ALL_NON_CB_OPCODES) - len(implemented_opcodes_non_cb)} opcodes left to implement")
+print(f"CB Opcodes implemented: {len(implemented_opcodes_cb)}/{len(ALL_CB_OPCODES)}, {len(ALL_CB_OPCODES) - len(implemented_opcodes_cb)} opcodes left to implement")
+print("Non-CB Opcodes not implemented: ", not_implemented_opcodes_non_cb)

@@ -125,7 +125,7 @@ TEST(GameBoyTest, Instruction00) {
         loadTestDataToGameBoy(gb, test);
 
         // Run instruction
-        gb.advanceStep();
+        gb.execute_step();
 
         // Start check
         bool isItOk = checkFinalState(gb, test);
@@ -147,7 +147,7 @@ TEST(GameBoyTest, Instruction01) {
         loadTestDataToGameBoy(gb, test);
 
         // Run instruction
-        gb.advanceStep();
+        gb.execute_step();
 
         // Start check
         bool isItOk = checkFinalState(gb, test);

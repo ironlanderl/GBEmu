@@ -74,7 +74,7 @@ void GameBoy::writeBus(uint8_t value, uint16_t address)
 	{
 		WRAM1[address - 0xC000] = value;
 	}
-	else if(isInsideInterval(address, 0xFF00, 0xFFFE))
+	else if (isInsideInterval(address, 0xFF00, 0xFFFE))
 	{
 		HRAM[address - 0xFF00] = value;
 	}
@@ -245,7 +245,37 @@ void GameBoy::add_t_cycles(uint8_t cycles_to_add)
 	t_cycles += cycles_to_add;
 }
 
-void GameBoy::advanceStep()
+void GameBoy::handle_interrupts()
+{
+	// TODO: COMPLETE. For now disable interrupts immediately
+	halted = false;
+	if (IME)
+	{
+		// Controllo gli interrupts che bisogna eseguire
+		uint8_t interrupts_to_run = getIF() & getIE();
+
+		// Se non ce ne sono ritorno
+		if (!interrupts_to_run) return;
+
+		halted = false;
+		PUSH_STACK_16BIT(PC);
+
+
+
+
+	}
+}
+
+void GameBoy::run_tick()
+{
+	handle_interrupts();
+
+	if (halted) return;
+
+	execute_step();
+}
+
+void GameBoy::execute_step()
 {
 	switch (getBus(PC))
 	{
@@ -520,7 +550,10 @@ void GameBoy::advanceStep()
 	case 0xF0:
 		ld_wram_offset_to_a();
 		break;
-	// Vector Jump
+	case 0xF8:
+		ld_hl_sp_i8();
+		break;
+		// Vector Jump
 	case 0xC7:
 		rst_vector(0x00);
 		break;
@@ -545,7 +578,7 @@ void GameBoy::advanceStep()
 	case 0xFF:
 		rst_vector(0x38);
 		break;
-	// Area LD reg, (mem)
+		// Area LD reg, (mem)
 	case 0x4E:
 		ld_8bit_value_from_ram(C, (H << 8) | L);
 		break;
@@ -557,6 +590,78 @@ void GameBoy::advanceStep()
 		break;
 	case 0x7E:
 		ld_8bit_value_from_ram(A, (H << 8) | L);
+		break;
+	case 0x46:
+		ld_8bit_value_from_ram(B, (H << 8) | L);
+		break;
+	case 0x56:
+		ld_8bit_value_from_ram(D, (H << 8) | L);
+		break;
+	case 0x66:
+		ld_8bit_value_from_ram(H, (H << 8) | L);
+		break;
+	case 0x0A:
+		ld_8bit_value_from_ram(A, fuse_two_bytes(B,C));
+		break;
+	case 0x1A:
+		ld_8bit_value_from_ram(A, fuse_two_bytes(D,E));
+		break;
+	case 0x2A:
+		ld_8bit_value_from_ram(A, fuse_two_bytes(H,L));
+		increment_16bit_register(H, L);
+		break;
+	case 0x3A:
+		ld_8bit_value_from_ram(A, fuse_two_bytes(H,L));
+		decrement_16bit_register(H, L);
+		break;
+		// Area LD (mem), X
+	case 0x02:
+		ld_to_mem(B, C, A);
+		break;
+	case 0x12:
+		ld_to_mem(D, E, A);
+		break;
+	case 0x22:
+		ld_to_mem(H, L, A);
+		increment_16bit_register(H, L);
+		break;
+	case 0x32:
+		ld_to_mem(H, L, A);
+		decrement_16bit_register(H, L);
+		break;
+	case 0x70:
+		ld_to_mem(H,L, B);
+		break;
+	case 0x71:
+		ld_to_mem(H, L, C);
+		break;
+	case 0x72:
+		ld_to_mem(H, L, D);
+		break;
+	case 0x73:
+		ld_to_mem(H, L, E);
+		break;
+	case 0x74:
+		ld_to_mem(H, L, H);
+		break;
+	case 0x75:
+		ld_to_mem(H, L, L);
+		break;
+	case 0x77:
+		ld_to_mem(H, L, A);
+		break;
+	case 0x36:
+		ld_u8_to_mem();
+		break;
+	// LD ?
+	case 0x08:
+		ld_sp_to_u16();
+		break;
+	case 0xE2:
+		ld_hram_c_a();
+		break;
+	case 0xF2:
+		ld_a_hram_c();
 		break;
 	// Area ADD, reg
 	case 0x80:
@@ -580,7 +685,28 @@ void GameBoy::advanceStep()
 	case 0x87:
 		add_a_reg(A);
 		break;
-		// Area DEC, reg
+	case 0x09:
+		add_hl_16bit(B,C);
+		break;
+	case 0x19:
+		add_hl_16bit(D,E);
+		break;
+	case 0x29:
+		add_hl_16bit(H,L);
+		break;
+	case 0x39:
+		uint8_t s;
+		uint8_t p;
+		split_two_bytes(SP, s, p);
+		add_hl_16bit(s,p);
+		break;
+	case 0x86:
+		add_a_address();
+		break;
+	case 0xE8:
+		add_sp_i8();
+		break;
+		// Area Sub
 	case 0x90:
 		sub_a_reg(B);
 		break;
@@ -602,18 +728,21 @@ void GameBoy::advanceStep()
 	case 0x97:
 		sub_a_reg(A);
 		break;
-	// Area PUSH / POP
+	case 0x96:
+		sub_a_address();
+		break;
+		// Area PUSH / POP
 	case 0xC1:
 		pop_stack(B, C);
 		break;
 	case 0xD1:
-		pop_stack(D,E);
+		pop_stack(D, E);
 		break;
 	case 0xE1:
-		pop_stack(H,L);
+		pop_stack(H, L);
 		break;
 	case 0xC5:
-		push_stack(B,C);
+		push_stack(B, C);
 		break;
 	case 0xD5:
 		push_stack(D, E);
@@ -650,7 +779,7 @@ void GameBoy::advanceStep()
 		add_t_cycles(12);
 		PC++;
 		break;
-	// Area AND
+		// Area AND
 	case 0xA0:
 		and_a_reg(B);
 		break;
@@ -678,7 +807,63 @@ void GameBoy::advanceStep()
 	case 0xE6:
 		and_a_u8();
 		break;
-	// Area CP
+		// Area OR
+	case 0xB0:
+		or_a_reg(B);
+		break;
+	case 0xB1:
+		or_a_reg(C);
+		break;
+	case 0xB2:
+		or_a_reg(D);
+		break;
+	case 0xB3:
+		or_a_reg(E);
+		break;
+	case 0xB4:
+		or_a_reg(H);
+		break;
+	case 0xB5:
+		or_a_reg(L);
+		break;
+	case 0xB6:
+		or_a_hl();
+		break;
+	case 0xB7:
+		or_a_reg(A);
+		break;
+	case 0xF6:
+		or_a_u8();
+		break;
+		// Area XOR
+	case 0xA8:
+		xor_a_reg(B);
+		break;
+	case 0xA9:
+		xor_a_reg(C);
+		break;
+	case 0xAA:
+		xor_a_reg(D);
+		break;
+	case 0xAB:
+		xor_a_reg(E);
+		break;
+	case 0xAC:
+		xor_a_reg(H);
+		break;
+	case 0xAD:
+		xor_a_reg(L);
+		break;
+	case 0xAE:
+		xor_a_hl();
+		break;
+	case 0xAF:
+		xor_a_reg(A);
+		break;
+	case 0xEE:
+		xor_a_u8();
+		break;
+		// Area CP
 	case 0xB8:
 		cp_a_reg(B);
 		break;
@@ -706,7 +891,7 @@ void GameBoy::advanceStep()
 	case 0xFE:
 		cp_a_u8();
 		break;
-	// Area ADC
+		// Area ADC
 	case 0x88:
 		adc_a_reg(B);
 		break;
@@ -734,17 +919,45 @@ void GameBoy::advanceStep()
 	case 0xCE:
 		adc_a_u8();
 		break;
-	// Area JR/JP
+		// Area SBC
+	case 0x98:
+		sbc_a_reg(B);
+		break;
+	case 0x99:
+		sbc_a_reg(C);
+		break;
+	case 0x9A:
+		sbc_a_reg(D);
+		break;
+	case 0x9B:
+		sbc_a_reg(E);
+		break;
+	case 0x9C:
+		sbc_a_reg(H);
+		break;
+	case 0x9D:
+		sbc_a_reg(L);
+		break;
+	case 0x9E:
+		sbc_a_hl();
+		break;
+	case 0x9F:
+		sbc_a_reg(A);
+		break;
+	case 0xDE:
+		sbc_a_u8();
+		break;
+		// Area JR/JP
 	case 0x20: // JR NZ
 		jr(ZeroFlag);
 		break;
-	case 0x30: // JR NZ
+	case 0x30: // JR NC
 		jr(Carry);
 		break;
-	case 0x28: // JR NZ
+	case 0x28: // JR Z
 		jr(!ZeroFlag);
 		break;
-	case 0x38: // JR NZ
+	case 0x38: // JR C
 		jr(!Carry);
 		break;
 	case 0x18: // JR i8
@@ -768,7 +981,7 @@ void GameBoy::advanceStep()
 	case 0xE9: // JP HL
 		jp_hl();
 		break;
-	// Area ret
+		// Area ret
 	case 0xC0:
 		ret(ZeroFlag);
 		break;
@@ -787,30 +1000,64 @@ void GameBoy::advanceStep()
 	case 0xD9:
 		reti();
 		break;
+		// Area CALLs
+	case 0xC4:
+		call(!ZeroFlag);
+		break;
+	case 0xD4:
+		call(!Carry);
+		break;
+	case 0xCC:
+		call(ZeroFlag);
+		break;
+	case 0xDC:
+		call(Carry);
+		break;
+	case 0xCD:
+		call_u16();
+		break;
+		// Area rotates
+	case 0x07:
+		rlca();
+		break;
+	case 0x0F:
+		rrca();
+		break;
+	case 0x17:
+		rla();
+		break;
+	case 0x1F:
+		rra();
+		break;
 		// Continuo
 	case 0x10: // STOP
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC += 2;
 		break;
-	case 0x32: // LD [HL-], A
-		writeBusUnrestricted(A, getHL()); // TODO: Put IT Back To Restricted / Accurate
-		setHL(getHL() - 1);
-		add_m_cycles(2);
-		add_t_cycles(8);
-		PC += 1;
-		break;
-	case 0xAF: // XOR A?
-		A ^= A;
-		ZeroFlag = !A;
+		// MISC / UNGENERAL ENOUGH
+	case 0x37: // Set carry flag
+		Carry = 1;
 		NegativeFlag = 0;
-		Carry = 0;
+		HalfCarry = 0;
+		PC++;
+		add_m_cycles(1);
+		add_t_cycles(4);
+		break;
+	case 0x76:
+		halt();
+		break;
+	case 0x27:
+		daa();
+		break;
+	case 0x3F:
+		Carry = !Carry;
+		NegativeFlag = 0;
 		HalfCarry = 0;
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC++;
 		break;
-		// MISC / UNGENERAL ENOUGH
 	case 0x2F:
 		A = ~A;
 		NegativeFlag = 1;
@@ -818,9 +1065,6 @@ void GameBoy::advanceStep()
 		add_m_cycles(1);
 		add_t_cycles(4);
 		PC++;
-		break;
-	case 0xCD:
-		call_u16();
 		break;
 	case 0xF3: // Disable Interrupts
 		IME = false;
@@ -836,7 +1080,7 @@ void GameBoy::advanceStep()
 		break;
 	case 0xFA: // LD A, (u16)
 		A = getBus(get_next_two_bytes(PC));
-		PC+=3;
+		PC += 3;
 		add_m_cycles(4);
 		add_t_cycles(16);
 		break;
@@ -852,12 +1096,25 @@ void GameBoy::advanceStep()
 		add_t_cycles(8);
 		PC++;
 		break;
+	case 0xCB:
+		PC += 2; // TODO: IMPLEMENT THIS.
+		break;
 	default:
 		std::printf("Invalid opcode: %02X \n", getBus(PC));
 		status = PAUSED;
 		//exit(-1);
 		break;
 	}
+}
+
+uint8_t GameBoy::getIE()
+{
+	return getBus(0xFFFF);
+}
+
+uint8_t GameBoy::getIF()
+{
+	return getBus(0xFF0F);
 }
 
 bool GameBoy::isInsideInterval(uint16_t value, uint16_t bottom_bound, uint16_t upper_bound)
@@ -878,6 +1135,32 @@ uint8_t GameBoy::get_next_byte(uint16_t address)
 uint16_t GameBoy::fuse_two_bytes(uint8_t a, uint8_t b)
 {
 	return (a << 8) | b;
+}
+
+void GameBoy::split_two_bytes(uint16_t value, uint8_t& a, uint8_t& b)
+{
+	b = value & 0xff;
+	a = value >> 8;
+}
+
+void GameBoy::increment_16bit_register(uint8_t& reg_a, uint8_t& reg_b)
+{
+	uint16_t tmp;
+	tmp = reg_a << 8;
+	tmp |= reg_b;
+	tmp++;
+	reg_a = tmp >> 8;
+	reg_b = tmp & 0xFF;
+}
+
+void GameBoy::decrement_16bit_register(uint8_t& reg_a, uint8_t& reg_b)
+{
+	uint16_t tmp;
+	tmp = reg_a << 8;
+	tmp |= reg_b;
+	tmp--;
+	reg_a = tmp >> 8;
+	reg_b = tmp & 0xFF;
 }
 
 uint16_t GameBoy::getHL()
