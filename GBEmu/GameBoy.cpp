@@ -601,17 +601,17 @@ void GameBoy::execute_step()
 		ld_8bit_value_from_ram(H, (H << 8) | L);
 		break;
 	case 0x0A:
-		ld_8bit_value_from_ram(A, fuse_two_bytes(B,C));
+		ld_8bit_value_from_ram(A, fuse_two_bytes(B, C));
 		break;
 	case 0x1A:
-		ld_8bit_value_from_ram(A, fuse_two_bytes(D,E));
+		ld_8bit_value_from_ram(A, fuse_two_bytes(D, E));
 		break;
 	case 0x2A:
-		ld_8bit_value_from_ram(A, fuse_two_bytes(H,L));
+		ld_8bit_value_from_ram(A, fuse_two_bytes(H, L));
 		increment_16bit_register(H, L);
 		break;
 	case 0x3A:
-		ld_8bit_value_from_ram(A, fuse_two_bytes(H,L));
+		ld_8bit_value_from_ram(A, fuse_two_bytes(H, L));
 		decrement_16bit_register(H, L);
 		break;
 		// Area LD (mem), X
@@ -630,7 +630,7 @@ void GameBoy::execute_step()
 		decrement_16bit_register(H, L);
 		break;
 	case 0x70:
-		ld_to_mem(H,L, B);
+		ld_to_mem(H, L, B);
 		break;
 	case 0x71:
 		ld_to_mem(H, L, C);
@@ -653,7 +653,7 @@ void GameBoy::execute_step()
 	case 0x36:
 		ld_u8_to_mem();
 		break;
-	// LD ?
+		// LD ?
 	case 0x08:
 		ld_sp_to_u16();
 		break;
@@ -663,7 +663,7 @@ void GameBoy::execute_step()
 	case 0xF2:
 		ld_a_hram_c();
 		break;
-	// Area ADD, reg
+		// Area ADD, reg
 	case 0x80:
 		add_a_reg(B);
 		break;
@@ -686,19 +686,19 @@ void GameBoy::execute_step()
 		add_a_reg(A);
 		break;
 	case 0x09:
-		add_hl_16bit(B,C);
+		add_hl_16bit(B, C);
 		break;
 	case 0x19:
-		add_hl_16bit(D,E);
+		add_hl_16bit(D, E);
 		break;
 	case 0x29:
-		add_hl_16bit(H,L);
+		add_hl_16bit(H, L);
 		break;
 	case 0x39:
 		uint8_t s;
 		uint8_t p;
 		split_two_bytes(SP, s, p);
-		add_hl_16bit(s,p);
+		add_hl_16bit(s, p);
 		break;
 	case 0x86:
 		add_a_address();
@@ -1097,7 +1097,7 @@ void GameBoy::execute_step()
 		PC++;
 		break;
 	case 0xCB:
-		PC += 2; // TODO: IMPLEMENT THIS.
+		RunCBOpcode();
 		break;
 	default:
 		std::printf("Invalid opcode: %02X \n", getBus(PC));

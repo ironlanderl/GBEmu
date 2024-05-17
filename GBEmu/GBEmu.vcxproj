@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CBOPCodes.cpp" />
     <ClCompile Include="GameBoy.cpp" />
     <ClCompile Include="GBEmu.cpp" />
     <ClCompile Include="Opcodes.cpp" />

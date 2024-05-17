@@ -176,5 +176,7 @@ public:
 	void rst_vector(uint8_t vector);
 
 	//CB Opcodes
+	void UnimplementedOpcode();
+	void RunCBOpcode();
 };
 
