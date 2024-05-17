@@ -6,6 +6,7 @@ ALL_CB_OPCODES = [i for i in range(0xFF)]
 
 for i in range(len(ALL_NON_CB_OPCODES)):
 	ALL_NON_CB_OPCODES[i] = ALL_NON_CB_OPCODES[i].upper()
+ALL_CB_OPCODES = [opcode.upper() for opcode in ALL_CB_OPCODES]
 
 implemented_opcodes_non_cb = []
 implemented_opcodes_cb = []

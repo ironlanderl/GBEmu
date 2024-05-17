@@ -174,5 +174,7 @@ public:
 	void ret(bool condition);
 	void reti();
 	void rst_vector(uint8_t vector);
+
+	//CB Opcodes
 };
 
