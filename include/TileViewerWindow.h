@@ -5,7 +5,7 @@
 #include <fstream>
 #include <imgui.h>
 #include <iostream>
-#include <nfd.h>
+//#include <nfd.h>
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <map>

@@ -1,7 +1,4 @@
-#include <corecrt_io.h>
 #include <variant>
-#include <windows.h>
-
 #include "GameBoy.h"
 
 void GameBoy::opcode_nop()

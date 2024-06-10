@@ -5,9 +5,9 @@
 #include <fmt/core.h>
 #include "Window.h"
 #include "GameBoy.h"
-#include <boost/filesystem.hpp>
+//#include <boost/filesystem.hpp>
 
-namespace fs = boost::filesystem;
+//namespace fs = boost::filesystem;
 
 int main()
 {

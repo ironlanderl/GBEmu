@@ -1,8 +1,8 @@
 #include "GameBoy.h"
 
 #include <variant>
-#include <fmt/core.h>
-#include <nlohmann/json.hpp>
+// #include <fmt/core.h>
+// #include <nlohmann/json.hpp>
 
 void GameBoy::writeBusUnrestricted(uint8_t value, uint16_t address)
 {
@@ -204,11 +204,11 @@ void GameBoy::handleMapperWrites(uint8_t value, uint16_t address)
 		}
 		if (isInsideInterval(address, 0x6000, 0x7FFF)) // BANK MODE SELECTOR
 		{
-			fmt::println("Cart Tried to switch BANKING MODE");
+			std::printf("Cart Tried to switch BANKING MODE\n");
 		}
 		break;
 	default:
-		fmt::println("Unsupported mapper");
+		std:printf("Unsupported mapper\n");
 		break;
 	}
 }
@@ -230,7 +230,7 @@ uint8_t GameBoy::handleMapperReads(uint16_t address)
 			return ROM[address + BANK_TO_READ_FROM];
 		}
 	default:
-		fmt::println("Unsupported mapper");
+		std:printf("Unsupported mapper\n");
 		break;
 	}
 }

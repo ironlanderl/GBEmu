@@ -47,7 +47,7 @@ void openWindow()
 		ImGui::BeginMainMenuBar();
 		if (ImGui::BeginMenu("File")) {
 			if (ImGui::MenuItem("Open")) {
-				loadFile();
+				//loadFile();
 			}
 			if (ImGui::MenuItem("Open Tetris")) {
 				loadFile("C:\\Users\\fabri\\Downloads\\Tetris (World) (Rev A).gb");
@@ -71,7 +71,7 @@ void openWindow()
 				TileViewerWindow::openWindow(gb);
 			}
 			if (ImGui::MenuItem("Open Audio Viewer")) {
-				fmt::print("Open audio viewer window\n");
+				std:printf("Open audio viewer window\n");
 			}
 			ImGui::EndMenu();
 		}
@@ -237,7 +237,7 @@ void drawCPUInfo()
 	}
 }
 
-void loadFile()
+/*void loadFile()
 {
 	nfdchar_t* outPath = nullptr;
 	nfdchar_t filter[] = "gb";
@@ -278,11 +278,11 @@ void loadFile()
 	}
 
 	// NFD automatically allocates memory for outPath, so there's no need to free it
-}
+}*/
 
 void loadFile(std::string outPath)
 {
-	fmt::println("Success!\nLoading ROM to RAM");
+	std::printf("Success!\nLoading ROM to RAM\n");
 
 	// Use RAII to manage the file resource
 	std::ifstream romFile(outPath, std::ios::binary | std::ios::ate);
@@ -297,16 +297,14 @@ void loadFile(std::string outPath)
 		if (romFile.read(reinterpret_cast<char*>(buffer.data()), fileSize)) {
 			// Assuming GB is an instance of your GameBoy class
 			gb.loadRom(buffer.data(), fileSize);
-			fmt::println("ROM loaded successfully.");
+			std::printf("ROM loaded successfully.\n");
 			gb.status = PAUSED;
 		}
 		else {
-			fmt::println("Error reading ROM file.");
+			std::printf("Error reading ROM file.\n");
 		}
 	}
 	else {
-		fmt::println("Error opening ROM file.");
+		std::printf("Error opening ROM file.\n");
 	}
-
-	// NFD automatically allocates memory for outPath, so there's no need to free it
 }

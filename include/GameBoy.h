@@ -4,7 +4,6 @@
 #include <cstring>
 #include <functional>
 #include <stdexcept>
-#include <nlohmann/json.hpp>
 #include <SFML/Config.hpp>
 
 enum PossibleStatus
