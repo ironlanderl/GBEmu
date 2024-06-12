@@ -1,14 +1,12 @@
-#include <corecrt_io.h>
 #include <variant>
-#include <windows.h>
 
 #include "GameBoy.h"
 
 void GameBoy::UnimplementedOpcode()
 {
-	throw new std::exception("Unimplemented Opcode");
+	//throw new std::runtime_error("Unimplemented Opcode");
+	std::printf("Unimplemented Opcode: %02X \n", getBus(PC));
 }
-
 
 void GameBoy::RunCBOpcode()
 {

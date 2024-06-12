@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/GBEmu",
+            "cwd": "${fileDirname}",
+            "miDebuggerPath": "gdb",
+        }
+    ]
+}

@@ -6,7 +6,7 @@
 #include <imgui.h>
 #include <imgui-SFML.h>
 #include <iostream>
-#include <nfd.h>
+//#include <nfd.h>
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <map>
