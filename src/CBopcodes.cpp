@@ -4,7 +4,8 @@
 
 void GameBoy::UnimplementedOpcode()
 {
-	throw new std::runtime_error("Unimplemented Opcode");
+	//throw new std::runtime_error("Unimplemented Opcode");
+	std::printf("Unimplemented Opcode: %02X \n", getBus(PC));
 }
 
 void GameBoy::RunCBOpcode()

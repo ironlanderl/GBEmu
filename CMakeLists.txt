@@ -21,7 +21,7 @@ add_subdirectory(dependencies)
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Add include directories
-target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME}
@@ -29,3 +29,7 @@ target_link_libraries(${PROJECT_NAME}
     ImGui-SFML::ImGui-SFML
     #nfd
 )
+
+# Test stuff
+enable_testing()
+add_subdirectory(Tests)

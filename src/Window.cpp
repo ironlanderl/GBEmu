@@ -1,3 +1,4 @@
+#pragma once
 #include "Window.h"
 
 // global GB
@@ -53,7 +54,7 @@ void openWindow()
 				loadFile("C:\\Users\\fabri\\Downloads\\Tetris (World) (Rev A).gb");
 			}
 			if (ImGui::MenuItem("Open cpu_instrs.gb")) {
-				loadFile("C:\\Users\\fabri\\Downloads\\cpu_instrs.gb");
+				loadFile("/home/ironlanderl/cpu_instrs/cpu_instrs.gb");
 			}
 			ImGui::EndMenu();
 		}

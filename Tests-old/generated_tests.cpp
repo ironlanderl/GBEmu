@@ -7,8 +7,6 @@
 
 using json = nlohmann::json;
 
-const int MAX = 1;
-
 bool shouldSkip = false;
 
 // Definizione della struttura per la memoria RAM
@@ -176,9 +174,10 @@ json loadTestData(std::string filepath) {
 }
 
 TEST(GameBoyTest, Instruction00) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/00.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\00.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -205,7 +204,7 @@ TEST(GameBoyTest, Instruction00) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -213,9 +212,10 @@ TEST(GameBoyTest, Instruction00) {
 }
 
 TEST(GameBoyTest, Instruction01) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/01.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\01.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -242,7 +242,7 @@ TEST(GameBoyTest, Instruction01) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -250,9 +250,10 @@ TEST(GameBoyTest, Instruction01) {
 }
 
 TEST(GameBoyTest, Instruction02) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/02.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\02.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -279,7 +280,7 @@ TEST(GameBoyTest, Instruction02) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -287,9 +288,10 @@ TEST(GameBoyTest, Instruction02) {
 }
 
 TEST(GameBoyTest, Instruction03) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/03.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\03.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -316,7 +318,7 @@ TEST(GameBoyTest, Instruction03) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -324,9 +326,10 @@ TEST(GameBoyTest, Instruction03) {
 }
 
 TEST(GameBoyTest, Instruction04) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/04.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\04.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -353,7 +356,7 @@ TEST(GameBoyTest, Instruction04) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -361,9 +364,10 @@ TEST(GameBoyTest, Instruction04) {
 }
 
 TEST(GameBoyTest, Instruction05) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/05.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\05.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -390,7 +394,7 @@ TEST(GameBoyTest, Instruction05) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -398,9 +402,10 @@ TEST(GameBoyTest, Instruction05) {
 }
 
 TEST(GameBoyTest, Instruction06) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/06.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\06.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -427,7 +432,7 @@ TEST(GameBoyTest, Instruction06) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -435,9 +440,10 @@ TEST(GameBoyTest, Instruction06) {
 }
 
 TEST(GameBoyTest, Instruction07) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/07.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\07.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -464,7 +470,7 @@ TEST(GameBoyTest, Instruction07) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -472,9 +478,10 @@ TEST(GameBoyTest, Instruction07) {
 }
 
 TEST(GameBoyTest, Instruction08) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/08.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\08.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -501,7 +508,7 @@ TEST(GameBoyTest, Instruction08) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -509,9 +516,10 @@ TEST(GameBoyTest, Instruction08) {
 }
 
 TEST(GameBoyTest, Instruction09) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/09.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\09.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -538,17 +546,18 @@ TEST(GameBoyTest, Instruction09) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction0a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/0a.json");
+TEST(GameBoyTest, Instruction0A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -575,17 +584,18 @@ TEST(GameBoyTest, Instruction0a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction0b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/0b.json");
+TEST(GameBoyTest, Instruction0B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -612,17 +622,18 @@ TEST(GameBoyTest, Instruction0b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction0c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/0c.json");
+TEST(GameBoyTest, Instruction0C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -649,17 +660,18 @@ TEST(GameBoyTest, Instruction0c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction0d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/0d.json");
+TEST(GameBoyTest, Instruction0D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -686,17 +698,18 @@ TEST(GameBoyTest, Instruction0d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction0e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/0e.json");
+TEST(GameBoyTest, Instruction0E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -723,17 +736,18 @@ TEST(GameBoyTest, Instruction0e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction0f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/0f.json");
+TEST(GameBoyTest, Instruction0F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\0F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -760,7 +774,7 @@ TEST(GameBoyTest, Instruction0f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -768,9 +782,10 @@ TEST(GameBoyTest, Instruction0f) {
 }
 
 TEST(GameBoyTest, Instruction10) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/10.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\10.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -797,7 +812,7 @@ TEST(GameBoyTest, Instruction10) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -805,9 +820,10 @@ TEST(GameBoyTest, Instruction10) {
 }
 
 TEST(GameBoyTest, Instruction11) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/11.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\11.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -834,7 +850,7 @@ TEST(GameBoyTest, Instruction11) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -842,9 +858,10 @@ TEST(GameBoyTest, Instruction11) {
 }
 
 TEST(GameBoyTest, Instruction12) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/12.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\12.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -871,7 +888,7 @@ TEST(GameBoyTest, Instruction12) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -879,9 +896,10 @@ TEST(GameBoyTest, Instruction12) {
 }
 
 TEST(GameBoyTest, Instruction13) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/13.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\13.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -908,7 +926,7 @@ TEST(GameBoyTest, Instruction13) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -916,9 +934,10 @@ TEST(GameBoyTest, Instruction13) {
 }
 
 TEST(GameBoyTest, Instruction14) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/14.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\14.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -945,7 +964,7 @@ TEST(GameBoyTest, Instruction14) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -953,9 +972,10 @@ TEST(GameBoyTest, Instruction14) {
 }
 
 TEST(GameBoyTest, Instruction15) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/15.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\15.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -982,7 +1002,7 @@ TEST(GameBoyTest, Instruction15) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -990,9 +1010,10 @@ TEST(GameBoyTest, Instruction15) {
 }
 
 TEST(GameBoyTest, Instruction16) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/16.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\16.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1019,7 +1040,7 @@ TEST(GameBoyTest, Instruction16) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1027,9 +1048,10 @@ TEST(GameBoyTest, Instruction16) {
 }
 
 TEST(GameBoyTest, Instruction17) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/17.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\17.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1056,7 +1078,7 @@ TEST(GameBoyTest, Instruction17) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1064,9 +1086,10 @@ TEST(GameBoyTest, Instruction17) {
 }
 
 TEST(GameBoyTest, Instruction18) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/18.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\18.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1093,7 +1116,7 @@ TEST(GameBoyTest, Instruction18) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1101,9 +1124,10 @@ TEST(GameBoyTest, Instruction18) {
 }
 
 TEST(GameBoyTest, Instruction19) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/19.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\19.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1130,17 +1154,18 @@ TEST(GameBoyTest, Instruction19) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction1a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/1a.json");
+TEST(GameBoyTest, Instruction1A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1167,17 +1192,18 @@ TEST(GameBoyTest, Instruction1a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction1b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/1b.json");
+TEST(GameBoyTest, Instruction1B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1204,17 +1230,18 @@ TEST(GameBoyTest, Instruction1b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction1c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/1c.json");
+TEST(GameBoyTest, Instruction1C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1241,17 +1268,18 @@ TEST(GameBoyTest, Instruction1c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction1d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/1d.json");
+TEST(GameBoyTest, Instruction1D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1278,17 +1306,18 @@ TEST(GameBoyTest, Instruction1d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction1e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/1e.json");
+TEST(GameBoyTest, Instruction1E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1315,17 +1344,18 @@ TEST(GameBoyTest, Instruction1e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction1f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/1f.json");
+TEST(GameBoyTest, Instruction1F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\1F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1352,7 +1382,7 @@ TEST(GameBoyTest, Instruction1f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1360,9 +1390,10 @@ TEST(GameBoyTest, Instruction1f) {
 }
 
 TEST(GameBoyTest, Instruction20) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/20.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\20.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1389,7 +1420,7 @@ TEST(GameBoyTest, Instruction20) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1397,9 +1428,10 @@ TEST(GameBoyTest, Instruction20) {
 }
 
 TEST(GameBoyTest, Instruction21) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/21.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\21.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1426,7 +1458,7 @@ TEST(GameBoyTest, Instruction21) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1434,9 +1466,10 @@ TEST(GameBoyTest, Instruction21) {
 }
 
 TEST(GameBoyTest, Instruction22) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/22.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\22.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1463,7 +1496,7 @@ TEST(GameBoyTest, Instruction22) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1471,9 +1504,10 @@ TEST(GameBoyTest, Instruction22) {
 }
 
 TEST(GameBoyTest, Instruction23) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/23.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\23.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1500,7 +1534,7 @@ TEST(GameBoyTest, Instruction23) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1508,9 +1542,10 @@ TEST(GameBoyTest, Instruction23) {
 }
 
 TEST(GameBoyTest, Instruction24) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/24.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\24.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1537,7 +1572,7 @@ TEST(GameBoyTest, Instruction24) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1545,9 +1580,10 @@ TEST(GameBoyTest, Instruction24) {
 }
 
 TEST(GameBoyTest, Instruction25) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/25.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\25.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1574,7 +1610,7 @@ TEST(GameBoyTest, Instruction25) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1582,9 +1618,10 @@ TEST(GameBoyTest, Instruction25) {
 }
 
 TEST(GameBoyTest, Instruction26) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/26.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\26.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1611,7 +1648,7 @@ TEST(GameBoyTest, Instruction26) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1619,9 +1656,10 @@ TEST(GameBoyTest, Instruction26) {
 }
 
 TEST(GameBoyTest, Instruction27) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/27.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\27.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1648,7 +1686,7 @@ TEST(GameBoyTest, Instruction27) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1656,9 +1694,10 @@ TEST(GameBoyTest, Instruction27) {
 }
 
 TEST(GameBoyTest, Instruction28) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/28.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\28.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1685,7 +1724,7 @@ TEST(GameBoyTest, Instruction28) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1693,9 +1732,10 @@ TEST(GameBoyTest, Instruction28) {
 }
 
 TEST(GameBoyTest, Instruction29) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/29.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\29.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1722,17 +1762,18 @@ TEST(GameBoyTest, Instruction29) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction2a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/2a.json");
+TEST(GameBoyTest, Instruction2A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\2A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1759,17 +1800,18 @@ TEST(GameBoyTest, Instruction2a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction2b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/2b.json");
+TEST(GameBoyTest, Instruction2B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\2B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1796,17 +1838,18 @@ TEST(GameBoyTest, Instruction2b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction2c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/2c.json");
+TEST(GameBoyTest, Instruction2C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\2C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1833,17 +1876,18 @@ TEST(GameBoyTest, Instruction2c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction2d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/2d.json");
+TEST(GameBoyTest, Instruction2D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\2D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1870,17 +1914,18 @@ TEST(GameBoyTest, Instruction2d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction2e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/2e.json");
+TEST(GameBoyTest, Instruction2E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\2E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1907,17 +1952,18 @@ TEST(GameBoyTest, Instruction2e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction2f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/2f.json");
+TEST(GameBoyTest, Instruction2F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\2F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1944,7 +1990,7 @@ TEST(GameBoyTest, Instruction2f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1952,9 +1998,10 @@ TEST(GameBoyTest, Instruction2f) {
 }
 
 TEST(GameBoyTest, Instruction30) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/30.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\30.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -1981,7 +2028,7 @@ TEST(GameBoyTest, Instruction30) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -1989,9 +2036,10 @@ TEST(GameBoyTest, Instruction30) {
 }
 
 TEST(GameBoyTest, Instruction31) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/31.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\31.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2018,7 +2066,7 @@ TEST(GameBoyTest, Instruction31) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2026,9 +2074,10 @@ TEST(GameBoyTest, Instruction31) {
 }
 
 TEST(GameBoyTest, Instruction32) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/32.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\32.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2055,7 +2104,7 @@ TEST(GameBoyTest, Instruction32) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2063,9 +2112,10 @@ TEST(GameBoyTest, Instruction32) {
 }
 
 TEST(GameBoyTest, Instruction33) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/33.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\33.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2092,7 +2142,7 @@ TEST(GameBoyTest, Instruction33) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2100,9 +2150,10 @@ TEST(GameBoyTest, Instruction33) {
 }
 
 TEST(GameBoyTest, Instruction34) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/34.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\34.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2129,7 +2180,7 @@ TEST(GameBoyTest, Instruction34) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2137,9 +2188,10 @@ TEST(GameBoyTest, Instruction34) {
 }
 
 TEST(GameBoyTest, Instruction35) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/35.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\35.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2166,7 +2218,7 @@ TEST(GameBoyTest, Instruction35) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2174,9 +2226,10 @@ TEST(GameBoyTest, Instruction35) {
 }
 
 TEST(GameBoyTest, Instruction36) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/36.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\36.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2203,7 +2256,7 @@ TEST(GameBoyTest, Instruction36) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2211,9 +2264,10 @@ TEST(GameBoyTest, Instruction36) {
 }
 
 TEST(GameBoyTest, Instruction37) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/37.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\37.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2240,7 +2294,7 @@ TEST(GameBoyTest, Instruction37) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2248,9 +2302,10 @@ TEST(GameBoyTest, Instruction37) {
 }
 
 TEST(GameBoyTest, Instruction38) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/38.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\38.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2277,7 +2332,7 @@ TEST(GameBoyTest, Instruction38) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2285,9 +2340,10 @@ TEST(GameBoyTest, Instruction38) {
 }
 
 TEST(GameBoyTest, Instruction39) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/39.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\39.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2314,17 +2370,18 @@ TEST(GameBoyTest, Instruction39) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction3a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/3a.json");
+TEST(GameBoyTest, Instruction3A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2351,17 +2408,18 @@ TEST(GameBoyTest, Instruction3a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction3b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/3b.json");
+TEST(GameBoyTest, Instruction3B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2388,17 +2446,18 @@ TEST(GameBoyTest, Instruction3b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction3c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/3c.json");
+TEST(GameBoyTest, Instruction3C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2425,17 +2484,18 @@ TEST(GameBoyTest, Instruction3c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction3d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/3d.json");
+TEST(GameBoyTest, Instruction3D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2462,17 +2522,18 @@ TEST(GameBoyTest, Instruction3d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction3e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/3e.json");
+TEST(GameBoyTest, Instruction3E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2499,17 +2560,18 @@ TEST(GameBoyTest, Instruction3e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction3f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/3f.json");
+TEST(GameBoyTest, Instruction3F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\3F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2536,7 +2598,7 @@ TEST(GameBoyTest, Instruction3f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2544,9 +2606,10 @@ TEST(GameBoyTest, Instruction3f) {
 }
 
 TEST(GameBoyTest, Instruction40) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/40.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\40.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2573,7 +2636,7 @@ TEST(GameBoyTest, Instruction40) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2581,9 +2644,10 @@ TEST(GameBoyTest, Instruction40) {
 }
 
 TEST(GameBoyTest, Instruction41) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/41.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\41.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2610,7 +2674,7 @@ TEST(GameBoyTest, Instruction41) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2618,9 +2682,10 @@ TEST(GameBoyTest, Instruction41) {
 }
 
 TEST(GameBoyTest, Instruction42) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/42.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\42.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2647,7 +2712,7 @@ TEST(GameBoyTest, Instruction42) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2655,9 +2720,10 @@ TEST(GameBoyTest, Instruction42) {
 }
 
 TEST(GameBoyTest, Instruction43) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/43.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\43.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2684,7 +2750,7 @@ TEST(GameBoyTest, Instruction43) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2692,9 +2758,10 @@ TEST(GameBoyTest, Instruction43) {
 }
 
 TEST(GameBoyTest, Instruction44) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/44.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\44.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2721,7 +2788,7 @@ TEST(GameBoyTest, Instruction44) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2729,9 +2796,10 @@ TEST(GameBoyTest, Instruction44) {
 }
 
 TEST(GameBoyTest, Instruction45) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/45.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\45.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2758,7 +2826,7 @@ TEST(GameBoyTest, Instruction45) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2766,9 +2834,10 @@ TEST(GameBoyTest, Instruction45) {
 }
 
 TEST(GameBoyTest, Instruction46) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/46.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\46.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2795,7 +2864,7 @@ TEST(GameBoyTest, Instruction46) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2803,9 +2872,10 @@ TEST(GameBoyTest, Instruction46) {
 }
 
 TEST(GameBoyTest, Instruction47) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/47.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\47.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2832,7 +2902,7 @@ TEST(GameBoyTest, Instruction47) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2840,9 +2910,10 @@ TEST(GameBoyTest, Instruction47) {
 }
 
 TEST(GameBoyTest, Instruction48) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/48.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\48.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2869,7 +2940,7 @@ TEST(GameBoyTest, Instruction48) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -2877,9 +2948,10 @@ TEST(GameBoyTest, Instruction48) {
 }
 
 TEST(GameBoyTest, Instruction49) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/49.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\49.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2906,17 +2978,18 @@ TEST(GameBoyTest, Instruction49) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction4a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/4a.json");
+TEST(GameBoyTest, Instruction4A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\4A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2943,17 +3016,18 @@ TEST(GameBoyTest, Instruction4a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction4b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/4b.json");
+TEST(GameBoyTest, Instruction4B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\4B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -2980,17 +3054,18 @@ TEST(GameBoyTest, Instruction4b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction4c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/4c.json");
+TEST(GameBoyTest, Instruction4C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\4C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3017,17 +3092,18 @@ TEST(GameBoyTest, Instruction4c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction4d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/4d.json");
+TEST(GameBoyTest, Instruction4D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\4D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3054,17 +3130,18 @@ TEST(GameBoyTest, Instruction4d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction4e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/4e.json");
+TEST(GameBoyTest, Instruction4E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\4E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3091,17 +3168,18 @@ TEST(GameBoyTest, Instruction4e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction4f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/4f.json");
+TEST(GameBoyTest, Instruction4F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\4F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3128,7 +3206,7 @@ TEST(GameBoyTest, Instruction4f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3136,9 +3214,10 @@ TEST(GameBoyTest, Instruction4f) {
 }
 
 TEST(GameBoyTest, Instruction50) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/50.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\50.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3165,7 +3244,7 @@ TEST(GameBoyTest, Instruction50) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3173,9 +3252,10 @@ TEST(GameBoyTest, Instruction50) {
 }
 
 TEST(GameBoyTest, Instruction51) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/51.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\51.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3202,7 +3282,7 @@ TEST(GameBoyTest, Instruction51) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3210,9 +3290,10 @@ TEST(GameBoyTest, Instruction51) {
 }
 
 TEST(GameBoyTest, Instruction52) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/52.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\52.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3239,7 +3320,7 @@ TEST(GameBoyTest, Instruction52) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3247,9 +3328,10 @@ TEST(GameBoyTest, Instruction52) {
 }
 
 TEST(GameBoyTest, Instruction53) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/53.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\53.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3276,7 +3358,7 @@ TEST(GameBoyTest, Instruction53) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3284,9 +3366,10 @@ TEST(GameBoyTest, Instruction53) {
 }
 
 TEST(GameBoyTest, Instruction54) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/54.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\54.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3313,7 +3396,7 @@ TEST(GameBoyTest, Instruction54) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3321,9 +3404,10 @@ TEST(GameBoyTest, Instruction54) {
 }
 
 TEST(GameBoyTest, Instruction55) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/55.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\55.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3350,7 +3434,7 @@ TEST(GameBoyTest, Instruction55) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3358,9 +3442,10 @@ TEST(GameBoyTest, Instruction55) {
 }
 
 TEST(GameBoyTest, Instruction56) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/56.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\56.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3387,7 +3472,7 @@ TEST(GameBoyTest, Instruction56) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3395,9 +3480,10 @@ TEST(GameBoyTest, Instruction56) {
 }
 
 TEST(GameBoyTest, Instruction57) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/57.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\57.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3424,7 +3510,7 @@ TEST(GameBoyTest, Instruction57) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3432,9 +3518,10 @@ TEST(GameBoyTest, Instruction57) {
 }
 
 TEST(GameBoyTest, Instruction58) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/58.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\58.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3461,7 +3548,7 @@ TEST(GameBoyTest, Instruction58) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3469,9 +3556,10 @@ TEST(GameBoyTest, Instruction58) {
 }
 
 TEST(GameBoyTest, Instruction59) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/59.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\59.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3498,17 +3586,18 @@ TEST(GameBoyTest, Instruction59) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction5a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/5a.json");
+TEST(GameBoyTest, Instruction5A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\5A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3535,17 +3624,18 @@ TEST(GameBoyTest, Instruction5a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction5b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/5b.json");
+TEST(GameBoyTest, Instruction5B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\5B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3572,17 +3662,18 @@ TEST(GameBoyTest, Instruction5b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction5c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/5c.json");
+TEST(GameBoyTest, Instruction5C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\5C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3609,17 +3700,18 @@ TEST(GameBoyTest, Instruction5c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction5d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/5d.json");
+TEST(GameBoyTest, Instruction5D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\5D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3646,17 +3738,18 @@ TEST(GameBoyTest, Instruction5d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction5e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/5e.json");
+TEST(GameBoyTest, Instruction5E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\5E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3683,17 +3776,18 @@ TEST(GameBoyTest, Instruction5e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction5f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/5f.json");
+TEST(GameBoyTest, Instruction5F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\5F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3720,7 +3814,7 @@ TEST(GameBoyTest, Instruction5f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3728,9 +3822,10 @@ TEST(GameBoyTest, Instruction5f) {
 }
 
 TEST(GameBoyTest, Instruction60) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/60.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\60.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3757,7 +3852,7 @@ TEST(GameBoyTest, Instruction60) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3765,9 +3860,10 @@ TEST(GameBoyTest, Instruction60) {
 }
 
 TEST(GameBoyTest, Instruction61) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/61.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\61.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3794,7 +3890,7 @@ TEST(GameBoyTest, Instruction61) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3802,9 +3898,10 @@ TEST(GameBoyTest, Instruction61) {
 }
 
 TEST(GameBoyTest, Instruction62) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/62.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\62.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3831,7 +3928,7 @@ TEST(GameBoyTest, Instruction62) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3839,9 +3936,10 @@ TEST(GameBoyTest, Instruction62) {
 }
 
 TEST(GameBoyTest, Instruction63) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/63.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\63.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3868,7 +3966,7 @@ TEST(GameBoyTest, Instruction63) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3876,9 +3974,10 @@ TEST(GameBoyTest, Instruction63) {
 }
 
 TEST(GameBoyTest, Instruction64) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/64.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\64.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3905,7 +4004,7 @@ TEST(GameBoyTest, Instruction64) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3913,9 +4012,10 @@ TEST(GameBoyTest, Instruction64) {
 }
 
 TEST(GameBoyTest, Instruction65) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/65.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\65.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3942,7 +4042,7 @@ TEST(GameBoyTest, Instruction65) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3950,9 +4050,10 @@ TEST(GameBoyTest, Instruction65) {
 }
 
 TEST(GameBoyTest, Instruction66) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/66.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\66.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -3979,7 +4080,7 @@ TEST(GameBoyTest, Instruction66) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -3987,9 +4088,10 @@ TEST(GameBoyTest, Instruction66) {
 }
 
 TEST(GameBoyTest, Instruction67) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/67.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\67.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4016,7 +4118,7 @@ TEST(GameBoyTest, Instruction67) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4024,9 +4126,10 @@ TEST(GameBoyTest, Instruction67) {
 }
 
 TEST(GameBoyTest, Instruction68) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/68.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\68.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4053,7 +4156,7 @@ TEST(GameBoyTest, Instruction68) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4061,9 +4164,10 @@ TEST(GameBoyTest, Instruction68) {
 }
 
 TEST(GameBoyTest, Instruction69) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/69.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\69.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4090,17 +4194,18 @@ TEST(GameBoyTest, Instruction69) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction6a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/6a.json");
+TEST(GameBoyTest, Instruction6A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\6A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4127,17 +4232,18 @@ TEST(GameBoyTest, Instruction6a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction6b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/6b.json");
+TEST(GameBoyTest, Instruction6B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\6B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4164,17 +4270,18 @@ TEST(GameBoyTest, Instruction6b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction6c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/6c.json");
+TEST(GameBoyTest, Instruction6C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\6C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4201,17 +4308,18 @@ TEST(GameBoyTest, Instruction6c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction6d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/6d.json");
+TEST(GameBoyTest, Instruction6D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\6D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4238,17 +4346,18 @@ TEST(GameBoyTest, Instruction6d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction6e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/6e.json");
+TEST(GameBoyTest, Instruction6E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\6E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4275,17 +4384,18 @@ TEST(GameBoyTest, Instruction6e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction6f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/6f.json");
+TEST(GameBoyTest, Instruction6F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\6F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4312,7 +4422,7 @@ TEST(GameBoyTest, Instruction6f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4320,9 +4430,10 @@ TEST(GameBoyTest, Instruction6f) {
 }
 
 TEST(GameBoyTest, Instruction70) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/70.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\70.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4349,7 +4460,7 @@ TEST(GameBoyTest, Instruction70) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4357,9 +4468,10 @@ TEST(GameBoyTest, Instruction70) {
 }
 
 TEST(GameBoyTest, Instruction71) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/71.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\71.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4386,7 +4498,7 @@ TEST(GameBoyTest, Instruction71) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4394,9 +4506,10 @@ TEST(GameBoyTest, Instruction71) {
 }
 
 TEST(GameBoyTest, Instruction72) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/72.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\72.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4423,7 +4536,7 @@ TEST(GameBoyTest, Instruction72) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4431,9 +4544,10 @@ TEST(GameBoyTest, Instruction72) {
 }
 
 TEST(GameBoyTest, Instruction73) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/73.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\73.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4460,7 +4574,7 @@ TEST(GameBoyTest, Instruction73) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4468,9 +4582,10 @@ TEST(GameBoyTest, Instruction73) {
 }
 
 TEST(GameBoyTest, Instruction74) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/74.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\74.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4497,7 +4612,7 @@ TEST(GameBoyTest, Instruction74) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4505,9 +4620,10 @@ TEST(GameBoyTest, Instruction74) {
 }
 
 TEST(GameBoyTest, Instruction75) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/75.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\75.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4534,7 +4650,7 @@ TEST(GameBoyTest, Instruction75) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4542,9 +4658,10 @@ TEST(GameBoyTest, Instruction75) {
 }
 
 TEST(GameBoyTest, Instruction76) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/76.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\76.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4571,7 +4688,7 @@ TEST(GameBoyTest, Instruction76) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4579,9 +4696,10 @@ TEST(GameBoyTest, Instruction76) {
 }
 
 TEST(GameBoyTest, Instruction77) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/77.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\77.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4608,7 +4726,7 @@ TEST(GameBoyTest, Instruction77) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4616,9 +4734,10 @@ TEST(GameBoyTest, Instruction77) {
 }
 
 TEST(GameBoyTest, Instruction78) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/78.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\78.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4645,7 +4764,7 @@ TEST(GameBoyTest, Instruction78) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4653,9 +4772,10 @@ TEST(GameBoyTest, Instruction78) {
 }
 
 TEST(GameBoyTest, Instruction79) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/79.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\79.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4682,17 +4802,18 @@ TEST(GameBoyTest, Instruction79) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction7a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/7a.json");
+TEST(GameBoyTest, Instruction7A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\7A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4719,17 +4840,18 @@ TEST(GameBoyTest, Instruction7a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction7b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/7b.json");
+TEST(GameBoyTest, Instruction7B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\7B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4756,17 +4878,18 @@ TEST(GameBoyTest, Instruction7b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction7c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/7c.json");
+TEST(GameBoyTest, Instruction7C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\7C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4793,17 +4916,18 @@ TEST(GameBoyTest, Instruction7c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction7d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/7d.json");
+TEST(GameBoyTest, Instruction7D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\7D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4830,17 +4954,18 @@ TEST(GameBoyTest, Instruction7d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction7e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/7e.json");
+TEST(GameBoyTest, Instruction7E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\7E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4867,17 +4992,18 @@ TEST(GameBoyTest, Instruction7e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction7f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/7f.json");
+TEST(GameBoyTest, Instruction7F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\7F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4904,7 +5030,7 @@ TEST(GameBoyTest, Instruction7f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4912,9 +5038,10 @@ TEST(GameBoyTest, Instruction7f) {
 }
 
 TEST(GameBoyTest, Instruction80) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/80.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\80.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4941,7 +5068,7 @@ TEST(GameBoyTest, Instruction80) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4949,9 +5076,10 @@ TEST(GameBoyTest, Instruction80) {
 }
 
 TEST(GameBoyTest, Instruction81) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/81.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\81.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -4978,7 +5106,7 @@ TEST(GameBoyTest, Instruction81) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -4986,9 +5114,10 @@ TEST(GameBoyTest, Instruction81) {
 }
 
 TEST(GameBoyTest, Instruction82) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/82.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\82.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5015,7 +5144,7 @@ TEST(GameBoyTest, Instruction82) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5023,9 +5152,10 @@ TEST(GameBoyTest, Instruction82) {
 }
 
 TEST(GameBoyTest, Instruction83) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/83.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\83.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5052,7 +5182,7 @@ TEST(GameBoyTest, Instruction83) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5060,9 +5190,10 @@ TEST(GameBoyTest, Instruction83) {
 }
 
 TEST(GameBoyTest, Instruction84) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/84.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\84.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5089,7 +5220,7 @@ TEST(GameBoyTest, Instruction84) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5097,9 +5228,10 @@ TEST(GameBoyTest, Instruction84) {
 }
 
 TEST(GameBoyTest, Instruction85) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/85.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\85.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5126,7 +5258,7 @@ TEST(GameBoyTest, Instruction85) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5134,9 +5266,10 @@ TEST(GameBoyTest, Instruction85) {
 }
 
 TEST(GameBoyTest, Instruction86) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/86.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\86.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5163,7 +5296,7 @@ TEST(GameBoyTest, Instruction86) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5171,9 +5304,10 @@ TEST(GameBoyTest, Instruction86) {
 }
 
 TEST(GameBoyTest, Instruction87) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/87.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\87.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5200,7 +5334,7 @@ TEST(GameBoyTest, Instruction87) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5208,9 +5342,10 @@ TEST(GameBoyTest, Instruction87) {
 }
 
 TEST(GameBoyTest, Instruction88) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/88.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\88.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5237,7 +5372,7 @@ TEST(GameBoyTest, Instruction88) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5245,9 +5380,10 @@ TEST(GameBoyTest, Instruction88) {
 }
 
 TEST(GameBoyTest, Instruction89) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/89.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\89.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5274,17 +5410,18 @@ TEST(GameBoyTest, Instruction89) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction8a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/8a.json");
+TEST(GameBoyTest, Instruction8A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\8A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5311,17 +5448,18 @@ TEST(GameBoyTest, Instruction8a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction8b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/8b.json");
+TEST(GameBoyTest, Instruction8B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\8B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5348,17 +5486,18 @@ TEST(GameBoyTest, Instruction8b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction8c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/8c.json");
+TEST(GameBoyTest, Instruction8C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\8C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5385,17 +5524,18 @@ TEST(GameBoyTest, Instruction8c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction8d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/8d.json");
+TEST(GameBoyTest, Instruction8D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\8D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5422,17 +5562,18 @@ TEST(GameBoyTest, Instruction8d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction8e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/8e.json");
+TEST(GameBoyTest, Instruction8E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\8E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5459,17 +5600,18 @@ TEST(GameBoyTest, Instruction8e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction8f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/8f.json");
+TEST(GameBoyTest, Instruction8F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\8F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5496,7 +5638,7 @@ TEST(GameBoyTest, Instruction8f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5504,9 +5646,10 @@ TEST(GameBoyTest, Instruction8f) {
 }
 
 TEST(GameBoyTest, Instruction90) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/90.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\90.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5533,7 +5676,7 @@ TEST(GameBoyTest, Instruction90) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5541,9 +5684,10 @@ TEST(GameBoyTest, Instruction90) {
 }
 
 TEST(GameBoyTest, Instruction91) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/91.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\91.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5570,7 +5714,7 @@ TEST(GameBoyTest, Instruction91) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5578,9 +5722,10 @@ TEST(GameBoyTest, Instruction91) {
 }
 
 TEST(GameBoyTest, Instruction92) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/92.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\92.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5607,7 +5752,7 @@ TEST(GameBoyTest, Instruction92) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5615,9 +5760,10 @@ TEST(GameBoyTest, Instruction92) {
 }
 
 TEST(GameBoyTest, Instruction93) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/93.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\93.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5644,7 +5790,7 @@ TEST(GameBoyTest, Instruction93) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5652,9 +5798,10 @@ TEST(GameBoyTest, Instruction93) {
 }
 
 TEST(GameBoyTest, Instruction94) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/94.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\94.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5681,7 +5828,7 @@ TEST(GameBoyTest, Instruction94) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5689,9 +5836,10 @@ TEST(GameBoyTest, Instruction94) {
 }
 
 TEST(GameBoyTest, Instruction95) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/95.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\95.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5718,7 +5866,7 @@ TEST(GameBoyTest, Instruction95) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5726,9 +5874,10 @@ TEST(GameBoyTest, Instruction95) {
 }
 
 TEST(GameBoyTest, Instruction96) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/96.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\96.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5755,7 +5904,7 @@ TEST(GameBoyTest, Instruction96) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5763,9 +5912,10 @@ TEST(GameBoyTest, Instruction96) {
 }
 
 TEST(GameBoyTest, Instruction97) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/97.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\97.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5792,7 +5942,7 @@ TEST(GameBoyTest, Instruction97) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5800,9 +5950,10 @@ TEST(GameBoyTest, Instruction97) {
 }
 
 TEST(GameBoyTest, Instruction98) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/98.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\98.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5829,7 +5980,7 @@ TEST(GameBoyTest, Instruction98) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -5837,9 +5988,10 @@ TEST(GameBoyTest, Instruction98) {
 }
 
 TEST(GameBoyTest, Instruction99) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/99.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\99.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5866,17 +6018,18 @@ TEST(GameBoyTest, Instruction99) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction9a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/9a.json");
+TEST(GameBoyTest, Instruction9A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5903,17 +6056,18 @@ TEST(GameBoyTest, Instruction9a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction9b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/9b.json");
+TEST(GameBoyTest, Instruction9B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5940,17 +6094,18 @@ TEST(GameBoyTest, Instruction9b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction9c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/9c.json");
+TEST(GameBoyTest, Instruction9C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -5977,17 +6132,18 @@ TEST(GameBoyTest, Instruction9c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction9d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/9d.json");
+TEST(GameBoyTest, Instruction9D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6014,17 +6170,18 @@ TEST(GameBoyTest, Instruction9d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction9e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/9e.json");
+TEST(GameBoyTest, Instruction9E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6051,17 +6208,18 @@ TEST(GameBoyTest, Instruction9e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instruction9f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/9f.json");
+TEST(GameBoyTest, Instruction9F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\9F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6088,17 +6246,18 @@ TEST(GameBoyTest, Instruction9f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a0.json");
+TEST(GameBoyTest, InstructionA0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6125,17 +6284,18 @@ TEST(GameBoyTest, Instructiona0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a1.json");
+TEST(GameBoyTest, InstructionA1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6162,17 +6322,18 @@ TEST(GameBoyTest, Instructiona1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a2.json");
+TEST(GameBoyTest, InstructionA2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6199,17 +6360,18 @@ TEST(GameBoyTest, Instructiona2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a3.json");
+TEST(GameBoyTest, InstructionA3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6236,17 +6398,18 @@ TEST(GameBoyTest, Instructiona3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a4.json");
+TEST(GameBoyTest, InstructionA4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6273,17 +6436,18 @@ TEST(GameBoyTest, Instructiona4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a5.json");
+TEST(GameBoyTest, InstructionA5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6310,17 +6474,18 @@ TEST(GameBoyTest, Instructiona5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a6.json");
+TEST(GameBoyTest, InstructionA6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6347,17 +6512,18 @@ TEST(GameBoyTest, Instructiona6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a7.json");
+TEST(GameBoyTest, InstructionA7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6384,17 +6550,18 @@ TEST(GameBoyTest, Instructiona7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a8.json");
+TEST(GameBoyTest, InstructionA8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6421,17 +6588,18 @@ TEST(GameBoyTest, Instructiona8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiona9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/a9.json");
+TEST(GameBoyTest, InstructionA9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\A9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6458,17 +6626,18 @@ TEST(GameBoyTest, Instructiona9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionaa) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/aa.json");
+TEST(GameBoyTest, InstructionAA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6495,17 +6664,18 @@ TEST(GameBoyTest, Instructionaa) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionab) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ab.json");
+TEST(GameBoyTest, InstructionAB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6532,17 +6702,18 @@ TEST(GameBoyTest, Instructionab) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionac) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ac.json");
+TEST(GameBoyTest, InstructionAC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6569,17 +6740,18 @@ TEST(GameBoyTest, Instructionac) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionad) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ad.json");
+TEST(GameBoyTest, InstructionAD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6606,17 +6778,18 @@ TEST(GameBoyTest, Instructionad) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionae) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ae.json");
+TEST(GameBoyTest, InstructionAE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6643,17 +6816,18 @@ TEST(GameBoyTest, Instructionae) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionaf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/af.json");
+TEST(GameBoyTest, InstructionAF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\AF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6680,17 +6854,18 @@ TEST(GameBoyTest, Instructionaf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b0.json");
+TEST(GameBoyTest, InstructionB0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6717,17 +6892,18 @@ TEST(GameBoyTest, Instructionb0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b1.json");
+TEST(GameBoyTest, InstructionB1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6754,17 +6930,18 @@ TEST(GameBoyTest, Instructionb1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b2.json");
+TEST(GameBoyTest, InstructionB2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6791,17 +6968,18 @@ TEST(GameBoyTest, Instructionb2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b3.json");
+TEST(GameBoyTest, InstructionB3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6828,17 +7006,18 @@ TEST(GameBoyTest, Instructionb3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b4.json");
+TEST(GameBoyTest, InstructionB4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6865,17 +7044,18 @@ TEST(GameBoyTest, Instructionb4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b5.json");
+TEST(GameBoyTest, InstructionB5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6902,17 +7082,18 @@ TEST(GameBoyTest, Instructionb5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b6.json");
+TEST(GameBoyTest, InstructionB6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6939,17 +7120,18 @@ TEST(GameBoyTest, Instructionb6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b7.json");
+TEST(GameBoyTest, InstructionB7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -6976,17 +7158,18 @@ TEST(GameBoyTest, Instructionb7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b8.json");
+TEST(GameBoyTest, InstructionB8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7013,17 +7196,18 @@ TEST(GameBoyTest, Instructionb8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionb9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/b9.json");
+TEST(GameBoyTest, InstructionB9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\B9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7050,17 +7234,18 @@ TEST(GameBoyTest, Instructionb9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionba) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ba.json");
+TEST(GameBoyTest, InstructionBA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\BA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7087,17 +7272,18 @@ TEST(GameBoyTest, Instructionba) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionbb) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/bb.json");
+TEST(GameBoyTest, InstructionBB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\BB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7124,17 +7310,18 @@ TEST(GameBoyTest, Instructionbb) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionbc) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/bc.json");
+TEST(GameBoyTest, InstructionBC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\BC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7161,17 +7348,18 @@ TEST(GameBoyTest, Instructionbc) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionbd) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/bd.json");
+TEST(GameBoyTest, InstructionBD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\BD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7198,17 +7386,18 @@ TEST(GameBoyTest, Instructionbd) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionbe) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/be.json");
+TEST(GameBoyTest, InstructionBE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\BE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7235,17 +7424,18 @@ TEST(GameBoyTest, Instructionbe) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionbf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/bf.json");
+TEST(GameBoyTest, InstructionBF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\BF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7272,17 +7462,18 @@ TEST(GameBoyTest, Instructionbf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c0.json");
+TEST(GameBoyTest, InstructionC0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7309,17 +7500,18 @@ TEST(GameBoyTest, Instructionc0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c1.json");
+TEST(GameBoyTest, InstructionC1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7346,17 +7538,18 @@ TEST(GameBoyTest, Instructionc1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c2.json");
+TEST(GameBoyTest, InstructionC2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7383,17 +7576,18 @@ TEST(GameBoyTest, Instructionc2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c3.json");
+TEST(GameBoyTest, InstructionC3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7420,17 +7614,18 @@ TEST(GameBoyTest, Instructionc3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c4.json");
+TEST(GameBoyTest, InstructionC4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7457,17 +7652,18 @@ TEST(GameBoyTest, Instructionc4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c5.json");
+TEST(GameBoyTest, InstructionC5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7494,17 +7690,18 @@ TEST(GameBoyTest, Instructionc5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c6.json");
+TEST(GameBoyTest, InstructionC6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7531,17 +7728,18 @@ TEST(GameBoyTest, Instructionc6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c7.json");
+TEST(GameBoyTest, InstructionC7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7568,17 +7766,18 @@ TEST(GameBoyTest, Instructionc7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c8.json");
+TEST(GameBoyTest, InstructionC8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7605,17 +7804,18 @@ TEST(GameBoyTest, Instructionc8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionc9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/c9.json");
+TEST(GameBoyTest, InstructionC9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\C9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7642,17 +7842,18 @@ TEST(GameBoyTest, Instructionc9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionca) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ca.json");
+TEST(GameBoyTest, InstructionCA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7679,17 +7880,18 @@ TEST(GameBoyTest, Instructionca) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructioncc) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/cc.json");
+TEST(GameBoyTest, InstructionCC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7716,17 +7918,18 @@ TEST(GameBoyTest, Instructioncc) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructioncd) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/cd.json");
+TEST(GameBoyTest, InstructionCD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7753,17 +7956,18 @@ TEST(GameBoyTest, Instructioncd) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionce) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ce.json");
+TEST(GameBoyTest, InstructionCE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7790,17 +7994,18 @@ TEST(GameBoyTest, Instructionce) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructioncf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/cf.json");
+TEST(GameBoyTest, InstructionCF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7827,17 +8032,18 @@ TEST(GameBoyTest, Instructioncf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d0.json");
+TEST(GameBoyTest, InstructionD0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7864,17 +8070,18 @@ TEST(GameBoyTest, Instructiond0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d1.json");
+TEST(GameBoyTest, InstructionD1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7901,17 +8108,18 @@ TEST(GameBoyTest, Instructiond1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d2.json");
+TEST(GameBoyTest, InstructionD2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7938,17 +8146,18 @@ TEST(GameBoyTest, Instructiond2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d4.json");
+TEST(GameBoyTest, InstructionD4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -7975,17 +8184,18 @@ TEST(GameBoyTest, Instructiond4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d5.json");
+TEST(GameBoyTest, InstructionD5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8012,17 +8222,18 @@ TEST(GameBoyTest, Instructiond5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d6.json");
+TEST(GameBoyTest, InstructionD6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8049,17 +8260,18 @@ TEST(GameBoyTest, Instructiond6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d7.json");
+TEST(GameBoyTest, InstructionD7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8086,17 +8298,18 @@ TEST(GameBoyTest, Instructiond7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d8.json");
+TEST(GameBoyTest, InstructionD8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8123,17 +8336,18 @@ TEST(GameBoyTest, Instructiond8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiond9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/d9.json");
+TEST(GameBoyTest, InstructionD9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\D9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8160,17 +8374,18 @@ TEST(GameBoyTest, Instructiond9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionda) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/da.json");
+TEST(GameBoyTest, InstructionDA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\DA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8197,17 +8412,18 @@ TEST(GameBoyTest, Instructionda) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiondc) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/dc.json");
+TEST(GameBoyTest, InstructionDC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\DC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8234,17 +8450,18 @@ TEST(GameBoyTest, Instructiondc) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionde) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/de.json");
+TEST(GameBoyTest, InstructionDE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\DE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8271,17 +8488,18 @@ TEST(GameBoyTest, Instructionde) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructiondf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/df.json");
+TEST(GameBoyTest, InstructionDF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\DF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8308,17 +8526,18 @@ TEST(GameBoyTest, Instructiondf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e0.json");
+TEST(GameBoyTest, InstructionE0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8345,17 +8564,18 @@ TEST(GameBoyTest, Instructione0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e1.json");
+TEST(GameBoyTest, InstructionE1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8382,17 +8602,18 @@ TEST(GameBoyTest, Instructione1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e2.json");
+TEST(GameBoyTest, InstructionE2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8419,17 +8640,18 @@ TEST(GameBoyTest, Instructione2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e5.json");
+TEST(GameBoyTest, InstructionE5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8456,17 +8678,18 @@ TEST(GameBoyTest, Instructione5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e6.json");
+TEST(GameBoyTest, InstructionE6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8493,17 +8716,18 @@ TEST(GameBoyTest, Instructione6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e7.json");
+TEST(GameBoyTest, InstructionE7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8530,17 +8754,18 @@ TEST(GameBoyTest, Instructione7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e8.json");
+TEST(GameBoyTest, InstructionE8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8567,17 +8792,18 @@ TEST(GameBoyTest, Instructione8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructione9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/e9.json");
+TEST(GameBoyTest, InstructionE9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\E9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8604,17 +8830,18 @@ TEST(GameBoyTest, Instructione9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionea) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ea.json");
+TEST(GameBoyTest, InstructionEA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\EA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8641,17 +8868,18 @@ TEST(GameBoyTest, Instructionea) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionee) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ee.json");
+TEST(GameBoyTest, InstructionEE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\EE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8678,17 +8906,18 @@ TEST(GameBoyTest, Instructionee) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionef) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ef.json");
+TEST(GameBoyTest, InstructionEF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\EF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8715,17 +8944,18 @@ TEST(GameBoyTest, Instructionef) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f0.json");
+TEST(GameBoyTest, InstructionF0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8752,17 +8982,18 @@ TEST(GameBoyTest, Instructionf0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f1.json");
+TEST(GameBoyTest, InstructionF1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8789,17 +9020,18 @@ TEST(GameBoyTest, Instructionf1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f2.json");
+TEST(GameBoyTest, InstructionF2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8826,17 +9058,18 @@ TEST(GameBoyTest, Instructionf2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f3.json");
+TEST(GameBoyTest, InstructionF3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8863,17 +9096,18 @@ TEST(GameBoyTest, Instructionf3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f5.json");
+TEST(GameBoyTest, InstructionF5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8900,17 +9134,18 @@ TEST(GameBoyTest, Instructionf5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f6.json");
+TEST(GameBoyTest, InstructionF6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8937,17 +9172,18 @@ TEST(GameBoyTest, Instructionf6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f7.json");
+TEST(GameBoyTest, InstructionF7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -8974,17 +9210,18 @@ TEST(GameBoyTest, Instructionf7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f8.json");
+TEST(GameBoyTest, InstructionF8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9011,17 +9248,18 @@ TEST(GameBoyTest, Instructionf8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionf9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/f9.json");
+TEST(GameBoyTest, InstructionF9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\F9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9048,17 +9286,18 @@ TEST(GameBoyTest, Instructionf9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionfa) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/fa.json");
+TEST(GameBoyTest, InstructionFA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\FA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9085,17 +9324,18 @@ TEST(GameBoyTest, Instructionfa) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionfb) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/fb.json");
+TEST(GameBoyTest, InstructionFB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\FB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9122,17 +9362,18 @@ TEST(GameBoyTest, Instructionfb) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, Instructionfe) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/fe.json");
+TEST(GameBoyTest, InstructionFE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\FE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9159,7 +9400,7 @@ TEST(GameBoyTest, Instructionfe) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9167,9 +9408,10 @@ TEST(GameBoyTest, Instructionfe) {
 }
 
 TEST(GameBoyTest, InstructionCB00) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB00.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB00.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9196,7 +9438,7 @@ TEST(GameBoyTest, InstructionCB00) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9204,9 +9446,10 @@ TEST(GameBoyTest, InstructionCB00) {
 }
 
 TEST(GameBoyTest, InstructionCB01) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB01.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB01.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9233,7 +9476,7 @@ TEST(GameBoyTest, InstructionCB01) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9241,9 +9484,10 @@ TEST(GameBoyTest, InstructionCB01) {
 }
 
 TEST(GameBoyTest, InstructionCB02) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB02.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB02.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9270,7 +9514,7 @@ TEST(GameBoyTest, InstructionCB02) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9278,9 +9522,10 @@ TEST(GameBoyTest, InstructionCB02) {
 }
 
 TEST(GameBoyTest, InstructionCB03) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB03.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB03.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9307,7 +9552,7 @@ TEST(GameBoyTest, InstructionCB03) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9315,9 +9560,10 @@ TEST(GameBoyTest, InstructionCB03) {
 }
 
 TEST(GameBoyTest, InstructionCB04) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB04.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB04.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9344,7 +9590,7 @@ TEST(GameBoyTest, InstructionCB04) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9352,9 +9598,10 @@ TEST(GameBoyTest, InstructionCB04) {
 }
 
 TEST(GameBoyTest, InstructionCB05) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB05.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB05.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9381,7 +9628,7 @@ TEST(GameBoyTest, InstructionCB05) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9389,9 +9636,10 @@ TEST(GameBoyTest, InstructionCB05) {
 }
 
 TEST(GameBoyTest, InstructionCB06) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB06.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB06.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9418,7 +9666,7 @@ TEST(GameBoyTest, InstructionCB06) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9426,9 +9674,10 @@ TEST(GameBoyTest, InstructionCB06) {
 }
 
 TEST(GameBoyTest, InstructionCB07) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB07.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB07.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9455,7 +9704,7 @@ TEST(GameBoyTest, InstructionCB07) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9463,9 +9712,10 @@ TEST(GameBoyTest, InstructionCB07) {
 }
 
 TEST(GameBoyTest, InstructionCB08) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB08.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB08.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9492,7 +9742,7 @@ TEST(GameBoyTest, InstructionCB08) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9500,9 +9750,10 @@ TEST(GameBoyTest, InstructionCB08) {
 }
 
 TEST(GameBoyTest, InstructionCB09) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB09.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB09.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9529,17 +9780,18 @@ TEST(GameBoyTest, InstructionCB09) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB0a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB0a.json");
+TEST(GameBoyTest, InstructionCB0A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB0A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9566,17 +9818,18 @@ TEST(GameBoyTest, InstructionCB0a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB0b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB0b.json");
+TEST(GameBoyTest, InstructionCB0B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB0B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9603,17 +9856,18 @@ TEST(GameBoyTest, InstructionCB0b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB0c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB0c.json");
+TEST(GameBoyTest, InstructionCB0C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB0C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9640,17 +9894,18 @@ TEST(GameBoyTest, InstructionCB0c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB0d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB0d.json");
+TEST(GameBoyTest, InstructionCB0D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB0D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9677,17 +9932,18 @@ TEST(GameBoyTest, InstructionCB0d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB0e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB0e.json");
+TEST(GameBoyTest, InstructionCB0E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB0E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9714,17 +9970,18 @@ TEST(GameBoyTest, InstructionCB0e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB0f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB0f.json");
+TEST(GameBoyTest, InstructionCB0F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB0F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9751,7 +10008,7 @@ TEST(GameBoyTest, InstructionCB0f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9759,9 +10016,10 @@ TEST(GameBoyTest, InstructionCB0f) {
 }
 
 TEST(GameBoyTest, InstructionCB10) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB10.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB10.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9788,7 +10046,7 @@ TEST(GameBoyTest, InstructionCB10) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9796,9 +10054,10 @@ TEST(GameBoyTest, InstructionCB10) {
 }
 
 TEST(GameBoyTest, InstructionCB11) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB11.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB11.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9825,7 +10084,7 @@ TEST(GameBoyTest, InstructionCB11) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9833,9 +10092,10 @@ TEST(GameBoyTest, InstructionCB11) {
 }
 
 TEST(GameBoyTest, InstructionCB12) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB12.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB12.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9862,7 +10122,7 @@ TEST(GameBoyTest, InstructionCB12) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9870,9 +10130,10 @@ TEST(GameBoyTest, InstructionCB12) {
 }
 
 TEST(GameBoyTest, InstructionCB13) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB13.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB13.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9899,7 +10160,7 @@ TEST(GameBoyTest, InstructionCB13) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9907,9 +10168,10 @@ TEST(GameBoyTest, InstructionCB13) {
 }
 
 TEST(GameBoyTest, InstructionCB14) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB14.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB14.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9936,7 +10198,7 @@ TEST(GameBoyTest, InstructionCB14) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9944,9 +10206,10 @@ TEST(GameBoyTest, InstructionCB14) {
 }
 
 TEST(GameBoyTest, InstructionCB15) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB15.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB15.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -9973,7 +10236,7 @@ TEST(GameBoyTest, InstructionCB15) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -9981,9 +10244,10 @@ TEST(GameBoyTest, InstructionCB15) {
 }
 
 TEST(GameBoyTest, InstructionCB16) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB16.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB16.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10010,7 +10274,7 @@ TEST(GameBoyTest, InstructionCB16) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10018,9 +10282,10 @@ TEST(GameBoyTest, InstructionCB16) {
 }
 
 TEST(GameBoyTest, InstructionCB17) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB17.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB17.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10047,7 +10312,7 @@ TEST(GameBoyTest, InstructionCB17) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10055,9 +10320,10 @@ TEST(GameBoyTest, InstructionCB17) {
 }
 
 TEST(GameBoyTest, InstructionCB18) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB18.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB18.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10084,7 +10350,7 @@ TEST(GameBoyTest, InstructionCB18) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10092,9 +10358,10 @@ TEST(GameBoyTest, InstructionCB18) {
 }
 
 TEST(GameBoyTest, InstructionCB19) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB19.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB19.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10121,17 +10388,18 @@ TEST(GameBoyTest, InstructionCB19) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB1a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB1a.json");
+TEST(GameBoyTest, InstructionCB1A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB1A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10158,17 +10426,18 @@ TEST(GameBoyTest, InstructionCB1a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB1b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB1b.json");
+TEST(GameBoyTest, InstructionCB1B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB1B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10195,17 +10464,18 @@ TEST(GameBoyTest, InstructionCB1b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB1c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB1c.json");
+TEST(GameBoyTest, InstructionCB1C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB1C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10232,17 +10502,18 @@ TEST(GameBoyTest, InstructionCB1c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB1d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB1d.json");
+TEST(GameBoyTest, InstructionCB1D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB1D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10269,17 +10540,18 @@ TEST(GameBoyTest, InstructionCB1d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB1e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB1e.json");
+TEST(GameBoyTest, InstructionCB1E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB1E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10306,17 +10578,18 @@ TEST(GameBoyTest, InstructionCB1e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB1f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB1f.json");
+TEST(GameBoyTest, InstructionCB1F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB1F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10343,7 +10616,7 @@ TEST(GameBoyTest, InstructionCB1f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10351,9 +10624,10 @@ TEST(GameBoyTest, InstructionCB1f) {
 }
 
 TEST(GameBoyTest, InstructionCB20) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB20.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB20.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10380,7 +10654,7 @@ TEST(GameBoyTest, InstructionCB20) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10388,9 +10662,10 @@ TEST(GameBoyTest, InstructionCB20) {
 }
 
 TEST(GameBoyTest, InstructionCB21) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB21.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB21.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10417,7 +10692,7 @@ TEST(GameBoyTest, InstructionCB21) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10425,9 +10700,10 @@ TEST(GameBoyTest, InstructionCB21) {
 }
 
 TEST(GameBoyTest, InstructionCB22) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB22.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB22.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10454,7 +10730,7 @@ TEST(GameBoyTest, InstructionCB22) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10462,9 +10738,10 @@ TEST(GameBoyTest, InstructionCB22) {
 }
 
 TEST(GameBoyTest, InstructionCB23) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB23.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB23.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10491,7 +10768,7 @@ TEST(GameBoyTest, InstructionCB23) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10499,9 +10776,10 @@ TEST(GameBoyTest, InstructionCB23) {
 }
 
 TEST(GameBoyTest, InstructionCB24) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB24.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB24.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10528,7 +10806,7 @@ TEST(GameBoyTest, InstructionCB24) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10536,9 +10814,10 @@ TEST(GameBoyTest, InstructionCB24) {
 }
 
 TEST(GameBoyTest, InstructionCB25) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB25.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB25.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10565,7 +10844,7 @@ TEST(GameBoyTest, InstructionCB25) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10573,9 +10852,10 @@ TEST(GameBoyTest, InstructionCB25) {
 }
 
 TEST(GameBoyTest, InstructionCB26) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB26.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB26.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10602,7 +10882,7 @@ TEST(GameBoyTest, InstructionCB26) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10610,9 +10890,10 @@ TEST(GameBoyTest, InstructionCB26) {
 }
 
 TEST(GameBoyTest, InstructionCB27) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB27.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB27.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10639,7 +10920,7 @@ TEST(GameBoyTest, InstructionCB27) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10647,9 +10928,10 @@ TEST(GameBoyTest, InstructionCB27) {
 }
 
 TEST(GameBoyTest, InstructionCB28) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB28.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB28.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10676,7 +10958,7 @@ TEST(GameBoyTest, InstructionCB28) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10684,9 +10966,10 @@ TEST(GameBoyTest, InstructionCB28) {
 }
 
 TEST(GameBoyTest, InstructionCB29) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB29.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB29.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10713,17 +10996,18 @@ TEST(GameBoyTest, InstructionCB29) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB2a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB2a.json");
+TEST(GameBoyTest, InstructionCB2A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB2A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10750,17 +11034,18 @@ TEST(GameBoyTest, InstructionCB2a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB2b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB2b.json");
+TEST(GameBoyTest, InstructionCB2B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB2B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10787,17 +11072,18 @@ TEST(GameBoyTest, InstructionCB2b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB2c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB2c.json");
+TEST(GameBoyTest, InstructionCB2C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB2C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10824,17 +11110,18 @@ TEST(GameBoyTest, InstructionCB2c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB2d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB2d.json");
+TEST(GameBoyTest, InstructionCB2D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB2D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10861,17 +11148,18 @@ TEST(GameBoyTest, InstructionCB2d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB2e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB2e.json");
+TEST(GameBoyTest, InstructionCB2E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB2E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10898,17 +11186,18 @@ TEST(GameBoyTest, InstructionCB2e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB2f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB2f.json");
+TEST(GameBoyTest, InstructionCB2F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB2F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10935,7 +11224,7 @@ TEST(GameBoyTest, InstructionCB2f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10943,9 +11232,10 @@ TEST(GameBoyTest, InstructionCB2f) {
 }
 
 TEST(GameBoyTest, InstructionCB30) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB30.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB30.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -10972,7 +11262,7 @@ TEST(GameBoyTest, InstructionCB30) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -10980,9 +11270,10 @@ TEST(GameBoyTest, InstructionCB30) {
 }
 
 TEST(GameBoyTest, InstructionCB31) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB31.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB31.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11009,7 +11300,7 @@ TEST(GameBoyTest, InstructionCB31) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11017,9 +11308,10 @@ TEST(GameBoyTest, InstructionCB31) {
 }
 
 TEST(GameBoyTest, InstructionCB32) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB32.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB32.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11046,7 +11338,7 @@ TEST(GameBoyTest, InstructionCB32) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11054,9 +11346,10 @@ TEST(GameBoyTest, InstructionCB32) {
 }
 
 TEST(GameBoyTest, InstructionCB33) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB33.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB33.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11083,7 +11376,7 @@ TEST(GameBoyTest, InstructionCB33) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11091,9 +11384,10 @@ TEST(GameBoyTest, InstructionCB33) {
 }
 
 TEST(GameBoyTest, InstructionCB34) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB34.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB34.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11120,7 +11414,7 @@ TEST(GameBoyTest, InstructionCB34) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11128,9 +11422,10 @@ TEST(GameBoyTest, InstructionCB34) {
 }
 
 TEST(GameBoyTest, InstructionCB35) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB35.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB35.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11157,7 +11452,7 @@ TEST(GameBoyTest, InstructionCB35) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11165,9 +11460,10 @@ TEST(GameBoyTest, InstructionCB35) {
 }
 
 TEST(GameBoyTest, InstructionCB36) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB36.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB36.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11194,7 +11490,7 @@ TEST(GameBoyTest, InstructionCB36) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11202,9 +11498,10 @@ TEST(GameBoyTest, InstructionCB36) {
 }
 
 TEST(GameBoyTest, InstructionCB37) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB37.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB37.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11231,7 +11528,7 @@ TEST(GameBoyTest, InstructionCB37) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11239,9 +11536,10 @@ TEST(GameBoyTest, InstructionCB37) {
 }
 
 TEST(GameBoyTest, InstructionCB38) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB38.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB38.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11268,7 +11566,7 @@ TEST(GameBoyTest, InstructionCB38) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11276,9 +11574,10 @@ TEST(GameBoyTest, InstructionCB38) {
 }
 
 TEST(GameBoyTest, InstructionCB39) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB39.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB39.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11305,17 +11604,18 @@ TEST(GameBoyTest, InstructionCB39) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB3a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB3a.json");
+TEST(GameBoyTest, InstructionCB3A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB3A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11342,17 +11642,18 @@ TEST(GameBoyTest, InstructionCB3a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB3b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB3b.json");
+TEST(GameBoyTest, InstructionCB3B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB3B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11379,17 +11680,18 @@ TEST(GameBoyTest, InstructionCB3b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB3c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB3c.json");
+TEST(GameBoyTest, InstructionCB3C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB3C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11416,17 +11718,18 @@ TEST(GameBoyTest, InstructionCB3c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB3d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB3d.json");
+TEST(GameBoyTest, InstructionCB3D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB3D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11453,17 +11756,18 @@ TEST(GameBoyTest, InstructionCB3d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB3e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB3e.json");
+TEST(GameBoyTest, InstructionCB3E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB3E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11490,17 +11794,18 @@ TEST(GameBoyTest, InstructionCB3e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB3f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB3f.json");
+TEST(GameBoyTest, InstructionCB3F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB3F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11527,7 +11832,7 @@ TEST(GameBoyTest, InstructionCB3f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11535,9 +11840,10 @@ TEST(GameBoyTest, InstructionCB3f) {
 }
 
 TEST(GameBoyTest, InstructionCB40) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB40.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB40.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11564,7 +11870,7 @@ TEST(GameBoyTest, InstructionCB40) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11572,9 +11878,10 @@ TEST(GameBoyTest, InstructionCB40) {
 }
 
 TEST(GameBoyTest, InstructionCB41) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB41.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB41.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11601,7 +11908,7 @@ TEST(GameBoyTest, InstructionCB41) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11609,9 +11916,10 @@ TEST(GameBoyTest, InstructionCB41) {
 }
 
 TEST(GameBoyTest, InstructionCB42) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB42.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB42.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11638,7 +11946,7 @@ TEST(GameBoyTest, InstructionCB42) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11646,9 +11954,10 @@ TEST(GameBoyTest, InstructionCB42) {
 }
 
 TEST(GameBoyTest, InstructionCB43) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB43.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB43.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11675,7 +11984,7 @@ TEST(GameBoyTest, InstructionCB43) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11683,9 +11992,10 @@ TEST(GameBoyTest, InstructionCB43) {
 }
 
 TEST(GameBoyTest, InstructionCB44) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB44.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB44.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11712,7 +12022,7 @@ TEST(GameBoyTest, InstructionCB44) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11720,9 +12030,10 @@ TEST(GameBoyTest, InstructionCB44) {
 }
 
 TEST(GameBoyTest, InstructionCB45) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB45.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB45.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11749,7 +12060,7 @@ TEST(GameBoyTest, InstructionCB45) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11757,9 +12068,10 @@ TEST(GameBoyTest, InstructionCB45) {
 }
 
 TEST(GameBoyTest, InstructionCB46) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB46.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB46.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11786,7 +12098,7 @@ TEST(GameBoyTest, InstructionCB46) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11794,9 +12106,10 @@ TEST(GameBoyTest, InstructionCB46) {
 }
 
 TEST(GameBoyTest, InstructionCB47) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB47.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB47.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11823,7 +12136,7 @@ TEST(GameBoyTest, InstructionCB47) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11831,9 +12144,10 @@ TEST(GameBoyTest, InstructionCB47) {
 }
 
 TEST(GameBoyTest, InstructionCB48) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB48.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB48.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11860,7 +12174,7 @@ TEST(GameBoyTest, InstructionCB48) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -11868,9 +12182,10 @@ TEST(GameBoyTest, InstructionCB48) {
 }
 
 TEST(GameBoyTest, InstructionCB49) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB49.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB49.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11897,17 +12212,18 @@ TEST(GameBoyTest, InstructionCB49) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB4a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB4a.json");
+TEST(GameBoyTest, InstructionCB4A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB4A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11934,17 +12250,18 @@ TEST(GameBoyTest, InstructionCB4a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB4b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB4b.json");
+TEST(GameBoyTest, InstructionCB4B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB4B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -11971,17 +12288,18 @@ TEST(GameBoyTest, InstructionCB4b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB4c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB4c.json");
+TEST(GameBoyTest, InstructionCB4C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB4C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12008,17 +12326,18 @@ TEST(GameBoyTest, InstructionCB4c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB4d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB4d.json");
+TEST(GameBoyTest, InstructionCB4D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB4D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12045,17 +12364,18 @@ TEST(GameBoyTest, InstructionCB4d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB4e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB4e.json");
+TEST(GameBoyTest, InstructionCB4E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB4E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12082,17 +12402,18 @@ TEST(GameBoyTest, InstructionCB4e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB4f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB4f.json");
+TEST(GameBoyTest, InstructionCB4F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB4F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12119,7 +12440,7 @@ TEST(GameBoyTest, InstructionCB4f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12127,9 +12448,10 @@ TEST(GameBoyTest, InstructionCB4f) {
 }
 
 TEST(GameBoyTest, InstructionCB50) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB50.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB50.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12156,7 +12478,7 @@ TEST(GameBoyTest, InstructionCB50) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12164,9 +12486,10 @@ TEST(GameBoyTest, InstructionCB50) {
 }
 
 TEST(GameBoyTest, InstructionCB51) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB51.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB51.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12193,7 +12516,7 @@ TEST(GameBoyTest, InstructionCB51) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12201,9 +12524,10 @@ TEST(GameBoyTest, InstructionCB51) {
 }
 
 TEST(GameBoyTest, InstructionCB52) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB52.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB52.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12230,7 +12554,7 @@ TEST(GameBoyTest, InstructionCB52) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12238,9 +12562,10 @@ TEST(GameBoyTest, InstructionCB52) {
 }
 
 TEST(GameBoyTest, InstructionCB53) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB53.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB53.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12267,7 +12592,7 @@ TEST(GameBoyTest, InstructionCB53) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12275,9 +12600,10 @@ TEST(GameBoyTest, InstructionCB53) {
 }
 
 TEST(GameBoyTest, InstructionCB54) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB54.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB54.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12304,7 +12630,7 @@ TEST(GameBoyTest, InstructionCB54) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12312,9 +12638,10 @@ TEST(GameBoyTest, InstructionCB54) {
 }
 
 TEST(GameBoyTest, InstructionCB55) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB55.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB55.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12341,7 +12668,7 @@ TEST(GameBoyTest, InstructionCB55) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12349,9 +12676,10 @@ TEST(GameBoyTest, InstructionCB55) {
 }
 
 TEST(GameBoyTest, InstructionCB56) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB56.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB56.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12378,7 +12706,7 @@ TEST(GameBoyTest, InstructionCB56) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12386,9 +12714,10 @@ TEST(GameBoyTest, InstructionCB56) {
 }
 
 TEST(GameBoyTest, InstructionCB57) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB57.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB57.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12415,7 +12744,7 @@ TEST(GameBoyTest, InstructionCB57) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12423,9 +12752,10 @@ TEST(GameBoyTest, InstructionCB57) {
 }
 
 TEST(GameBoyTest, InstructionCB58) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB58.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB58.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12452,7 +12782,7 @@ TEST(GameBoyTest, InstructionCB58) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12460,9 +12790,10 @@ TEST(GameBoyTest, InstructionCB58) {
 }
 
 TEST(GameBoyTest, InstructionCB59) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB59.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB59.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12489,17 +12820,18 @@ TEST(GameBoyTest, InstructionCB59) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB5a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB5a.json");
+TEST(GameBoyTest, InstructionCB5A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB5A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12526,17 +12858,18 @@ TEST(GameBoyTest, InstructionCB5a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB5b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB5b.json");
+TEST(GameBoyTest, InstructionCB5B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB5B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12563,17 +12896,18 @@ TEST(GameBoyTest, InstructionCB5b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB5c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB5c.json");
+TEST(GameBoyTest, InstructionCB5C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB5C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12600,17 +12934,18 @@ TEST(GameBoyTest, InstructionCB5c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB5d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB5d.json");
+TEST(GameBoyTest, InstructionCB5D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB5D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12637,17 +12972,18 @@ TEST(GameBoyTest, InstructionCB5d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB5e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB5e.json");
+TEST(GameBoyTest, InstructionCB5E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB5E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12674,17 +13010,18 @@ TEST(GameBoyTest, InstructionCB5e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB5f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB5f.json");
+TEST(GameBoyTest, InstructionCB5F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB5F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12711,7 +13048,7 @@ TEST(GameBoyTest, InstructionCB5f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12719,9 +13056,10 @@ TEST(GameBoyTest, InstructionCB5f) {
 }
 
 TEST(GameBoyTest, InstructionCB60) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB60.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB60.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12748,7 +13086,7 @@ TEST(GameBoyTest, InstructionCB60) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12756,9 +13094,10 @@ TEST(GameBoyTest, InstructionCB60) {
 }
 
 TEST(GameBoyTest, InstructionCB61) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB61.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB61.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12785,7 +13124,7 @@ TEST(GameBoyTest, InstructionCB61) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12793,9 +13132,10 @@ TEST(GameBoyTest, InstructionCB61) {
 }
 
 TEST(GameBoyTest, InstructionCB62) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB62.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB62.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12822,7 +13162,7 @@ TEST(GameBoyTest, InstructionCB62) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12830,9 +13170,10 @@ TEST(GameBoyTest, InstructionCB62) {
 }
 
 TEST(GameBoyTest, InstructionCB63) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB63.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB63.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12859,7 +13200,7 @@ TEST(GameBoyTest, InstructionCB63) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12867,9 +13208,10 @@ TEST(GameBoyTest, InstructionCB63) {
 }
 
 TEST(GameBoyTest, InstructionCB64) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB64.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB64.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12896,7 +13238,7 @@ TEST(GameBoyTest, InstructionCB64) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12904,9 +13246,10 @@ TEST(GameBoyTest, InstructionCB64) {
 }
 
 TEST(GameBoyTest, InstructionCB65) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB65.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB65.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12933,7 +13276,7 @@ TEST(GameBoyTest, InstructionCB65) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12941,9 +13284,10 @@ TEST(GameBoyTest, InstructionCB65) {
 }
 
 TEST(GameBoyTest, InstructionCB66) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB66.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB66.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -12970,7 +13314,7 @@ TEST(GameBoyTest, InstructionCB66) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -12978,9 +13322,10 @@ TEST(GameBoyTest, InstructionCB66) {
 }
 
 TEST(GameBoyTest, InstructionCB67) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB67.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB67.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13007,7 +13352,7 @@ TEST(GameBoyTest, InstructionCB67) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13015,9 +13360,10 @@ TEST(GameBoyTest, InstructionCB67) {
 }
 
 TEST(GameBoyTest, InstructionCB68) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB68.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB68.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13044,7 +13390,7 @@ TEST(GameBoyTest, InstructionCB68) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13052,9 +13398,10 @@ TEST(GameBoyTest, InstructionCB68) {
 }
 
 TEST(GameBoyTest, InstructionCB69) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB69.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB69.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13081,17 +13428,18 @@ TEST(GameBoyTest, InstructionCB69) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB6a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB6a.json");
+TEST(GameBoyTest, InstructionCB6A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB6A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13118,17 +13466,18 @@ TEST(GameBoyTest, InstructionCB6a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB6b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB6b.json");
+TEST(GameBoyTest, InstructionCB6B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB6B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13155,17 +13504,18 @@ TEST(GameBoyTest, InstructionCB6b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB6c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB6c.json");
+TEST(GameBoyTest, InstructionCB6C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB6C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13192,17 +13542,18 @@ TEST(GameBoyTest, InstructionCB6c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB6d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB6d.json");
+TEST(GameBoyTest, InstructionCB6D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB6D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13229,17 +13580,18 @@ TEST(GameBoyTest, InstructionCB6d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB6e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB6e.json");
+TEST(GameBoyTest, InstructionCB6E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB6E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13266,17 +13618,18 @@ TEST(GameBoyTest, InstructionCB6e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB6f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB6f.json");
+TEST(GameBoyTest, InstructionCB6F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB6F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13303,7 +13656,7 @@ TEST(GameBoyTest, InstructionCB6f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13311,9 +13664,10 @@ TEST(GameBoyTest, InstructionCB6f) {
 }
 
 TEST(GameBoyTest, InstructionCB70) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB70.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB70.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13340,7 +13694,7 @@ TEST(GameBoyTest, InstructionCB70) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13348,9 +13702,10 @@ TEST(GameBoyTest, InstructionCB70) {
 }
 
 TEST(GameBoyTest, InstructionCB71) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB71.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB71.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13377,7 +13732,7 @@ TEST(GameBoyTest, InstructionCB71) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13385,9 +13740,10 @@ TEST(GameBoyTest, InstructionCB71) {
 }
 
 TEST(GameBoyTest, InstructionCB72) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB72.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB72.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13414,7 +13770,7 @@ TEST(GameBoyTest, InstructionCB72) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13422,9 +13778,10 @@ TEST(GameBoyTest, InstructionCB72) {
 }
 
 TEST(GameBoyTest, InstructionCB73) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB73.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB73.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13451,7 +13808,7 @@ TEST(GameBoyTest, InstructionCB73) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13459,9 +13816,10 @@ TEST(GameBoyTest, InstructionCB73) {
 }
 
 TEST(GameBoyTest, InstructionCB74) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB74.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB74.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13488,7 +13846,7 @@ TEST(GameBoyTest, InstructionCB74) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13496,9 +13854,10 @@ TEST(GameBoyTest, InstructionCB74) {
 }
 
 TEST(GameBoyTest, InstructionCB75) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB75.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB75.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13525,7 +13884,7 @@ TEST(GameBoyTest, InstructionCB75) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13533,9 +13892,10 @@ TEST(GameBoyTest, InstructionCB75) {
 }
 
 TEST(GameBoyTest, InstructionCB76) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB76.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB76.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13562,7 +13922,7 @@ TEST(GameBoyTest, InstructionCB76) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13570,9 +13930,10 @@ TEST(GameBoyTest, InstructionCB76) {
 }
 
 TEST(GameBoyTest, InstructionCB77) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB77.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB77.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13599,7 +13960,7 @@ TEST(GameBoyTest, InstructionCB77) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13607,9 +13968,10 @@ TEST(GameBoyTest, InstructionCB77) {
 }
 
 TEST(GameBoyTest, InstructionCB78) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB78.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB78.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13636,7 +13998,7 @@ TEST(GameBoyTest, InstructionCB78) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13644,9 +14006,10 @@ TEST(GameBoyTest, InstructionCB78) {
 }
 
 TEST(GameBoyTest, InstructionCB79) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB79.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB79.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13673,17 +14036,18 @@ TEST(GameBoyTest, InstructionCB79) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB7a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB7a.json");
+TEST(GameBoyTest, InstructionCB7A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB7A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13710,17 +14074,18 @@ TEST(GameBoyTest, InstructionCB7a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB7b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB7b.json");
+TEST(GameBoyTest, InstructionCB7B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB7B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13747,17 +14112,18 @@ TEST(GameBoyTest, InstructionCB7b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB7c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB7c.json");
+TEST(GameBoyTest, InstructionCB7C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB7C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13784,17 +14150,18 @@ TEST(GameBoyTest, InstructionCB7c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB7d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB7d.json");
+TEST(GameBoyTest, InstructionCB7D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB7D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13821,17 +14188,18 @@ TEST(GameBoyTest, InstructionCB7d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB7e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB7e.json");
+TEST(GameBoyTest, InstructionCB7E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB7E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13858,17 +14226,18 @@ TEST(GameBoyTest, InstructionCB7e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB7f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB7f.json");
+TEST(GameBoyTest, InstructionCB7F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB7F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13895,7 +14264,7 @@ TEST(GameBoyTest, InstructionCB7f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13903,9 +14272,10 @@ TEST(GameBoyTest, InstructionCB7f) {
 }
 
 TEST(GameBoyTest, InstructionCB80) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB80.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB80.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13932,7 +14302,7 @@ TEST(GameBoyTest, InstructionCB80) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13940,9 +14310,10 @@ TEST(GameBoyTest, InstructionCB80) {
 }
 
 TEST(GameBoyTest, InstructionCB81) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB81.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB81.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -13969,7 +14340,7 @@ TEST(GameBoyTest, InstructionCB81) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -13977,9 +14348,10 @@ TEST(GameBoyTest, InstructionCB81) {
 }
 
 TEST(GameBoyTest, InstructionCB82) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB82.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB82.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14006,7 +14378,7 @@ TEST(GameBoyTest, InstructionCB82) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14014,9 +14386,10 @@ TEST(GameBoyTest, InstructionCB82) {
 }
 
 TEST(GameBoyTest, InstructionCB83) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB83.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB83.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14043,7 +14416,7 @@ TEST(GameBoyTest, InstructionCB83) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14051,9 +14424,10 @@ TEST(GameBoyTest, InstructionCB83) {
 }
 
 TEST(GameBoyTest, InstructionCB84) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB84.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB84.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14080,7 +14454,7 @@ TEST(GameBoyTest, InstructionCB84) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14088,9 +14462,10 @@ TEST(GameBoyTest, InstructionCB84) {
 }
 
 TEST(GameBoyTest, InstructionCB85) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB85.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB85.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14117,7 +14492,7 @@ TEST(GameBoyTest, InstructionCB85) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14125,9 +14500,10 @@ TEST(GameBoyTest, InstructionCB85) {
 }
 
 TEST(GameBoyTest, InstructionCB86) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB86.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB86.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14154,7 +14530,7 @@ TEST(GameBoyTest, InstructionCB86) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14162,9 +14538,10 @@ TEST(GameBoyTest, InstructionCB86) {
 }
 
 TEST(GameBoyTest, InstructionCB87) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB87.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB87.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14191,7 +14568,7 @@ TEST(GameBoyTest, InstructionCB87) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14199,9 +14576,10 @@ TEST(GameBoyTest, InstructionCB87) {
 }
 
 TEST(GameBoyTest, InstructionCB88) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB88.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB88.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14228,7 +14606,7 @@ TEST(GameBoyTest, InstructionCB88) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14236,9 +14614,10 @@ TEST(GameBoyTest, InstructionCB88) {
 }
 
 TEST(GameBoyTest, InstructionCB89) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB89.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB89.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14265,17 +14644,18 @@ TEST(GameBoyTest, InstructionCB89) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB8a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB8a.json");
+TEST(GameBoyTest, InstructionCB8A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB8A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14302,17 +14682,18 @@ TEST(GameBoyTest, InstructionCB8a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB8b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB8b.json");
+TEST(GameBoyTest, InstructionCB8B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB8B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14339,17 +14720,18 @@ TEST(GameBoyTest, InstructionCB8b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB8c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB8c.json");
+TEST(GameBoyTest, InstructionCB8C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB8C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14376,17 +14758,18 @@ TEST(GameBoyTest, InstructionCB8c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB8d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB8d.json");
+TEST(GameBoyTest, InstructionCB8D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB8D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14413,17 +14796,18 @@ TEST(GameBoyTest, InstructionCB8d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB8e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB8e.json");
+TEST(GameBoyTest, InstructionCB8E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB8E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14450,17 +14834,18 @@ TEST(GameBoyTest, InstructionCB8e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB8f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB8f.json");
+TEST(GameBoyTest, InstructionCB8F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB8F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14487,7 +14872,7 @@ TEST(GameBoyTest, InstructionCB8f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14495,9 +14880,10 @@ TEST(GameBoyTest, InstructionCB8f) {
 }
 
 TEST(GameBoyTest, InstructionCB90) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB90.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB90.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14524,7 +14910,7 @@ TEST(GameBoyTest, InstructionCB90) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14532,9 +14918,10 @@ TEST(GameBoyTest, InstructionCB90) {
 }
 
 TEST(GameBoyTest, InstructionCB91) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB91.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB91.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14561,7 +14948,7 @@ TEST(GameBoyTest, InstructionCB91) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14569,9 +14956,10 @@ TEST(GameBoyTest, InstructionCB91) {
 }
 
 TEST(GameBoyTest, InstructionCB92) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB92.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB92.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14598,7 +14986,7 @@ TEST(GameBoyTest, InstructionCB92) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14606,9 +14994,10 @@ TEST(GameBoyTest, InstructionCB92) {
 }
 
 TEST(GameBoyTest, InstructionCB93) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB93.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB93.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14635,7 +15024,7 @@ TEST(GameBoyTest, InstructionCB93) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14643,9 +15032,10 @@ TEST(GameBoyTest, InstructionCB93) {
 }
 
 TEST(GameBoyTest, InstructionCB94) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB94.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB94.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14672,7 +15062,7 @@ TEST(GameBoyTest, InstructionCB94) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14680,9 +15070,10 @@ TEST(GameBoyTest, InstructionCB94) {
 }
 
 TEST(GameBoyTest, InstructionCB95) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB95.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB95.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14709,7 +15100,7 @@ TEST(GameBoyTest, InstructionCB95) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14717,9 +15108,10 @@ TEST(GameBoyTest, InstructionCB95) {
 }
 
 TEST(GameBoyTest, InstructionCB96) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB96.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB96.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14746,7 +15138,7 @@ TEST(GameBoyTest, InstructionCB96) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14754,9 +15146,10 @@ TEST(GameBoyTest, InstructionCB96) {
 }
 
 TEST(GameBoyTest, InstructionCB97) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB97.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB97.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14783,7 +15176,7 @@ TEST(GameBoyTest, InstructionCB97) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14791,9 +15184,10 @@ TEST(GameBoyTest, InstructionCB97) {
 }
 
 TEST(GameBoyTest, InstructionCB98) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB98.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB98.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14820,7 +15214,7 @@ TEST(GameBoyTest, InstructionCB98) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
@@ -14828,9 +15222,10 @@ TEST(GameBoyTest, InstructionCB98) {
 }
 
 TEST(GameBoyTest, InstructionCB99) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB99.json");
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB99.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14857,17 +15252,18 @@ TEST(GameBoyTest, InstructionCB99) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB9a) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB9a.json");
+TEST(GameBoyTest, InstructionCB9A) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB9A.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14894,17 +15290,18 @@ TEST(GameBoyTest, InstructionCB9a) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB9b) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB9b.json");
+TEST(GameBoyTest, InstructionCB9B) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB9B.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14931,17 +15328,18 @@ TEST(GameBoyTest, InstructionCB9b) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB9c) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB9c.json");
+TEST(GameBoyTest, InstructionCB9C) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB9C.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -14968,17 +15366,18 @@ TEST(GameBoyTest, InstructionCB9c) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB9d) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB9d.json");
+TEST(GameBoyTest, InstructionCB9D) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB9D.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15005,17 +15404,18 @@ TEST(GameBoyTest, InstructionCB9d) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB9e) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB9e.json");
+TEST(GameBoyTest, InstructionCB9E) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB9E.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15042,17 +15442,18 @@ TEST(GameBoyTest, InstructionCB9e) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCB9f) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CB9f.json");
+TEST(GameBoyTest, InstructionCB9F) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CB9F.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15079,17 +15480,18 @@ TEST(GameBoyTest, InstructionCB9f) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa0.json");
+TEST(GameBoyTest, InstructionCBA0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15116,17 +15518,18 @@ TEST(GameBoyTest, InstructionCBa0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa1.json");
+TEST(GameBoyTest, InstructionCBA1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15153,17 +15556,18 @@ TEST(GameBoyTest, InstructionCBa1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa2.json");
+TEST(GameBoyTest, InstructionCBA2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15190,17 +15594,18 @@ TEST(GameBoyTest, InstructionCBa2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa3.json");
+TEST(GameBoyTest, InstructionCBA3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15227,17 +15632,18 @@ TEST(GameBoyTest, InstructionCBa3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa4.json");
+TEST(GameBoyTest, InstructionCBA4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15264,17 +15670,18 @@ TEST(GameBoyTest, InstructionCBa4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa5.json");
+TEST(GameBoyTest, InstructionCBA5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15301,17 +15708,18 @@ TEST(GameBoyTest, InstructionCBa5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa6.json");
+TEST(GameBoyTest, InstructionCBA6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15338,17 +15746,18 @@ TEST(GameBoyTest, InstructionCBa6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa7.json");
+TEST(GameBoyTest, InstructionCBA7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15375,17 +15784,18 @@ TEST(GameBoyTest, InstructionCBa7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa8.json");
+TEST(GameBoyTest, InstructionCBA8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15412,17 +15822,18 @@ TEST(GameBoyTest, InstructionCBa8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBa9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBa9.json");
+TEST(GameBoyTest, InstructionCBA9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBA9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15449,17 +15860,18 @@ TEST(GameBoyTest, InstructionCBa9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBaa) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBaa.json");
+TEST(GameBoyTest, InstructionCBAA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBAA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15486,17 +15898,18 @@ TEST(GameBoyTest, InstructionCBaa) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBab) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBab.json");
+TEST(GameBoyTest, InstructionCBAB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBAB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15523,17 +15936,18 @@ TEST(GameBoyTest, InstructionCBab) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBac) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBac.json");
+TEST(GameBoyTest, InstructionCBAC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBAC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15560,17 +15974,18 @@ TEST(GameBoyTest, InstructionCBac) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBad) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBad.json");
+TEST(GameBoyTest, InstructionCBAD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBAD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15597,17 +16012,18 @@ TEST(GameBoyTest, InstructionCBad) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBae) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBae.json");
+TEST(GameBoyTest, InstructionCBAE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBAE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15634,17 +16050,18 @@ TEST(GameBoyTest, InstructionCBae) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBaf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBaf.json");
+TEST(GameBoyTest, InstructionCBAF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBAF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15671,17 +16088,18 @@ TEST(GameBoyTest, InstructionCBaf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb0.json");
+TEST(GameBoyTest, InstructionCBB0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15708,17 +16126,18 @@ TEST(GameBoyTest, InstructionCBb0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb1.json");
+TEST(GameBoyTest, InstructionCBB1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15745,17 +16164,18 @@ TEST(GameBoyTest, InstructionCBb1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb2.json");
+TEST(GameBoyTest, InstructionCBB2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15782,17 +16202,18 @@ TEST(GameBoyTest, InstructionCBb2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb3.json");
+TEST(GameBoyTest, InstructionCBB3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15819,17 +16240,18 @@ TEST(GameBoyTest, InstructionCBb3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb4.json");
+TEST(GameBoyTest, InstructionCBB4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15856,17 +16278,18 @@ TEST(GameBoyTest, InstructionCBb4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb5.json");
+TEST(GameBoyTest, InstructionCBB5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15893,17 +16316,18 @@ TEST(GameBoyTest, InstructionCBb5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb6.json");
+TEST(GameBoyTest, InstructionCBB6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15930,17 +16354,18 @@ TEST(GameBoyTest, InstructionCBb6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb7.json");
+TEST(GameBoyTest, InstructionCBB7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -15967,17 +16392,18 @@ TEST(GameBoyTest, InstructionCBb7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb8.json");
+TEST(GameBoyTest, InstructionCBB8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16004,17 +16430,18 @@ TEST(GameBoyTest, InstructionCBb8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBb9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBb9.json");
+TEST(GameBoyTest, InstructionCBB9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBB9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16041,17 +16468,18 @@ TEST(GameBoyTest, InstructionCBb9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBba) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBba.json");
+TEST(GameBoyTest, InstructionCBBA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBBA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16078,17 +16506,18 @@ TEST(GameBoyTest, InstructionCBba) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBbb) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBbb.json");
+TEST(GameBoyTest, InstructionCBBB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBBB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16115,17 +16544,18 @@ TEST(GameBoyTest, InstructionCBbb) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBbc) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBbc.json");
+TEST(GameBoyTest, InstructionCBBC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBBC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16152,17 +16582,18 @@ TEST(GameBoyTest, InstructionCBbc) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBbd) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBbd.json");
+TEST(GameBoyTest, InstructionCBBD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBBD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16189,17 +16620,18 @@ TEST(GameBoyTest, InstructionCBbd) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBbe) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBbe.json");
+TEST(GameBoyTest, InstructionCBBE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBBE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16226,17 +16658,18 @@ TEST(GameBoyTest, InstructionCBbe) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBbf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBbf.json");
+TEST(GameBoyTest, InstructionCBBF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBBF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16263,17 +16696,18 @@ TEST(GameBoyTest, InstructionCBbf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc0.json");
+TEST(GameBoyTest, InstructionCBC0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16300,17 +16734,18 @@ TEST(GameBoyTest, InstructionCBc0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc1.json");
+TEST(GameBoyTest, InstructionCBC1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16337,17 +16772,18 @@ TEST(GameBoyTest, InstructionCBc1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc2.json");
+TEST(GameBoyTest, InstructionCBC2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16374,17 +16810,18 @@ TEST(GameBoyTest, InstructionCBc2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc3.json");
+TEST(GameBoyTest, InstructionCBC3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16411,17 +16848,18 @@ TEST(GameBoyTest, InstructionCBc3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc4.json");
+TEST(GameBoyTest, InstructionCBC4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16448,17 +16886,18 @@ TEST(GameBoyTest, InstructionCBc4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc5.json");
+TEST(GameBoyTest, InstructionCBC5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16485,17 +16924,18 @@ TEST(GameBoyTest, InstructionCBc5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc6.json");
+TEST(GameBoyTest, InstructionCBC6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16522,17 +16962,18 @@ TEST(GameBoyTest, InstructionCBc6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc7.json");
+TEST(GameBoyTest, InstructionCBC7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16559,17 +17000,18 @@ TEST(GameBoyTest, InstructionCBc7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc8.json");
+TEST(GameBoyTest, InstructionCBC8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16596,17 +17038,18 @@ TEST(GameBoyTest, InstructionCBc8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBc9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBc9.json");
+TEST(GameBoyTest, InstructionCBC9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBC9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16633,17 +17076,18 @@ TEST(GameBoyTest, InstructionCBc9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBca) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBca.json");
+TEST(GameBoyTest, InstructionCBCA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBCA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16670,17 +17114,18 @@ TEST(GameBoyTest, InstructionCBca) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBcb) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBcb.json");
+TEST(GameBoyTest, InstructionCBCB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBCB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16707,17 +17152,18 @@ TEST(GameBoyTest, InstructionCBcb) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBcc) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBcc.json");
+TEST(GameBoyTest, InstructionCBCC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBCC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16744,17 +17190,18 @@ TEST(GameBoyTest, InstructionCBcc) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBcd) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBcd.json");
+TEST(GameBoyTest, InstructionCBCD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBCD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16781,17 +17228,18 @@ TEST(GameBoyTest, InstructionCBcd) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBce) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBce.json");
+TEST(GameBoyTest, InstructionCBCE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBCE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16818,17 +17266,18 @@ TEST(GameBoyTest, InstructionCBce) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBcf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBcf.json");
+TEST(GameBoyTest, InstructionCBCF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBCF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16855,17 +17304,18 @@ TEST(GameBoyTest, InstructionCBcf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd0.json");
+TEST(GameBoyTest, InstructionCBD0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16892,17 +17342,18 @@ TEST(GameBoyTest, InstructionCBd0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd1.json");
+TEST(GameBoyTest, InstructionCBD1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16929,17 +17380,18 @@ TEST(GameBoyTest, InstructionCBd1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd2.json");
+TEST(GameBoyTest, InstructionCBD2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -16966,17 +17418,18 @@ TEST(GameBoyTest, InstructionCBd2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd3.json");
+TEST(GameBoyTest, InstructionCBD3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17003,17 +17456,18 @@ TEST(GameBoyTest, InstructionCBd3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd4.json");
+TEST(GameBoyTest, InstructionCBD4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17040,17 +17494,18 @@ TEST(GameBoyTest, InstructionCBd4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd5.json");
+TEST(GameBoyTest, InstructionCBD5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17077,17 +17532,18 @@ TEST(GameBoyTest, InstructionCBd5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd6.json");
+TEST(GameBoyTest, InstructionCBD6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17114,17 +17570,18 @@ TEST(GameBoyTest, InstructionCBd6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd7.json");
+TEST(GameBoyTest, InstructionCBD7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17151,17 +17608,18 @@ TEST(GameBoyTest, InstructionCBd7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd8.json");
+TEST(GameBoyTest, InstructionCBD8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17188,17 +17646,18 @@ TEST(GameBoyTest, InstructionCBd8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBd9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBd9.json");
+TEST(GameBoyTest, InstructionCBD9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBD9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17225,17 +17684,18 @@ TEST(GameBoyTest, InstructionCBd9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBda) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBda.json");
+TEST(GameBoyTest, InstructionCBDA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBDA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17262,17 +17722,18 @@ TEST(GameBoyTest, InstructionCBda) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBdb) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBdb.json");
+TEST(GameBoyTest, InstructionCBDB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBDB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17299,17 +17760,18 @@ TEST(GameBoyTest, InstructionCBdb) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBdc) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBdc.json");
+TEST(GameBoyTest, InstructionCBDC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBDC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17336,17 +17798,18 @@ TEST(GameBoyTest, InstructionCBdc) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBdd) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBdd.json");
+TEST(GameBoyTest, InstructionCBDD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBDD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17373,17 +17836,18 @@ TEST(GameBoyTest, InstructionCBdd) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBde) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBde.json");
+TEST(GameBoyTest, InstructionCBDE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBDE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17410,17 +17874,18 @@ TEST(GameBoyTest, InstructionCBde) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBdf) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBdf.json");
+TEST(GameBoyTest, InstructionCBDF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBDF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17447,17 +17912,18 @@ TEST(GameBoyTest, InstructionCBdf) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe0.json");
+TEST(GameBoyTest, InstructionCBE0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17484,17 +17950,18 @@ TEST(GameBoyTest, InstructionCBe0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe1.json");
+TEST(GameBoyTest, InstructionCBE1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17521,17 +17988,18 @@ TEST(GameBoyTest, InstructionCBe1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe2.json");
+TEST(GameBoyTest, InstructionCBE2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17558,17 +18026,18 @@ TEST(GameBoyTest, InstructionCBe2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe3.json");
+TEST(GameBoyTest, InstructionCBE3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17595,17 +18064,18 @@ TEST(GameBoyTest, InstructionCBe3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe4.json");
+TEST(GameBoyTest, InstructionCBE4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17632,17 +18102,18 @@ TEST(GameBoyTest, InstructionCBe4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe5.json");
+TEST(GameBoyTest, InstructionCBE5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17669,17 +18140,18 @@ TEST(GameBoyTest, InstructionCBe5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe6.json");
+TEST(GameBoyTest, InstructionCBE6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17706,17 +18178,18 @@ TEST(GameBoyTest, InstructionCBe6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe7.json");
+TEST(GameBoyTest, InstructionCBE7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17743,17 +18216,18 @@ TEST(GameBoyTest, InstructionCBe7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe8.json");
+TEST(GameBoyTest, InstructionCBE8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17780,17 +18254,18 @@ TEST(GameBoyTest, InstructionCBe8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBe9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBe9.json");
+TEST(GameBoyTest, InstructionCBE9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBE9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17817,17 +18292,18 @@ TEST(GameBoyTest, InstructionCBe9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBea) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBea.json");
+TEST(GameBoyTest, InstructionCBEA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBEA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17854,17 +18330,18 @@ TEST(GameBoyTest, InstructionCBea) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBeb) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBeb.json");
+TEST(GameBoyTest, InstructionCBEB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBEB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17891,17 +18368,18 @@ TEST(GameBoyTest, InstructionCBeb) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBec) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBec.json");
+TEST(GameBoyTest, InstructionCBEC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBEC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17928,17 +18406,18 @@ TEST(GameBoyTest, InstructionCBec) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBed) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBed.json");
+TEST(GameBoyTest, InstructionCBED) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBED.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -17965,17 +18444,18 @@ TEST(GameBoyTest, InstructionCBed) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBee) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBee.json");
+TEST(GameBoyTest, InstructionCBEE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBEE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18002,17 +18482,18 @@ TEST(GameBoyTest, InstructionCBee) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBef) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBef.json");
+TEST(GameBoyTest, InstructionCBEF) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBEF.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18039,17 +18520,18 @@ TEST(GameBoyTest, InstructionCBef) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf0) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf0.json");
+TEST(GameBoyTest, InstructionCBF0) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF0.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18076,17 +18558,18 @@ TEST(GameBoyTest, InstructionCBf0) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf1) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf1.json");
+TEST(GameBoyTest, InstructionCBF1) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF1.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18113,17 +18596,18 @@ TEST(GameBoyTest, InstructionCBf1) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf2) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf2.json");
+TEST(GameBoyTest, InstructionCBF2) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF2.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18150,17 +18634,18 @@ TEST(GameBoyTest, InstructionCBf2) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf3) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf3.json");
+TEST(GameBoyTest, InstructionCBF3) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF3.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18187,17 +18672,18 @@ TEST(GameBoyTest, InstructionCBf3) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf4) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf4.json");
+TEST(GameBoyTest, InstructionCBF4) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF4.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18224,17 +18710,18 @@ TEST(GameBoyTest, InstructionCBf4) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf5) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf5.json");
+TEST(GameBoyTest, InstructionCBF5) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF5.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18261,17 +18748,18 @@ TEST(GameBoyTest, InstructionCBf5) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf6) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf6.json");
+TEST(GameBoyTest, InstructionCBF6) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF6.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18298,17 +18786,18 @@ TEST(GameBoyTest, InstructionCBf6) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf7) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf7.json");
+TEST(GameBoyTest, InstructionCBF7) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF7.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18335,17 +18824,18 @@ TEST(GameBoyTest, InstructionCBf7) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf8) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf8.json");
+TEST(GameBoyTest, InstructionCBF8) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF8.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18372,17 +18862,18 @@ TEST(GameBoyTest, InstructionCBf8) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBf9) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBf9.json");
+TEST(GameBoyTest, InstructionCBF9) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBF9.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18409,17 +18900,18 @@ TEST(GameBoyTest, InstructionCBf9) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBfa) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBfa.json");
+TEST(GameBoyTest, InstructionCBFA) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBFA.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18446,17 +18938,18 @@ TEST(GameBoyTest, InstructionCBfa) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBfb) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBfb.json");
+TEST(GameBoyTest, InstructionCBFB) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBFB.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18483,17 +18976,18 @@ TEST(GameBoyTest, InstructionCBfb) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBfc) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBfc.json");
+TEST(GameBoyTest, InstructionCBFC) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBFC.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18520,17 +19014,18 @@ TEST(GameBoyTest, InstructionCBfc) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBfd) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBfd.json");
+TEST(GameBoyTest, InstructionCBFD) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBFD.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18557,17 +19052,18 @@ TEST(GameBoyTest, InstructionCBfd) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
     }
 }
 
-TEST(GameBoyTest, InstructionCBfe) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/CBfe.json");
+TEST(GameBoyTest, InstructionCBFE) {
+    json data = loadTestData("C:\\Users\\fabri\\source\\GBEmu\\test_data\\CBFE.json");
     GameBoy gb;
 
+	const int max = 10;
 	int count = 0;
 
     for (const auto& test : data) {
@@ -18594,7 +19090,7 @@ TEST(GameBoyTest, InstructionCBfe) {
 
         EXPECT_EQ(true, isItOk);
 
-		if (count > MAX){
+		if (count > max){
 			break;
 		}
 		count++;
