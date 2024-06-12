@@ -177,5 +177,7 @@ public:
 	//CB Opcodes
 	void UnimplementedOpcode();
 	void RunCBOpcode();
+	void rlc(uint8_t& reg);
+	void rlc_at_address();
 };
 

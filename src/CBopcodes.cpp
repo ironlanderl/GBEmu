@@ -13,8 +13,30 @@ void GameBoy::RunCBOpcode()
 	PC++;
 	switch (getBus(PC))
 	{
-	case 0x00: case 0x01: case 0x02: case 0x03:
-	case 0x04: case 0x05: case 0x06: case 0x07:
+	case 0x00:
+	rlc(B);
+	break;
+	case 0x01:
+	rlc(C);
+	break;
+	case 0x02:
+	rlc(D);
+	break;
+	case 0x03:
+	rlc(E);
+	break;
+	case 0x04:
+	rlc(H);
+	break;
+	case 0x05:
+	rlc(L);
+	break;
+	case 0x06:
+	rlc_at_address();
+	break;
+	case 0x07:
+	rlc(A);
+	break;
 	case 0x08: case 0x09: case 0x0A: case 0x0B:
 	case 0x0C: case 0x0D: case 0x0E: case 0x0F:
 	case 0x10: case 0x11: case 0x12: case 0x13:
@@ -84,4 +106,27 @@ void GameBoy::RunCBOpcode()
 		status = PAUSED;
 		//exit(-1);
 	}
+	PC++;
+}
+
+
+void GameBoy::rlc(uint8_t& reg)
+{
+	uint8_t carry = reg >> 7;
+	reg = (reg << 1) | carry;
+	ZeroFlag = reg == 0;
+	NegativeFlag = false;
+	HalfCarry = false;
+	Carry = carry;
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::rlc_at_address()
+{
+	uint8_t value = getBus(getHL());
+	rlc(value);
+	writeBus(value, getHL());
+	add_t_cycles(8);
+	add_m_cycles(2);
 }
