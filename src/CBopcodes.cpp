@@ -37,8 +37,30 @@ void GameBoy::RunCBOpcode()
 	case 0x07:
 	rlc(A);
 	break;
-	case 0x08: case 0x09: case 0x0A: case 0x0B:
-	case 0x0C: case 0x0D: case 0x0E: case 0x0F:
+	case 0x08: 
+	rrc(B);
+	break;
+	case 0x09:
+	rrc(C);
+	break;
+	case 0x0A:
+	rrc(D);
+	break;
+	case 0x0B:
+	rrc(E);
+	break;
+	case 0x0C:
+	rrc(H);
+	break;
+	case 0x0D:
+	rrc(L);
+	break;
+	case 0x0E:
+	rrc_at_address();
+	break;
+	case 0x0F:
+	rrc(A);
+	break;
 	case 0x10: case 0x11: case 0x12: case 0x13:
 	case 0x14: case 0x15: case 0x16: case 0x17:
 	case 0x18: case 0x19: case 0x1A: case 0x1B:
@@ -126,6 +148,27 @@ void GameBoy::rlc_at_address()
 {
 	uint8_t value = getBus(getHL());
 	rlc(value);
+	writeBus(value, getHL());
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::rrc(uint8_t &reg)
+{
+	uint8_t carry = reg & 0x1;
+	reg = (carry << 7) | (reg >> 1);
+	ZeroFlag = reg == 0;
+	NegativeFlag = false;
+	HalfCarry = false;
+	Carry = carry;
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::rrc_at_address()
+{
+	uint8_t value = getBus(getHL());
+	rrc(value);
 	writeBus(value, getHL());
 	add_t_cycles(8);
 	add_m_cycles(2);
