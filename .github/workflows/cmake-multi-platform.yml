@@ -52,7 +52,8 @@ jobs:
       run: |
         export DISPLAY=:99
         sudo apt-get update
-        sudo apt-get install libx11-dev libxrandr-dev
+        sudo apt-get upgrade
+        sudo apt-get install libfreetype6-dev libx11-dev libxrandr-dev libudev-dev libgl1-mesa-dev libflac-dev libogg-dev libvorbis-dev libvorbisenc2 libvorbisfile3 libopenal-dev libpthread-stubs0-dev
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
 
     - name: Set reusable strings
