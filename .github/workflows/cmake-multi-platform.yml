@@ -47,6 +47,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Run pre-build commands on Linux
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        export DISPLAY=:99
+        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
