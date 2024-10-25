@@ -195,5 +195,9 @@ public:
 	void srl_at_address();
 	void bit_check(uint8_t bit, uint8_t& reg);
 	void bit_check_at_address(uint8_t bit);
+	void bit_reset(uint8_t bit, uint8_t& reg);
+	void bit_reset_at_address(uint8_t bit);
+	void bit_set(uint8_t bit, uint8_t& reg);
+	void bit_set_at_address(uint8_t bit);
 };
 

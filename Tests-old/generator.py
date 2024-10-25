@@ -1,9 +1,9 @@
 import os
 import re
 
-ALL_NON_CB_OPCODES = [hex(i)[2:].zfill(2) for i in range(0xFF) if
+ALL_NON_CB_OPCODES = [hex(i)[2:].zfill(2) for i in range(0xFF+1) if
                       i not in [0xCB, 0xD3, 0xDB, 0xDD, 0xE3, 0xE4, 0xEB, 0xEC, 0xED, 0xF4, 0xFC, 0xFD]]
-ALL_CB_OPCODES = [hex(i)[2:].zfill(2) for i in range(0xFF)]
+ALL_CB_OPCODES = [hex(i)[2:].zfill(2) for i in range(0xFF+1)]
 
 #for i in range(len(ALL_NON_CB_OPCODES)):
 #    ALL_NON_CB_OPCODES[i] = ALL_NON_CB_OPCODES[i].upper()
