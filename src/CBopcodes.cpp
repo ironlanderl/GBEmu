@@ -205,70 +205,70 @@ void GameBoy::RunCBOpcode()
 	case 0x3F:
 		srl(A);
 		break;
-	case 0x40:
-	case 0x41:
-	case 0x42:
-	case 0x43:
-	case 0x44:
-	case 0x45:
-	case 0x46:
-	case 0x47:
-	case 0x48:
-	case 0x49:
-	case 0x4A:
-	case 0x4B:
-	case 0x4C:
-	case 0x4D:
-	case 0x4E:
-	case 0x4F:
-	case 0x50:
-	case 0x51:
-	case 0x52:
-	case 0x53:
-	case 0x54:
-	case 0x55:
-	case 0x56:
-	case 0x57:
-	case 0x58:
-	case 0x59:
-	case 0x5A:
-	case 0x5B:
-	case 0x5C:
-	case 0x5D:
-	case 0x5E:
-	case 0x5F:
-	case 0x60:
-	case 0x61:
-	case 0x62:
-	case 0x63:
-	case 0x64:
-	case 0x65:
-	case 0x66:
-	case 0x67:
-	case 0x68:
-	case 0x69:
-	case 0x6A:
-	case 0x6B:
-	case 0x6C:
-	case 0x6D:
-	case 0x6E:
-	case 0x6F:
-	case 0x70:
-	case 0x71:
-	case 0x72:
-	case 0x73:
-	case 0x74:
-	case 0x75:
-	case 0x76:
-	case 0x77:
-	case 0x78:
-	case 0x79:
-	case 0x7A:
-	case 0x7B:
-	case 0x7C:
-	case 0x7D:
-	case 0x7E:
-	case 0x7F:
+	case 0x40: bit_check(0, B); break;
+case 0x41: bit_check(0, C); break;
+case 0x42: bit_check(0, D); break;
+case 0x43: bit_check(0, E); break;
+case 0x44: bit_check(0, H); break;
+case 0x45: bit_check(0, L); break;
+case 0x46: bit_check_at_address(0); break;
+case 0x47: bit_check(0, A); break;
+case 0x48: bit_check(1, B); break;
+case 0x49: bit_check(1, C); break;
+case 0x4A: bit_check(1, D); break;
+case 0x4B: bit_check(1, E); break;
+case 0x4C: bit_check(1, H); break;
+case 0x4D: bit_check(1, L); break;
+case 0x4E: bit_check_at_address(1); break;
+case 0x4F: bit_check(1, A); break;
+case 0x50: bit_check(2, B); break;
+case 0x51: bit_check(2, C); break;
+case 0x52: bit_check(2, D); break;
+case 0x53: bit_check(2, E); break;
+case 0x54: bit_check(2, H); break;
+case 0x55: bit_check(2, L); break;
+case 0x56: bit_check_at_address(2); break;
+case 0x57: bit_check(2, A); break;
+case 0x58: bit_check(3, B); break;
+case 0x59: bit_check(3, C); break;
+case 0x5A: bit_check(3, D); break;
+case 0x5B: bit_check(3, E); break;
+case 0x5C: bit_check(3, H); break;
+case 0x5D: bit_check(3, L); break;
+case 0x5E: bit_check_at_address(3); break;
+case 0x5F: bit_check(3, A); break;
+case 0x60: bit_check(4, B); break;
+case 0x61: bit_check(4, C); break;
+case 0x62: bit_check(4, D); break;
+case 0x63: bit_check(4, E); break;
+case 0x64: bit_check(4, H); break;
+case 0x65: bit_check(4, L); break;
+case 0x66: bit_check_at_address(4); break;
+case 0x67: bit_check(4, A); break;
+case 0x68: bit_check(5, B); break;
+case 0x69: bit_check(5, C); break;
+case 0x6A: bit_check(5, D); break;
+case 0x6B: bit_check(5, E); break;
+case 0x6C: bit_check(5, H); break;
+case 0x6D: bit_check(5, L); break;
+case 0x6E: bit_check_at_address(5); break;
+case 0x6F: bit_check(5, A); break;
+case 0x70: bit_check(6, B); break;
+case 0x71: bit_check(6, C); break;
+case 0x72: bit_check(6, D); break;
+case 0x73: bit_check(6, E); break;
+case 0x74: bit_check(6, H); break;
+case 0x75: bit_check(6, L); break;
+case 0x76: bit_check_at_address(6); break;
+case 0x77: bit_check(6, A); break;
+case 0x78: bit_check(7, B); break;
+case 0x79: bit_check(7, C); break;
+case 0x7A: bit_check(7, D); break;
+case 0x7B: bit_check(7, E); break;
+case 0x7C: bit_check(7, H); break;
+case 0x7D: bit_check(7, L); break;
+case 0x7E: bit_check_at_address(7); break;
+case 0x7F: bit_check(7, A); break;
 	case 0x80:
 	case 0x81:
 	case 0x82:
@@ -559,6 +559,23 @@ void GameBoy::srl(uint8_t& reg){
 void GameBoy::srl_at_address(){
 	uint8_t value = getBus(getHL());
 	srl(value);
+	writeBus(value, getHL());
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+
+void GameBoy::bit_check(uint8_t bit, uint8_t& reg){
+	NegativeFlag = false;
+	HalfCarry = true;
+	ZeroFlag = (reg & (0x1 << bit)) == 0;
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::bit_check_at_address(uint8_t bit){
+	uint8_t value = getBus(getHL());
+	bit_check(bit, value);
 	writeBus(value, getHL());
 	add_t_cycles(8);
 	add_m_cycles(2);

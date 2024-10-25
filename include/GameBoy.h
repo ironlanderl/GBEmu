@@ -193,5 +193,7 @@ public:
 	void swap_at_address();
 	void srl(uint8_t& reg);
 	void srl_at_address();
+	void bit_check(uint8_t bit, uint8_t& reg);
+	void bit_check_at_address(uint8_t bit);
 };
 
