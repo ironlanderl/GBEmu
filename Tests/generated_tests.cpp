@@ -7,7 +7,7 @@
 
 using json = nlohmann::json;
 
-const int MAX = 1;
+const int MAX = 10;
 
 bool shouldSkip = false;
 

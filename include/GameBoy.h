@@ -181,5 +181,11 @@ public:
 	void rlc_at_address();
 	void rrc(uint8_t& reg);
 	void rrc_at_address();
+	void rl(uint8_t& reg);
+	void rl_at_address();
+	void rr(uint8_t& reg);
+	void rr_at_address();
+	void sla(uint8_t& reg);
+	void sla_at_address();
 };
 
