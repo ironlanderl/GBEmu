@@ -182,13 +182,29 @@ void GameBoy::RunCBOpcode()
 		swap(A);
 		break;
 	case 0x38:
+		srl(B);
+		break;
 	case 0x39:
+		srl(C);
+		break;
 	case 0x3A:
+		srl(D);
+		break;
 	case 0x3B:
+		srl(E);
+		break;
 	case 0x3C:
+		srl(H);
+		break;
 	case 0x3D:
+		srl(L);
+		break;
 	case 0x3E:
+		srl_at_address();
+		break;
 	case 0x3F:
+		srl(A);
+		break;
 	case 0x40:
 	case 0x41:
 	case 0x42:
@@ -526,6 +542,23 @@ void GameBoy::swap(uint8_t& reg){
 void GameBoy::swap_at_address(){
 	uint8_t value = getBus(getHL());
 	swap(value);
+	writeBus(value, getHL());
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::srl(uint8_t& reg){
+	Carry = reg & 1;
+	reg = reg >> 1;
+	ZeroFlag = reg == 0;
+	NegativeFlag = false;
+	HalfCarry = false;
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+void GameBoy::srl_at_address(){
+	uint8_t value = getBus(getHL());
+	srl(value);
 	writeBus(value, getHL());
 	add_t_cycles(8);
 	add_m_cycles(2);
