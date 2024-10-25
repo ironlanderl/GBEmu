@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241025-1111-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.30.5"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="ironlanderl-eos"
+	OSRelease="6.11.5-arch1-1"
+	OSVersion="#1 SMP PREEMPT_DYNAMIC Tue, 22 Oct 2024 18:31:38 +0000"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="158"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="6143"
+	TotalPhysicalMemory="11842"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2800.07"
+	>
+	<Testing>
+		<StartDateTime>Oct 25 13:11 CEST</StartDateTime>
+		<StartTestTime>1729854685</StartTestTime>
+		<TestList/>
+		<EndDateTime>Oct 25 13:11 CEST</EndDateTime>
+		<EndTestTime>1729854685</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

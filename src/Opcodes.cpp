@@ -531,7 +531,7 @@ void GameBoy::sbc_a_reg(uint8_t reg)
 	add_m_cycles(1);
 	add_t_cycles(4);
 	PC++;
-	NegativeFlag = 0;
+	NegativeFlag = 1;
 	ZeroFlag = !(A);
 	HalfCarry = (((original_val & 0xF) - (reg & 0xF) - (Carry & 0xF)) & 0x10) == 0x10;
 	Carry = (original_val - reg - Carry) >> 8 > 0;
@@ -546,7 +546,7 @@ void GameBoy::sbc_a_u8()
 	add_m_cycles(2);
 	add_t_cycles(8);
 	PC++;
-	NegativeFlag = 0;
+	NegativeFlag = 1;
 	ZeroFlag = !(A);
 	HalfCarry = (((original_val & 0xF) - (value & 0xF)) & 0x10) == 0x10;
 	Carry = (original_val - value) >> 8 > 0;
@@ -560,7 +560,7 @@ void GameBoy::sbc_a_hl()
 	add_m_cycles(2);
 	add_t_cycles(8);
 	PC++;
-	NegativeFlag = 0;
+	NegativeFlag = 1;
 	ZeroFlag = !(A);
 	HalfCarry = (((original_val & 0xF) - (value & 0xF)) & 0x10) == 0x10;
 	Carry = (original_val - value) >> 8 > 0;
@@ -675,7 +675,7 @@ void GameBoy::rlca()
 	// extract msb
 	uint8_t msb = (A & 0b10000000) >> 7;
 	// rotate a and append msb
-	A = (A >> 1) + (msb << 7);
+	A = (A << 1) | msb;
 	// set carry
 	Carry = msb;
 	// Set other
@@ -726,7 +726,7 @@ void GameBoy::rra()
 void GameBoy::rla()
 {
 	// get msb
-	uint8_t msb = A >> 8;
+	uint8_t msb = A >> 7;
 
 	// rotate a and add carry
 	A = (A << 1) | (Carry);
