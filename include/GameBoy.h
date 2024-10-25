@@ -187,5 +187,9 @@ public:
 	void rr_at_address();
 	void sla(uint8_t& reg);
 	void sla_at_address();
+	void sra(uint8_t& reg);
+	void sra_at_address();
+	void swap(uint8_t& reg);
+	void swap_at_address();
 };
 

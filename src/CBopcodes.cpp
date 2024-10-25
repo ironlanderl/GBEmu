@@ -134,21 +134,53 @@ void GameBoy::RunCBOpcode()
 		sla(A);
 		break;
 	case 0x28:
+		sra(B);
+		break;
 	case 0x29:
+		sra(C);
+		break;
 	case 0x2A:
+		sra(D);
+		break;
 	case 0x2B:
+		sra(E);
+		break;
 	case 0x2C:
+		sra(H);
+		break;
 	case 0x2D:
+		sra(L);
+		break;
 	case 0x2E:
+		sra_at_address();
+		break;
 	case 0x2F:
+		sra(A);
+		break;
 	case 0x30:
+		swap(B);
+		break;
 	case 0x31:
+		swap(C);
+		break;
 	case 0x32:
+		swap(D);
+		break;
 	case 0x33:
+		swap(E);
+		break;
 	case 0x34:
+		swap(H);
+		break;
 	case 0x35:
+		swap(L);
+		break;
 	case 0x36:
+		swap_at_address();
+		break;
 	case 0x37:
+		swap(A);
+		break;
 	case 0x38:
 	case 0x39:
 	case 0x3A:
@@ -445,8 +477,8 @@ void GameBoy::rr_at_address()
 
 void GameBoy::sla(uint8_t& reg){
 	Carry = reg >> 7 & 1;
-	ZeroFlag = reg == 0;
 	reg = reg << 1;
+	ZeroFlag = reg == 0;
 	NegativeFlag = false;
 	HalfCarry = false;
 	add_t_cycles(8);
@@ -457,6 +489,43 @@ void GameBoy::sla_at_address()
 {
 	uint8_t value = getBus(getHL());
 	sla(value);
+	writeBus(value, getHL());
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::sra(uint8_t& reg){
+	Carry = reg & 1;
+	uint8_t last_bit = reg >> 7 & 1;
+	reg = reg >> 1 | last_bit << 7;
+	ZeroFlag = reg == 0;
+	NegativeFlag = false;
+	HalfCarry = false;
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::sra_at_address(){
+	uint8_t value = getBus(getHL());
+	sra(value);
+	writeBus(value, getHL());
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+
+void GameBoy::swap(uint8_t& reg){
+	uint8_t lower = reg & 0xF;
+	reg = reg >> 4 | lower << 4;
+	ZeroFlag = reg == 0;
+	NegativeFlag = false;
+	HalfCarry = false;
+	Carry = 0;
+	add_t_cycles(8);
+	add_m_cycles(2);
+}
+void GameBoy::swap_at_address(){
+	uint8_t value = getBus(getHL());
+	swap(value);
 	writeBus(value, getHL());
 	add_t_cycles(8);
 	add_m_cycles(2);
