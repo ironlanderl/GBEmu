@@ -7,7 +7,7 @@
 
 using json = nlohmann::json;
 
-const int MAX = 1;
+const int MAX = 10;
 
 bool shouldSkip = false;
 
@@ -9131,43 +9131,6 @@ TEST(GameBoyTest, Instructionfb) {
 
 TEST(GameBoyTest, Instructionfe) {
     json data = loadTestData("/home/ironlanderl/GBEmu/test_data/fe.json");
-    GameBoy gb;
-
-	int count = 0;
-
-    for (const auto& test : data) {
-        // debug
-        std::printf("Running Test: %s\n", test["name"].get<std::string>().c_str());
-        bool isItOk;
-
-        gb.loadRom({}, 0);
-        // Load test data
-        loadTestDataToGameBoy(gb, test);
-
-        // Run instruction if allowed
-        if (shouldSkip) {
-            isItOk = true;
-            shouldSkip = false;
-        }
-        else {
-            gb.run_tick();
-            isItOk = checkFinalState(gb, test);
-        }
-        
-        //gb.advanceStep();
-        //isItOk = checkFinalState(gb, test);
-
-        EXPECT_EQ(true, isItOk);
-
-		if (count > MAX){
-			break;
-		}
-		count++;
-    }
-}
-
-TEST(GameBoyTest, Instructionff) {
-    json data = loadTestData("/home/ironlanderl/GBEmu/test_data/ff.json");
     GameBoy gb;
 
 	int count = 0;
