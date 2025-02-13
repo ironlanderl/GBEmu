@@ -21,8 +21,10 @@ void loadFile(std::string outPath);
 void drawMemoryViewer();
 void drawCartInfo();
 void drawCPUInfo();
+void drawOAM();
 
 // Window status
 inline bool showMemoryViewer = true;
 inline bool showCartInfo = true;
 inline bool showCPUInfo = true;
+inline bool showOAM = true;

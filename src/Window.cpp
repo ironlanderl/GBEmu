@@ -8,27 +8,24 @@ void openWindow()
 {
 	bool single_run = false;
 
-
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "ImGui + SFML = <3");
 	window.setFramerateLimit(60);
 	ImGui::SFML::Init(window);
 
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
 	sf::Clock deltaClock;
-	while (window.isOpen()) {
+	while (window.isOpen())
+	{
 		sf::Event event;
 
-		while (window.pollEvent(event)) {
+		while (window.pollEvent(event))
+		{
 			ImGui::SFML::ProcessEvent(event);
 
-			if (event.type == sf::Event::Closed) {
+			if (event.type == sf::Event::Closed)
+			{
 				window.close();
 			}
 		}
-
-		
 
 		ImGui::SFML::Update(window, deltaClock.restart());
 
@@ -46,33 +43,48 @@ void openWindow()
 		 * -- Open Audio Viewer
 		 */
 		ImGui::BeginMainMenuBar();
-		if (ImGui::BeginMenu("File")) {
-			if (ImGui::MenuItem("Open")) {
-				//loadFile();
+		if (ImGui::BeginMenu("File"))
+		{
+			if (ImGui::MenuItem("Open"))
+			{
+				// loadFile();
 			}
-			if (ImGui::MenuItem("Open Tetris")) {
-				loadFile("C:\\Users\\fabri\\Downloads\\Tetris (World) (Rev A).gb");
+			if (ImGui::MenuItem("Open Dr. Mario"))
+			{
+				loadFile("/home/ironlanderl/mario.gb");
 			}
-			if (ImGui::MenuItem("Open cpu_instrs.gb")) {
+			if (ImGui::MenuItem("Open cpu_instrs.gb"))
+			{
 				loadFile("/home/ironlanderl/cpu_instrs/cpu_instrs.gb");
 			}
 			ImGui::EndMenu();
 		}
-		if (ImGui::BeginMenu("Debug")) {
-			if (ImGui::MenuItem("Open Cart Information")) {
+		if (ImGui::BeginMenu("Debug"))
+		{
+			if (ImGui::MenuItem("Open Cart Information"))
+			{
 				showCartInfo = !showCartInfo;
 			}
-			if (ImGui::MenuItem("Open Memory Viewer")) {
+			if (ImGui::MenuItem("Open Memory Viewer"))
+			{
 				showMemoryViewer = !showMemoryViewer;
 			}
-			if (ImGui::MenuItem("Open CPU Info")) {
+			if (ImGui::MenuItem("Open CPU Info"))
+			{
 				showCPUInfo = !showCPUInfo;
 			}
-			if (ImGui::MenuItem("Open Tile Viewer")) {
+			if (ImGui::MenuItem("Open Tile Viewer"))
+			{
 				TileViewerWindow::openWindow(gb);
 			}
-			if (ImGui::MenuItem("Open Audio Viewer")) {
-				std:printf("Open audio viewer window\n");
+			if (ImGui::MenuItem("Open Audio Viewer"))
+			{
+			std:
+				printf("Open audio viewer window\n");
+			}
+			if (ImGui::MenuItem("Open OAM Viewer"))
+			{
+				showOAM = !showOAM;
 			}
 			ImGui::EndMenu();
 		}
@@ -82,17 +94,20 @@ void openWindow()
 		drawMemoryViewer();
 		drawCartInfo();
 		drawCPUInfo();
+		drawOAM();
 
 		// Run emulator
 		if (gb.status == RUNNING)
 		{
 			// TODO: POTER CAMBIARE IL NUMERO DI CICLI EFFETTUATI
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 1000; i++)
+			{
 				gb.execute_step();
 				// Debugging: Print serial to console
 				if (gb.getBus(0xFF02) == 0b10000001)
 				{
-					printf("%c", gb.getBus(0xFF01));
+					char asciiChar = static_cast<char>(gb.getBus(0xFF01));
+					printf("%c", asciiChar);
 					// Reset SC
 					gb.writeBus(0x01, 0xFF02);
 				}
@@ -101,7 +116,11 @@ void openWindow()
 		}
 
 		window.clear();
-		window.draw(shape);
+
+		// Render Tile Map
+		
+
+
 		ImGui::SFML::Render(window);
 		window.display();
 	}
@@ -114,7 +133,8 @@ void closeWindow()
 
 void drawMemoryViewer()
 {
-	if (showMemoryViewer) {
+	if (showMemoryViewer)
+	{
 		ImGui::Begin("Memory Viewer");
 
 		// Display memory content here
@@ -138,7 +158,8 @@ void drawMemoryViewer()
 					ImGui::Text(" %02X", gb.ROM[i + j]);
 				}
 				ImGui::SameLine();
-				if (j == 7) ImGui::Dummy(ImVec2(5.0f, 0.0f)); // Add space between the two halves
+				if (j == 7)
+					ImGui::Dummy(ImVec2(5.0f, 0.0f)); // Add space between the two halves
 			}
 
 			// Display ASCII values
@@ -152,7 +173,7 @@ void drawMemoryViewer()
 				ImGui::Text("%c", asciiChar);
 			}
 
-			//ImGui::NewLine();
+			// ImGui::NewLine();
 		}
 
 		ImGui::End();
@@ -170,6 +191,31 @@ void drawCartInfo()
 		{
 			ImGui::SameLine();
 			ImGui::Text("%c", static_cast<char>(gb.ROM[i]));
+		}
+
+		ImGui::Text("Mapper: %d", gb.getBus(0x0147));
+
+		ImGui::End();
+	}
+}
+
+void drawOAM()
+{
+	if (showOAM)
+	{
+		ImGui::Begin("OAM Info");
+
+		for (int i = 0x0; i < 0x9F; i += 4)
+		{
+			ImGui::Text("Sprite %d", i / 4);
+			ImGui::SameLine();
+			ImGui::Text("Y: %d", gb.getBus(0xFE00 + i));
+			ImGui::SameLine();
+			ImGui::Text("X: %d", gb.getBus(0xFE00 + i + 1));
+			ImGui::SameLine();
+			ImGui::Text("Tile: %d", gb.getBus(0xFE00 + i + 2));
+			ImGui::SameLine();
+			ImGui::Text("Flags: %d", gb.getBus(0xFE00 + i + 3));
 		}
 
 		ImGui::Text("Mapper: %d", gb.getBus(0x0147));
@@ -208,7 +254,6 @@ void drawCPUInfo()
 		ImGui::Text("Registers:");
 		ImGui::Text("A: %02X   B: %02X   C: %02X   D: %02X", gb.A, gb.B, gb.C, gb.D);
 		ImGui::Text("E: %02X   H: %02X   L: %02X   F: ", gb.E, gb.H, gb.L);
-
 
 		// Printing of F(lags)
 		// Zero byte
@@ -288,24 +333,28 @@ void loadFile(std::string outPath)
 	// Use RAII to manage the file resource
 	std::ifstream romFile(outPath, std::ios::binary | std::ios::ate);
 
-	if (romFile.is_open()) {
+	if (romFile.is_open())
+	{
 		std::streamsize fileSize = romFile.tellg();
 		romFile.seekg(0, std::ios::beg);
 
 		// Use std::vector for dynamic memory allocation and automatic cleanup
 		std::vector<char> buffer(fileSize);
 
-		if (romFile.read(reinterpret_cast<char*>(buffer.data()), fileSize)) {
+		if (romFile.read(reinterpret_cast<char *>(buffer.data()), fileSize))
+		{
 			// Assuming GB is an instance of your GameBoy class
 			gb.loadRom(buffer.data(), fileSize);
 			std::printf("ROM loaded successfully.\n");
 			gb.status = PAUSED;
 		}
-		else {
+		else
+		{
 			std::printf("Error reading ROM file.\n");
 		}
 	}
-	else {
+	else
+	{
 		std::printf("Error opening ROM file.\n");
 	}
 }

@@ -7,7 +7,7 @@ void TileViewerWindow::openWindow(GameBoy gb)
     const sf::Vector2f pixel_vec(pixel_size, pixel_size);
 
     // DEBUG, REMOVE LATER
-    gb.VRAM[0] = 0xFF;
+    /*gb.VRAM[0] = 0xFF;
     gb.VRAM[1] = 0x00;
     gb.VRAM[2] = 0x7E;
     gb.VRAM[3] = 0xFF;
@@ -39,7 +39,7 @@ void TileViewerWindow::openWindow(GameBoy gb)
     gb.VRAM[28] = 0xC6;
     gb.VRAM[29] = 0x00;
     gb.VRAM[30] = 0x00;
-    gb.VRAM[31] = 0x00;
+    gb.VRAM[31] = 0x00;*/
 
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tile Viewer");
