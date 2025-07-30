@@ -1,4 +1,3 @@
-#pragma once
 #include "Window.h"
 
 // global GB
@@ -10,7 +9,11 @@ void openWindow()
 
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "ImGui + SFML = <3");
 	window.setFramerateLimit(60);
-	ImGui::SFML::Init(window);
+	if (!ImGui::SFML::Init(window))
+	{
+		std::cerr << "Failed to initialize ImGui with SFML" << std::endl;
+		return;
+	}
 
 	sf::Clock deltaClock;
 	while (window.isOpen())
@@ -52,6 +55,10 @@ void openWindow()
 			if (ImGui::MenuItem("Open Dr. Mario"))
 			{
 				loadFile("/home/ironlanderl/mario.gb");
+			}
+			if (ImGui::MenuItem("Open Tetris"))
+			{
+				loadFile("/home/ironlanderl/tetris.gb");
 			}
 			if (ImGui::MenuItem("Open cpu_instrs.gb"))
 			{
@@ -118,8 +125,19 @@ void openWindow()
 		window.clear();
 
 		// Render Tile Map
-		
-
+		for (int x = 0; x < 144; x++)
+		{
+			for (int y = 0; y < 160; y++)
+			{
+				uint8_t tile_index = gb.getBus(0x9800 + x + y * 160);
+				sf::Color pixel_color = getPixelColor(getTileData(gb, tile_index), x % 8, y % 8);
+				sf::RectangleShape pixel(sf::Vector2f(1, 1));
+				pixel.setFillColor(pixel_color);
+				pixel.setPosition(x, y);
+				window.draw(pixel);
+			}
+			gb.writeBus(x, 0xFF44);
+		}
 
 		ImGui::SFML::Render(window);
 		window.display();

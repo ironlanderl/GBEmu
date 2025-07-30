@@ -13,6 +13,7 @@
 
 #include "GameBoy.h"
 #include "TileViewerWindow.h"
+#include "Tiles.h"
 
 void openWindow();
 void closeWindow();
