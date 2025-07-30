@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.60...4.0)
+set (CMAKE_CXX_STANDARD 23)
 project(GBEmu
     VERSION 0.1
     DESCRIPTION "A Gameboy Emulator"

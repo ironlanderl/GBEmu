@@ -42,15 +42,14 @@ void TileViewerWindow::openWindow(GameBoy gb)
     gb.VRAM[31] = 0x00;*/
 
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Tile Viewer");
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "Tile Viewer");
     window.setFramerateLimit(60);
 
     while (window.isOpen())
     {
-        sf::Event event;
-        while (window.pollEvent(event))
+        while (auto event = window.pollEvent())
         {
-            if (event.type == sf::Event::Closed)
+            if (event->is<sf::Event::Closed>())
                 window.close();
         }
 
@@ -80,7 +79,7 @@ void TileViewerWindow::openWindow(GameBoy gb)
                 float y_pos = (row_number * pixel_size * 8) + (y_index * pixel_size);
 
 
-                pixel.setPosition(x_pos, y_pos);
+                pixel.setPosition({x_pos, y_pos});
 
                 // Use fmt to print debug information
                 // fmt::print("Drawing pixel at ({}, {}) with color {}\n", x_pos, y_pos, color);

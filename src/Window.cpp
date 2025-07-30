@@ -8,20 +8,18 @@ void openWindow()
 {
 	bool single_run = false;
 
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "ImGui + SFML = <3");
+	sf::RenderWindow window(sf::VideoMode({1280, 720}), "ImGui + SFML = <3");
 	window.setFramerateLimit(60);
 	ImGui::SFML::Init(window);
 
 	sf::Clock deltaClock;
 	while (window.isOpen())
 	{
-		sf::Event event;
-
-		while (window.pollEvent(event))
+		while (auto event = window.pollEvent())
 		{
-			ImGui::SFML::ProcessEvent(event);
+			ImGui::SFML::ProcessEvent(window, *event);
 
-			if (event.type == sf::Event::Closed)
+			if (event->is<sf::Event::Closed>())
 			{
 				window.close();
 			}

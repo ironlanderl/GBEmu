@@ -1,7 +1,7 @@
 include(FetchContent)
 
-set(SFML_VERSION 2.5.1)
-set(IMGUI_VERSION 1.87)
+set(SFML_VERSION 3.0.0)
+set(IMGUI_VERSION 1.91.1)
 # set(IMGUI_SFML_VERSION 2.3)
 
 # It's nice to get stripped-down release zips instead of cloning
@@ -22,7 +22,7 @@ FetchContent_Declare(
 FetchContent_Declare(
   imgui-sfml
   GIT_REPOSITORY https://github.com/SFML/imgui-sfml.git
-  GIT_TAG        v2.6
+  GIT_TAG        v3.0
   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
   # GIT_COMMIT 5f54b69b6aee18db846c81633f86f78c2586dded
   # ^ or like this - sometimes it's better because FetchContent won't look
