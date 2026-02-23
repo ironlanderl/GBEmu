@@ -87,11 +87,20 @@ public:
 	void handle_interrupts();
 	void run_tick();
 	void execute_step();
+
+	// GPU
+	void increment_ly();
+
 	
 
 	// Interrupt stuff
 	uint8_t getIE();
 	uint8_t getIF();
+	void run_vblank();
+	void run_lcd();
+	void run_timer();
+	void run_serial();
+	void run_joypad();
 
 	// UTILS
 	bool isInsideInterval(uint16_t value, uint16_t bottom_bound, uint16_t upper_bound);

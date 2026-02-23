@@ -1,4 +1,3 @@
-
 #include "GameBoy.h"
 #include <fstream>
 #include <nlohmann/json.hpp>
@@ -7,7 +6,7 @@
 
 using json = nlohmann::json;
 
-const int MAX = 10;
+const int MAX = 50;
 
 bool shouldSkip = false;
 
